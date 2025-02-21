@@ -1,10 +1,10 @@
 async function setup() {
-	let response = await fetch('/components/w98alert.html');
+	let response = await fetch('/components/alert/template.html');
 	let html = await response.text();
 	const parser = new DOMParser()
 	const template = parser.parseFromString(html, 'text/html').querySelector('template');
 
-	return class Win98Alert extends HTMLDivElement {
+	return class Alert extends HTMLDivElement {
 		constructor() {
 			super();
 			this._isReady = false;

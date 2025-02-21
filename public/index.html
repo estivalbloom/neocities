@@ -9,9 +9,9 @@
 	<link rel="stylesheet" href="https://unpkg.com/98.css">
 	<link rel="icon" href="/assets/thinking98x4.png" type="image/png">
 	<script type="module">
-		import Win98Alert from '/components/w98alert.js'
+		import { Alert } from '/components/index.js'
 
-		customElements.define('win-alert', Win98Alert, { extends: 'div' });
+		customElements.define('win-alert', Alert, { extends: 'div' });
 	</script>
 </head>
 
@@ -30,7 +30,6 @@
 			</div>
 		</div>
 	</div>
-	<div class="statusbar window"></div>
 </body>
 
 <script>
