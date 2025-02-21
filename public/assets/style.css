@@ -1,0 +1,31 @@
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	background-color: #008080;
+	margin: 0px;
+}
+
+.information {
+	display: flex;
+	flex-direction: column;
+}
+
+.information .window-body {
+	display: grid;
+	grid-template-columns: auto auto;
+	align-content: center;
+	flex-grow: 1;
+}
+
+.information .window-body div {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.information .window-body img {
+	flex-shrink: 1;
+	flex-grow: 0;
+}

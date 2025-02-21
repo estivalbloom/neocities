@@ -1,0 +1,20 @@
+<template>
+	<link href="https://unpkg.com/98.css" rel="stylesheet">
+	<div id="window" class="window">
+		<div class="title-bar">
+			<div id="title-text" class="title-bar-text"></div>
+			<div class="title-bar-controls">
+				<!-- <button aria-label="Minimize"></button>
+				<button aria-label="Maximize"></button> -->
+				<button id="close-button" aria-label="Close"></button>
+			</div>
+		</div>
+		<div class="window-body">
+			<slot name="window-body"></slot>
+			<section class="field-row" style="justify-content: flex-end">
+				<button id="ok-button">OK</button>
+				<button id="cancel-button">Cancel</button>
+			</section>
+		</div>
+	</div>
+</template>
