@@ -29,18 +29,36 @@ body {
 }
 
 .main .window-body {
-	display: grid;
-	grid-template-columns: auto auto;
-	align-content: center;
+	display: flex;
+	height: 100%;
+}
+
+.vertical-rule {
+	box-shadow: inset -1px 0px #dfdfdf, inset 1px 0px grey;
+	min-height: 100%;
+	width: 2px;
+	min-width: 2px;
+}
+
+#logo {
+	width: 512px;
+	height: 256px;
+}
+
+#center-col {
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+}
+
+#message {
+	width: 512px;
 	flex-grow: 1;
+	text-wrap: wrap;
 }
 
-.main .window-body div {
-	margin-top: auto;
-	margin-bottom: auto;
-}
-
-.main .window-body img {
-	flex-shrink: 1;
-	flex-grow: 0;
+#nav-list {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 }

@@ -37,22 +37,14 @@ async function setup(style_src) {
 			return ['title-text', 'closeable']
 		};
 
-		_onTitleChange(_oldVal, newVal) {
-			this._title_text_elem.textContent = newVal;
-		}
-
-		_onCloseableChange(_oldVal, newVal) {
-			this._closeable = newVal;
-		}
-
 		// Early calls will defer until connectedCallback()
 		attributeChangedCallback(name, oldVal, newVal) {
 			switch (name) {
 				case 'title-text':
-					this._onTitleChange(oldVal, newVal);
+					this._title_text_elem.textContent = newVal;
 					break;
 				case 'closeable':
-					this._onCloseableChange(oldVal, newVal);
+					this._closeable = newVal;
 					break;
 			}
 		}

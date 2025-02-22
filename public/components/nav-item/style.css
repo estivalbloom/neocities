@@ -1,0 +1,15 @@
+#nav-item {
+	display: flex;
+	align-items: center;
+}
+
+#nav-icon {
+	width: 64px;
+	height: 64px;
+}
+
+#nav-title {
+	font-size: 22px;
+	font-weight: bold;
+	margin: 0px 16px;
+}
