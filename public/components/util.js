@@ -5,6 +5,20 @@ async function loadTemplate(url) {
 	return parser.parseFromString(html, 'text/html').querySelector('template');
 }
 
+function applyStyle(shadow, src) {
+	const style_link = document.createElement('link');
+	style_link.setAttribute('rel', 'stylesheet');
+	style_link.setAttribute('href', src);
+	shadow.appendChild(style_link);
+}
+
+function initShadow(component, template, style_src) {
+	const shadow = component.attachShadow({ mode: 'open' });
+	shadow.appendChild(template.content.cloneNode(true));
+	applyStyle(shadow, style_src);
+	return shadow;
+}
+
 function useDeference(TargetClass, method_to_defer, required_method) {
 	const deferred_name = method_to_defer.name;
 	const required_name = required_method.name;
@@ -45,13 +59,6 @@ function useDeference(TargetClass, method_to_defer, required_method) {
 	}
 }
 
-function applyStyle(shadow, src) {
-	const style_link = document.createElement('link');
-	style_link.setAttribute('rel', 'stylesheet');
-	style_link.setAttribute('href', src);
-	shadow.appendChild(style_link);
-}
-
 function wrapAndDispatch(source, name, original) {
 	original.stopPropagation();
 	original.preventDefault();
@@ -62,4 +69,4 @@ function wrapAndDispatch(source, name, original) {
 	}));
 }
 
-export default { loadTemplate, useDeference, applyStyle, wrapAndDispatch }
+export default { loadTemplate, applyStyle, initShadow, useDeference, wrapAndDispatch }

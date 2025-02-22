@@ -8,10 +8,9 @@ async function setup(style_src) {
 			super();
 			this.closeable = true;
 		}
+
 		connectedCallback() {
-			const shadow = this.attachShadow({ mode: 'open' });
-			shadow.appendChild(template.content.cloneNode(true));
-			util.applyStyle(shadow, style_src);
+			const shadow = util.initShadow(this, template, style_src);
 
 			const close_button = shadow.querySelector('#close-button');
 			const ok_button = shadow.querySelector('#ok-button');
@@ -29,8 +28,6 @@ async function setup(style_src) {
 			ok_button.addEventListener('click', e => util.wrapAndDispatch(this, 'okclick', e));
 
 			cancel_button.addEventListener('click', e => util.wrapAndDispatch(this, 'cancelclick', e));
-
-			console.log(this)
 		}
 
 		static get observedAttributes() {
@@ -45,6 +42,7 @@ async function setup(style_src) {
 			this._closeable = newVal;
 		}
 
+		// Early calls will defer until connectedCallback()
 		attributeChangedCallback(name, oldVal, newVal) {
 			switch (name) {
 				case 'title-text':
@@ -57,6 +55,7 @@ async function setup(style_src) {
 		}
 	}
 
+	// Only thing I don't like about this is that I'd like it inside the class def
 	util.useDeference(Alert, Alert.prototype.attributeChangedCallback, Alert.prototype.connectedCallback);
 
 	return Alert;

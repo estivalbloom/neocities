@@ -29,14 +29,15 @@
 			</div>
 		</div>
 	</div>
+	<win-task-bar id="task-bar"></win-task-bar>
 </body>
 
 <script>
 	// Alert Spawning
-	let body = document.querySelector('body');
-	body.addEventListener('click', e => {
+	const body = document.querySelector('body');
+	document.addEventListener('click', e => {
 		let newAlert = document.createElement('div', { is: 'win-alert' });
-		newAlert.setAttribute('title-text', 'Attention Required')
+		newAlert.setAttribute('title-text', 'Action Required')
 		newAlert.style.width = '250px';
 		newAlert.style.position = 'absolute';
 		newAlert.style.left = `${e.clientX}px`;

@@ -1,9 +1,4 @@
-html {
-	height: 100%
-}
-
 body {
-	height: 100%;
 	background-color: #008080;
 	margin: 0px;
 }
@@ -28,4 +23,12 @@ body {
 .information .window-body img {
 	flex-shrink: 1;
 	flex-grow: 0;
+}
+
+#task-bar {
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
