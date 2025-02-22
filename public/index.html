@@ -38,29 +38,29 @@
 
 <script>
 	// Alert Spawning
-	const body = document.querySelector('body');
-	document.addEventListener('click', e => {
-		let newAlert = document.createElement('div', { is: 'win-alert' });
-		newAlert.setAttribute('title-text', 'Action Required')
-		newAlert.style.width = '250px';
-		newAlert.style.position = 'absolute';
-		newAlert.style.left = `${e.clientX}px`;
-		newAlert.style.top = `${e.clientY}px`;
+	// const body = document.querySelector('body');
+	// document.addEventListener('click', e => {
+	// 	let newAlert = document.createElement('div', { is: 'win-alert' });
+	// 	newAlert.setAttribute('title-text', 'Action Required')
+	// 	newAlert.style.width = '250px';
+	// 	newAlert.style.position = 'absolute';
+	// 	newAlert.style.left = `${e.clientX}px`;
+	// 	newAlert.style.top = `${e.clientY}px`;
 
-		newAlert.addEventListener('okclick', (e) => {
-			e.target.remove();
-			e.stopPropagation();
-			e.preventDefault();
-		});
-		newAlert.addEventListener('cancelclick', () => { })
+	// 	newAlert.addEventListener('okclick', (e) => {
+	// 		e.target.remove();
+	// 		e.stopPropagation();
+	// 		e.preventDefault();
+	// 	});
+	// 	newAlert.addEventListener('cancelclick', () => { })
 
-		let alertMessage = document.createElement('div');
-		alertMessage.setAttribute('slot', 'window-body');
-		alertMessage.textContent = 'Deez nuts lmao';
+	// 	let alertMessage = document.createElement('div');
+	// 	alertMessage.setAttribute('slot', 'window-body');
+	// 	alertMessage.textContent = 'Deez nuts lmao';
 
-		newAlert.appendChild(alertMessage);
-		body.appendChild(newAlert);
-	})
+	// 	newAlert.appendChild(alertMessage);
+	// 	body.appendChild(newAlert);
+	// })
 </script>
 
 </html>

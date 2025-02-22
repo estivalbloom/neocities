@@ -24,8 +24,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin: auto;
-	width: 600px;
-	height: 70vh;
+	width: 900px;
+	height: 600px;
 }
 
 .main .window-body {

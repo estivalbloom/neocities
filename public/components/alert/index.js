@@ -1,7 +1,9 @@
 import util from "/components/util.js";
+const template_path = '/components/alert/template.html'
+const style_path = '/components/alert/style.css'
 
 async function setup(style_src) {
-	const template = await util.loadTemplate('/components/alert/template.html');
+	const template = await util.loadTemplate(template_path);
 
 	class Alert extends HTMLDivElement {
 		constructor() {
@@ -11,6 +13,7 @@ async function setup(style_src) {
 
 		connectedCallback() {
 			const shadow = util.initShadow(this, template, style_src);
+			util.applyStyle(shadow, style_path)
 
 			const close_button = shadow.querySelector('#close-button');
 			const ok_button = shadow.querySelector('#ok-button');

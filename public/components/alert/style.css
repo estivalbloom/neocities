@@ -1,0 +1,4 @@
+#ok-button {
+	/* Bit of a hack for now, but this fixes blurriness */
+	min-width: 76px;
+}
