@@ -1,6 +1,7 @@
 body {
 	background-color: #008080;
 	margin: 0px;
+	overflow: visible;
 }
 
 .information {
