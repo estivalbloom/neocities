@@ -20,11 +20,11 @@ async function setup(style_src) {
 		}
 
 		static get observedAttributes() {
-			return ['icon-src', 'title', 'desc'];
+			return ['icon-src', 'title', 'desc', 'title-width'];
 		}
 
 		// Early calls will defer until connectedCallback()
-		attributeChangedCallback(name, oldVal, newVal) {
+		attributeChangedCallback(name, _oldVal, newVal) {
 			switch (name) {
 				case 'icon-src':
 					this._icon.src = newVal;
@@ -34,6 +34,11 @@ async function setup(style_src) {
 					break;
 				case 'desc':
 					this._desc.textContent = newVal;
+					break;
+				case 'title-width':
+					this._title.style.maxWidth = newVal;
+					this._title.style.minWidth = newVal;
+					break;
 			}
 		}
 	}

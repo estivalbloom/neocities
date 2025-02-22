@@ -17,6 +17,7 @@
 
 #status-indicators {
 	flex-grow: 0;
+	padding: unset;
 }
 
 #start-button img {
@@ -32,9 +33,27 @@
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+       					  */
 }
 
+#clock {
+	position: relative;
+	margin: auto 0px;
+	align-items: center;
+}
+
 #clock-text {
-	align-content: center;
-	height: 100%;
+	position: absolute;
+	height: 17px;
+	padding-top: 6px;
+}
+
+#clock:hover:after {
+	content: attr(data-tooltip);
+	position: absolute;
+	top: -20px;
+	right: 0px;
+	white-space: nowrap;
+	background-image: url("/assets/tooltip-dither.png");
+	padding: 2px;
+	border: 1px solid black;
 }
 
 .spacer {
@@ -44,6 +63,6 @@
 .vertical-rule {
 	box-shadow: inset -1px 0px #dfdfdf, inset 1px 0px grey;
 	min-height: 100%;
-	width: 2px;
+	max-width: 2px;
 	min-width: 2px;
 }
