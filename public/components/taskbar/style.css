@@ -42,7 +42,7 @@
 }
 
 .vertical-rule {
-	box-shadow: inset -1px -1px #dfdfdf, inset 1px 1px grey;
+	box-shadow: inset -1px 0px #dfdfdf, inset 1px 0px grey;
 	min-height: 100%;
 	width: 2px;
 }

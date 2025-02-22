@@ -1,35 +1,46 @@
+html { 
+	height: 100%;
+}
+
 body {
 	background-color: #008080;
 	margin: 0px;
 	overflow: visible;
+	height: 100%;
+	align-items: center;
 }
 
-.information {
+.container {
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 }
 
-.information .window-body {
+.spacer {
+	flex-grow: 1;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 600px;
+	height: 70vh;
+}
+
+.main .window-body {
 	display: grid;
 	grid-template-columns: auto auto;
 	align-content: center;
 	flex-grow: 1;
 }
 
-.information .window-body div {
+.main .window-body div {
 	margin-top: auto;
 	margin-bottom: auto;
 }
 
-.information .window-body img {
+.main .window-body img {
 	flex-shrink: 1;
 	flex-grow: 0;
-}
-
-#task-bar {
-	box-sizing: border-box;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
 }
