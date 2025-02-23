@@ -21,22 +21,11 @@ body {
 	flex-grow: 1;
 }
 
-#main-window {
-	display: flex;
-	flex-direction: column;
-	margin: auto;
-}
-
-#main-window > .window-body {
-	display: flex;
-	height: 100%;
-	gap: 12px;
-}
-
 #center-col {
 	padding: 12px;
 	display: flex;
 	flex-direction: column;
+	gap: 12px;
 }
 
 #logo {
@@ -45,12 +34,20 @@ body {
 }
 
 #message {
-	width: 512px;
+	width: 384px;
+	margin: 0px auto;
 	flex-grow: 1;
 	text-wrap: wrap;
   	font-size: 11px;
 	box-sizing: border-box;
 	font-family: "Pixelated MS Sans Serif",Arial;
+}
+
+#button-drawer {
+	display: flex;
+	width: 264px;
+	flex-wrap: wrap;
+	margin: 0px auto;
 }
 
 #nav-list {
@@ -60,21 +57,39 @@ body {
 }
 
 #nav-item {
-	display: flex;
+	display: grid;
 	align-items: center;
+	box-sizing: border-box;
+	width: 384px;
 	margin: 1px;
+	padding: 4px;
+	grid-template-columns: 64px 64px 192px;
+	column-gap: 16px;
 }
 
 #nav-icon {
 	width: 64px;
 	height: 64px;
+	grid-column-start: 1;
+	grid-column-end: 2;
 }
 
 #nav-title {
 	font-size: 22px;
 	font-weight: bold;
-	margin: 0px 16px;
 	width: 64px;
+	grid-column-start: 2;
+	grid-column-end: 3;	
+}
+
+#nav-desc {
+	grid-column-start: 3;
+	grid-column-end: 4;
+}
+
+#nav-item {
+	color: black;
+	text-decoration: none;
 }
 
 #nav-item:hover {

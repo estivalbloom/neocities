@@ -10,10 +10,6 @@ import taskbarSetup from '/components/task-bar/index.js'
 const TaskBar = await taskbarSetup(style_src);
 defines.push((['win-task-bar', TaskBar, 'div']));
 
-import navitemSetup from '/components/nav-item/index.js'
-const NavItem = await navitemSetup(style_src);
-defines.push((['nav-item', NavItem, 'div']));
-
 function defineAll() {
 	defines.forEach((data) => {
 		const [tag, classObj, base] = data;
@@ -23,4 +19,4 @@ function defineAll() {
 
 const classes = defines.map(e => e[1]);
 
-export { defineAll, Alert, TaskBar, NavItem }
+export { defineAll, Alert, TaskBar }

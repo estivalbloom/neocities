@@ -13,13 +13,27 @@
 		import { defineAll } from '/components/index.js'
 		defineAll()
 	</script>
+	<style>
+		#main-window {
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+		}
+
+		#main-window > .window-body {
+			display: flex;
+			height: 100%;
+			margin-right: 0px;
+			margin-left: 4px;
+		}
+	</style>
 </head>
 
 <body>
 	<div id="main-container">
 		<div class="spacer"></div>
 		<div id="main-window" class="window">
-			<div class="title-bar">
+			<div id="main-title-bar" class="title-bar">
 				<div class="title-bar-text">
 					Welcome!
 				</div>
@@ -28,14 +42,22 @@
 				<div id="center-col">
 					<img id="logo" src="/assets/shitty-logo.png">
 					<pre id="message"></pre>
+					<div id="button-drawer">
+						<img src="/assets/buttons/queercodedthis.png">
+						<img src="/assets/buttons/gamecube.png">
+						<img src="/assets/buttons/transrightsnow.png">
+						<img src="/assets/buttons/drpepper.gif">
+						<img src="/assets/buttons/transyourgender.gif">
+						<img src="/assets/buttons/godot.png">
+					</div>
 				</div>
 				<div class="vertical-rule" style="margin-right: 1px;"></div>
 				<nav id="nav-list">
-					<div id="nav-item">
+					<a id="nav-item" href="/about.html">
 						<img id="nav-icon" src="/assets/icons/thinking-even98er.png">
 						<div id="nav-title">Bio</div>
 						<div id="nav-desc">About the Esti</div>
-					</div>
+					</a>
 					<div id="nav-item">
 						<img id="nav-icon" src="/assets/icons/code-icon.png">
 						<div id="nav-title">Code</div>
@@ -79,9 +101,17 @@
 	const modal_container = document.querySelector('#modal-alert');
 	const task_bar = document.querySelector('#task-bar');
 	const alert = document.querySelector('#dnalert');
+	const title_bar = document.querySelector('#main-title-bar');
 
-	alert.addEventListener('okclick', () => modal_container.style.visibility = 'hidden')
-	task_bar.addEventListener('startclick', () => modal_container.style.visibility = 'visible');
+	alert.addEventListener('okclick', () => {
+		title_bar.classList.remove('inactive');
+		modal_container.style.visibility = 'hidden'
+	});
+	task_bar.addEventListener('startclick', () => {
+		title_bar.classList.add('inactive');
+		modal_container.style.visibility = 'visible'
+		alert.ding()
+	});
 
 	(async () => {
 		let resp = await fetch('/assets/welcome-message.html');
@@ -91,32 +121,4 @@
 	})();
 </script>
 
-<!--
-	<script>
-		// Alert Spawning
-		const body = document.querySelector('body');
-		document.addEventListener('click', e => {
-			let newAlert = document.createElement('div', { is: 'win-alert' });
-			newAlert.setAttribute('title-text', 'Action Required')
-			newAlert.style.width = '250px';
-			newAlert.style.position = 'absolute';
-			newAlert.style.left = `${e.clientX}px`;
-			newAlert.style.top = `${e.clientY}px`;
-			
-			newAlert.addEventListener('okclick', (e) => {
-				e.target.remove();
-				e.stopPropagation();
-				e.preventDefault();
-			});
-			newAlert.addEventListener('cancelclick', () => { })
-			
-			let alertMessage = document.createElement('div');
-			alertMessage.setAttribute('slot', 'window-body');
-			alertMessage.textContent = 'Deez nuts lmao';
-			
-			newAlert.appendChild(alertMessage);
-			body.appendChild(newAlert);
-		})
-	</script>
--->
 </html>

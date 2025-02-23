@@ -23,6 +23,8 @@ async function setup(style_src) {
 			wrapClick(this, ok_button, 'okclick');
 			wrapClick(this, cancel_button, 'cancelclick');
 			wrapClick(this, close_button, 'closeclick');
+
+			this._ding = shadow.querySelector('#ding');
 		}
 
 		static get observedAttributes() {
@@ -36,6 +38,10 @@ async function setup(style_src) {
 					this._title_text_elem.textContent = newVal;
 					break;
 			}
+		}
+
+		ding() {
+			this._ding.play();
 		}
 	}
 
