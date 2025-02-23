@@ -69,4 +69,8 @@ function wrapAndDispatch(source, name, original) {
 	}));
 }
 
-export default { loadTemplate, applyStyle, initShadow, useDeference, wrapAndDispatch }
+function wrapClick(self, source, name) {
+	source.addEventListener('click', e => wrapAndDispatch(self, name, e));
+}
+
+export { loadTemplate, applyStyle, initShadow, useDeference, wrapAndDispatch, wrapClick }

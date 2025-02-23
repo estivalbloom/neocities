@@ -7,7 +7,7 @@
 	<title>Esti's Old Computer</title>
 	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
 	<link rel="stylesheet" href="https://unpkg.com/98.css">
-	<link rel="icon" href="/assets/thinking98x4.png" type="image/png">
+	<link rel="icon" href="/assets/icons/thinking-even98er.png" type="image/png">
 	<script type="module">
 		import { defineAll } from '/components/index.js'
 		defineAll()
@@ -54,9 +54,26 @@
 		<div class="spacer"></div>
 		<win-task-bar id="task-bar"></win-task-bar>
 	</div>
+	<div id="modal-alert">
+		<win-alert
+			id="dnalert"
+			title-text="Action Required"
+		>
+		<div slot="window-body">
+			Deez nuts lmao
+		</div>
+		</win-alert>
+	</div>
 </body>
 
 <script>
+	const modal_container = document.querySelector('#modal-alert');
+	const task_bar = document.querySelector('#task-bar');
+	const alert = document.querySelector('#dnalert');
+
+	alert.addEventListener('okclick', () => modal_container.style.visibility = 'hidden')
+	task_bar.addEventListener('startclick', () => modal_container.style.visibility = 'visible');
+
 	(async () => {
 		let resp = await fetch('/assets/welcome-message.html');
 		let html = await resp.text();
@@ -92,5 +109,4 @@
 		})
 	</script>
 -->
-
 </html>

@@ -37,6 +37,7 @@
 	position: relative;
 	margin: auto 0px;
 	align-items: center;
+	cursor: default;
 }
 
 #clock-text {

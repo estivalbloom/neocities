@@ -1,4 +1,4 @@
-import util from "/components/util.js";
+import { loadTemplate, initShadow, applyStyle, wrapClick } from "/components/util.js";
 const template_path = '/components/task-bar/template.html'
 const style_path = '/components/task-bar/style.css'
 const timefmt = new Intl.DateTimeFormat('en-US', {
@@ -13,7 +13,7 @@ const clock_width = 60;
 const clock_width_px = `${clock_width}px`
 
 async function setup(style_src) {
-	const template = await util.loadTemplate(template_path);
+	const template = await loadTemplate(template_path);
 
 	return class TaskBar extends HTMLDivElement {
 		constructor() {
@@ -21,8 +21,11 @@ async function setup(style_src) {
 		}
 
 		connectedCallback() {
-			const shadow = util.initShadow(this, template, style_src);
-			util.applyStyle(shadow, style_path);
+			const shadow = initShadow(this, template, style_src);
+			applyStyle(shadow, style_path);
+
+			const start_button = shadow.querySelector('#start-button');
+			wrapClick(this, start_button, 'startclick');
 
 			const clock = shadow.querySelector('#clock');
 			clock.style.minWidth = clock_width_px;
@@ -36,7 +39,6 @@ async function setup(style_src) {
 				clock_text.style.left = `${Math.ceil(half_space)}px`;
 				clock.dataset.tooltip = datefmt.format(now);
 			}, 500);
-			
 		}
 
 		disconnectedCallback() {

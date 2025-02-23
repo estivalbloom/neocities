@@ -1,9 +1,9 @@
-import util from "/components/util.js";
+import { loadTemplate, initShadow, applyStyle, wrapClick, useDeference } from "/components/util.js";
 const template_path = '/components/nav-item/template.html'
 const style_path = '/components/nav-item/style.css'
 
 async function setup(style_src) {
-	const template = await util.loadTemplate(template_path);
+	const template = await loadTemplate(template_path);
 
 	class NavItem extends HTMLDivElement {
 		constructor() {
@@ -11,8 +11,8 @@ async function setup(style_src) {
 		}
 
 		connectedCallback() {
-			const shadow = util.initShadow(this, template, style_src);
-			util.applyStyle(shadow, style_path);
+			const shadow = initShadow(this, template, style_src);
+			applyStyle(shadow, style_path);
 
 			this._icon = shadow.querySelector('#nav-icon');
 			this._title = shadow.querySelector('#nav-title');
@@ -43,7 +43,7 @@ async function setup(style_src) {
 		}
 	}
 
-	util.useDeference(NavItem, NavItem.prototype.attributeChangedCallback, NavItem.prototype.connectedCallback);
+	useDeference(NavItem, NavItem.prototype.attributeChangedCallback, NavItem.prototype.connectedCallback);
 	
 	return NavItem
 }
