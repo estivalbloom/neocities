@@ -18,19 +18,19 @@ async function setup(style_src) {
 	return class TaskBar extends HTMLDivElement {
 		constructor() {
 			super();
+			this._shadow = initShadow(this, template, style_src);
+			applyStyle(this._shadow, style_path);
 		}
 
 		connectedCallback() {
-			const shadow = initShadow(this, template, style_src);
-			applyStyle(shadow, style_path);
 
-			const start_button = shadow.querySelector('#start-button');
+			const start_button = this._shadow.querySelector('#start-button');
 			wrapClick(this, start_button, 'startclick');
 
-			const clock = shadow.querySelector('#clock');
+			const clock = this._shadow.querySelector('#clock');
 			clock.style.minWidth = clock_width_px;
 			clock.style.maxWidth = clock_width_px
-			const clock_text = shadow.querySelector('#clock-text');
+			const clock_text = this._shadow.querySelector('#clock-text');
 			this._clock_handler_id = setInterval(() => {
 				const now = new Date(Date.now());
 				clock_text.textContent = timefmt.format(now);

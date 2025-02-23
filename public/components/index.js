@@ -1,4 +1,4 @@
-const style_src = 'https://unpkg.com/98.css';
+const style_src = 'https://unpkg.com/98.css@0.1.20/dist/98.css';
 
 let defines = []
 

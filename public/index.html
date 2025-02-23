@@ -5,9 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Esti's Old Computer</title>
-	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
-	<link rel="stylesheet" href="https://unpkg.com/98.css">
 	<link rel="icon" href="/assets/icons/thinking-even98er.png" type="image/png">
+	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
+	<link rel="modulepreload" href="/components/index.js" as="script">
+	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
 	<script type="module">
 		import { defineAll } from '/components/index.js'
 		defineAll()
@@ -15,9 +16,9 @@
 </head>
 
 <body>
-	<div class="container">
+	<div id="main-container">
 		<div class="spacer"></div>
-		<div class="main window">
+		<div id="main-window" class="window">
 			<div class="title-bar">
 				<div class="title-bar-text">
 					Welcome!
@@ -30,30 +31,38 @@
 				</div>
 				<div class="vertical-rule" style="margin-right: 1px;"></div>
 				<nav id="nav-list">
-					<nav-item
-						icon-src="/assets/icons/thinking-even98er.png"
-						title="Bio"
-						desc="About the Esti"
-						title-width="64px"
-					></nav-item>
-					<nav-item
-						icon-src="/assets/icons/palette-icon.png"
-						title="Art"
-						desc="Mostly pixel art, but sometimes random other things."
-						title-width="64px"
-					></nav-item>
-					<nav-item
-						icon-src="/assets/icons/code-icon.png"
-						title="Code"
-						desc="Games, demos, and interactive art"
-						title-width="64px"
-					></nav-item>
+					<div id="nav-item">
+						<img id="nav-icon" src="/assets/icons/thinking-even98er.png">
+						<div id="nav-title">Bio</div>
+						<div id="nav-desc">About the Esti</div>
+					</div>
+					<div id="nav-item">
+						<img id="nav-icon" src="/assets/icons/code-icon.png">
+						<div id="nav-title">Code</div>
+						<div id="nav-desc">Games, demos, and interactive art</div>
+					</div>
+					<div id="nav-item">
+						<img id="nav-icon" src="/assets/icons/palette-icon.png">
+						<div id="nav-title">Art</div>
+						<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
+					</div>
 				</nav>
+			</div>
+			<div id="welcome-status" class="status-bar">
+				<div id="req-js" class="status-bar-field">
+					Requires Javascript
+				</div>
+				<div id="dev-ff" class="status-bar-field">
+					Developed in Firefox on a 1920x1080 display
+				</div>
+				<div id="css-98" class="status-bar-field">
+					Styled by <a href="https://jdan.github.io/98.css/">98.css</a>
+				</div>
 			</div>
 		</div>
 		<div class="spacer"></div>
-		<win-task-bar id="task-bar"></win-task-bar>
 	</div>
+	<win-task-bar id="task-bar"></win-task-bar>
 	<div id="modal-alert">
 		<win-alert
 			id="dnalert"
@@ -77,7 +86,8 @@
 	(async () => {
 		let resp = await fetch('/assets/welcome-message.html');
 		let html = await resp.text();
-		document.querySelector('#message').innerHTML = html;
+		let message = document.querySelector('#message')
+		message.innerHTML = html;
 	})();
 </script>
 

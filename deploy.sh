@@ -1,1 +1,1 @@
-neocities push ./public
+neocities push ./public --prune

@@ -1,6 +1,7 @@
 #nav-item {
 	display: flex;
 	align-items: center;
+	margin: 1px;
 }
 
 #nav-icon {
@@ -12,4 +13,9 @@
 	font-size: 22px;
 	font-weight: bold;
 	margin: 0px 16px;
+}
+
+#nav-item:hover {
+	background-color: blue;
+	color: white;
 }

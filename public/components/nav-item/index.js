@@ -8,15 +8,14 @@ async function setup(style_src) {
 	class NavItem extends HTMLDivElement {
 		constructor() {
 			super();
+			this._shadow = initShadow(this, template, style_src);
+			applyStyle(this._shadow, style_path);
 		}
 
 		connectedCallback() {
-			const shadow = initShadow(this, template, style_src);
-			applyStyle(shadow, style_path);
-
-			this._icon = shadow.querySelector('#nav-icon');
-			this._title = shadow.querySelector('#nav-title');
-			this._desc = shadow.querySelector('#nav-desc');
+			this._icon = this._shadow.querySelector('#nav-icon');
+			this._title = this._shadow.querySelector('#nav-title');
+			this._desc = this._shadow.querySelector('#nav-desc');
 		}
 
 		static get observedAttributes() {
