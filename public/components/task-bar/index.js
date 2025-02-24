@@ -18,12 +18,12 @@ async function setup(style_src) {
 	return class TaskBar extends HTMLDivElement {
 		constructor() {
 			super();
-			this._shadow = initShadow(this, template, style_src);
-			applyStyle(this._shadow, style_path);
 		}
 
 		connectedCallback() {
-
+			this._shadow = initShadow(this, template, style_src);
+			applyStyle(this._shadow, style_path);
+			
 			const start_button = this._shadow.querySelector('#start-button');
 			wrapClick(this, start_button, 'startclick');
 

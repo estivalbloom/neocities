@@ -17,6 +17,4 @@ function defineAll() {
 	})
 }
 
-const classes = defines.map(e => e[1]);
-
 export { defineAll, Alert, TaskBar }
