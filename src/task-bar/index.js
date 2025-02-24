@@ -1,6 +1,5 @@
-import { loadTemplate, initShadow, applyStyle, wrapClick } from "/components/util.js";
-const template_path = '/components/task-bar/template.html'
-const style_path = '/components/task-bar/style.css'
+import { loadTemplate, initShadow, wrapClick } from "/src/util.js";
+const template_path = '/src/task-bar/template.html'
 const timefmt = new Intl.DateTimeFormat('en-US', {
 	hour12: true,
 	timeStyle: 'short'
@@ -22,7 +21,6 @@ async function setup(style_src) {
 
 		connectedCallback() {
 			this._shadow = initShadow(this, template, style_src);
-			applyStyle(this._shadow, style_path);
 			
 			const start_button = this._shadow.querySelector('#start-button');
 			wrapClick(this, start_button, 'startclick');

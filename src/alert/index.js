@@ -1,6 +1,5 @@
-import { loadTemplate, initShadow, applyStyle, wrapClick, useDeference } from "/components/util.js";
-const template_path = '/components/alert/template.html'
-const style_path = '/components/alert/style.css'
+import { loadTemplate, initShadow, wrapClick, useDeference } from "/src/util.js";
+const template_path = '/src/alert/template.html'
 
 async function setup(style_src) {
 	const template = await loadTemplate(template_path);
@@ -13,7 +12,6 @@ async function setup(style_src) {
 
 		connectedCallback() {
 			const shadow = initShadow(this, template, style_src);
-			applyStyle(shadow, style_path)
 
 			const close_button = shadow.querySelector('#close-button');
 			const ok_button = shadow.querySelector('#ok-button');
