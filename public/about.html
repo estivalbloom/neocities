@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +19,6 @@
 			display: flex;
 			flex-direction: column;
 			margin: auto;
-			width: 500px;
-			height: 400px;
 		}
 
 		#about-window > .window-body {
@@ -24,6 +26,31 @@
 			height: 100%;
 			align-items: center;
 			justify-content: center;
+			gap: 1px;
+			margin: 8px;
+		}
+
+		#r-col {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 12px;
+		}
+
+		#content {
+			text-wrap: wrap;
+			font-size: 11px;
+			font-family: "Pixelated MS Sans Serif",Arial;
+			width: 225px;
+		}
+
+		#back-button {
+			flex-grow: 0;
+		}
+
+		#abt-faves {
+			box-sizing: border-box;
+			width: 83px;
 		}
 	</style>
 </head>
@@ -31,13 +58,39 @@
 	<div id="main-container">
 		<div class="spacer"></div>
 		<div id="about-window" class="window">
-			<div class="title-bar">
+			<div id="about-title-bar" class="title-bar">
 				<div class="title-bar-text">
 					About Me
 				</div>
+				<div class="title-bar-controls">
+					<!-- <button aria-label="Minimize"></button>
+					<button aria-label="Maximize"></button> -->
+					<button id="close-button" aria-label="Close"></button>
+				</div>
 			</div>
 			<div class="window-body">
-				Whoops, nothing here yet, sorry :(
+				<img src="/assets/art/full3x.png" alt="pixel art portrait of Esti">
+				<div id="r-col">
+					<pre id="content"></pre>
+					<button id="back-button">Back Home</button>
+				</div>
+			</div>
+			<div id="welcome-status" class="status-bar">
+				<div id="abt-faves" class="status-bar-field">
+					Favorites:
+				</div>
+				<div id="abt-color" class="status-bar-field">
+					Color: Red
+				</div>
+				<div id="abt-animal" class="status-bar-field">
+					(Non-pet) Animal: Orcas
+				</div>
+				<div  id="abt-movie" class="status-bar-field">
+					Movie: Kimi no Na Wa
+				</div>
+				<div id="abt-music" class="status-bar-field">
+					Music artist: Rezz
+				</div>
 			</div>
 		</div>
 		<div class="spacer"></div>
@@ -54,3 +107,41 @@
 		</win-alert>
 	</div>
 </body>
+<script>
+	(async () => {
+		let resp = await fetch('/assets/about-content.html');
+		let html = await resp.text();
+		let message = document.querySelector('#content')
+		message.innerHTML = html;
+	})();
+
+	const close_button = document.querySelector('#close-button');
+	const back_button = document.querySelector('#back-button');
+
+	close_button.addEventListener('click', () => window.location.href = '/index.html');
+	back_button.addEventListener('click', () => window.location.href = '/index.html');
+
+	const modal_container = document.querySelector('#modal-alert');
+	const task_bar = document.querySelector('#task-bar');
+	const alert = document.querySelector('#dnalert');
+	const title_bar = document.querySelector('#about-title-bar');
+
+	alert.addEventListener('okclick', () => {
+		title_bar.classList.remove('inactive');
+		modal_container.style.visibility = 'hidden'
+	});
+	task_bar.addEventListener('startclick', () => {
+		title_bar.classList.add('inactive');
+		modal_container.style.visibility = 'visible'
+		alert.ding()
+	});
+
+	(async () => {
+		let resp = await fetch('/assets/welcome-message.html');
+		let html = await resp.text();
+		let message = document.querySelector('#message')
+		message.innerHTML = html;
+	})();
+</script>
+
+</html>
