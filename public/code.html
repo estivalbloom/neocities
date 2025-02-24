@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Esti's Old Computer</title>
+	<link rel="icon" href="/assets/icons/thinking-even98er.png" type="image/png">
+	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
+	<link rel="modulepreload" href="/components/index.js" as="script">
+	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
+	<script type="module">
+		import { defineAll } from '/components/index.js'
+		defineAll()
+	</script>
+	<style>
+		#code-window {
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			width: 960px;
+			height: 720px;
+		}
+
+		#code-window > .window-body {
+			display: flex;
+			margin: 0px;
+			flex-grow: 1;
+		}
+
+		#content {
+			width: 100%;
+			border: none;
+			box-shadow: inset -1px -1px #fff,inset 1px 1px grey,inset -2px -2px #dfdfdf,inset 2px 2px #0a0a0a;
+			padding: 2px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main-container">
+		<div class="spacer"></div>
+		<div id="code-window" class="window">
+			<div id="code-title-bar" class="title-bar">
+				<div class="title-bar-text">
+					Programming Projects
+				</div>
+			</div>
+			<div class="window-body">
+				<iframe id="content" src="/assets/code/code-content.html"></iframe>
+			</div>
+		</div>
+		<div class="spacer"></div>
+	</div>
+	<win-task-bar id="task-bar"></win-task-bar>
+	<div id="modal-alert">
+		<win-alert
+			id="dnalert"
+			title-text="Action Required"
+		>
+		<div slot="window-body">
+			Deez nuts lmao
+		</div>
+		</win-alert>
+	</div>
+</body>
+
+<script>
+	const modal_container = document.querySelector('#modal-alert');
+	const task_bar = document.querySelector('#task-bar');
+	const alert = document.querySelector('#dnalert');
+	const title_bar = document.querySelector('#code-title-bar');
+
+	alert.addEventListener('okclick', () => {
+		title_bar.classList.remove('inactive');
+		modal_container.style.visibility = 'hidden'
+	});
+	task_bar.addEventListener('startclick', () => {
+		title_bar.classList.add('inactive');
+		modal_container.style.visibility = 'visible'
+		alert.ding()
+	});
+</script>
+
+</html>
