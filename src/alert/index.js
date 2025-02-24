@@ -1,8 +1,8 @@
-import { loadTemplate, initShadow, wrapClick, useDeference } from "/src/util.js";
-const template_path = '/src/alert/template.html'
+import { parseTemplate, initShadow, wrapClick, useDeference } from "/src/util.js";
+import template_html from './template.html?raw'
 
 async function setup(style_src) {
-	const template = await loadTemplate(template_path);
+	const template = parseTemplate(template_html);
 
 	class Alert extends HTMLDivElement {
 		constructor() {
@@ -30,7 +30,7 @@ async function setup(style_src) {
 		};
 
 		// Early calls will defer until connectedCallback()
-		attributeChangedCallback(name, oldVal, newVal) {
+		attributeChangedCallback(name, _oldVal, newVal) {
 			switch (name) {
 				case 'title-text':
 					this._title_text_elem.textContent = newVal;

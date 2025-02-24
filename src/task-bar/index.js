@@ -1,5 +1,5 @@
-import { loadTemplate, initShadow, wrapClick } from "/src/util.js";
-const template_path = '/src/task-bar/template.html'
+import { parseTemplate, initShadow, wrapClick } from "/src/util.js";
+import template_html from './template.html?raw'
 const timefmt = new Intl.DateTimeFormat('en-US', {
 	hour12: true,
 	timeStyle: 'short'
@@ -12,7 +12,7 @@ const clock_width = 60;
 const clock_width_px = `${clock_width}px`
 
 async function setup(style_src) {
-	const template = await loadTemplate(template_path);
+	const template = parseTemplate(template_html);
 
 	return class TaskBar extends HTMLDivElement {
 		constructor() {

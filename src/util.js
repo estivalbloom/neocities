@@ -1,6 +1,4 @@
-async function loadTemplate(url) {
-	let response = await fetch(url);
-	let html = await response.text();
+function parseTemplate(html) {
 	const parser = new DOMParser()
 	return parser.parseFromString(html, 'text/html').querySelector('template');
 }
@@ -73,4 +71,4 @@ function wrapClick(self, source, name) {
 	source.addEventListener('click', e => wrapAndDispatch(self, name, e));
 }
 
-export { loadTemplate, applyStyle, initShadow, useDeference, wrapAndDispatch, wrapClick }
+export { parseTemplate, applyStyle, initShadow, useDeference, wrapAndDispatch, wrapClick }
