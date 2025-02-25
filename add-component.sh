@@ -10,11 +10,11 @@ DIR="./src/$FILE"
 mkdir "$DIR"
 
 cat >"$DIR/index.js" <<EOL
-import { loadTemplate, initShadow } from "/src/util.js";
-const template_path = '$DIR/template.html'
+import { parseTemplate, initShadow } from "/src/util.js";
+import template_html from './template.html?raw'
 
 async function setup(style_src) {
-	const template = await loadTemplate(template_path);
+	const template = parseTemplate(template_html);
 
 	class $CLASS extends HTMLDivElement {
 		constructor() {
