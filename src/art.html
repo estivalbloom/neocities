@@ -6,49 +6,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Esti's Old Computer</title>
 	<link rel="icon" href="/assets/icons/thinking-even98er.png" type="image/png">
-	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
 	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
 	<script type="module">
 		import { defineAll } from '/src/main.js'
 		defineAll()
 	</script>
 	<style>
-		#about-window{
+		#content-window {
 			display: flex;
 			flex-direction: column;
 			margin: auto;
+			width: 960px;
+			height: 720px;
 		}
 
-		#about-window > .window-body {
+		#content-window > .window-body {
 			display: flex;
-			height: 100%;
-			align-items: center;
-			justify-content: center;
-			gap: 1px;
-			margin: 8px;
-		}
-
-		#r-col {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 12px;
-		}
-
-		#content {
-			text-wrap: wrap;
-			font-size: 11px;
-			font-family: "Pixelated MS Sans Serif",Arial;
-			width: 225px;
-		}
-
-		#back-button {
-			flex-grow: 0;
-		}
-
-		#abt-faves {
-			box-sizing: border-box;
-			width: 83px;
+			margin: 0px;
+			flex-grow: 1;
 		}
 	</style>
 </head>
@@ -56,10 +32,10 @@
 <body>
 	<div id="main-container">
 		<div class="spacer"></div>
-		<div id="about-window" class="window">
-			<div id="about-title-bar" class="title-bar">
+		<div id="content-window" class="window frame">
+			<div id="code-title-bar" class="title-bar">
 				<div class="title-bar-text">
-					About Me
+					Art
 				</div>
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
@@ -68,27 +44,8 @@
 				</div>
 			</div>
 			<div class="window-body">
-				<img src="/assets/art/full3x.png" alt="pixel art portrait of Esti">
-				<div id="r-col">
-					<pre id="content"></pre>
-					<button id="back-button">Back Home</button>
-				</div>
-			</div>
-			<div id="welcome-status" class="status-bar">
-				<div id="abt-faves" class="status-bar-field">
-					Favorites:
-				</div>
-				<div id="abt-color" class="status-bar-field">
-					Color: Red
-				</div>
-				<div id="abt-animal" class="status-bar-field">
-					(Non-pet) Animal: Orcas
-				</div>
-				<div  id="abt-movie" class="status-bar-field">
-					Movie: Kimi no Na Wa
-				</div>
-				<div id="abt-music" class="status-bar-field">
-					Music artist: Rezz
+				<div id="content">
+					<!-- CONTENT -->
 				</div>
 			</div>
 		</div>
@@ -106,24 +63,15 @@
 		</win-alert>
 	</div>
 </body>
-<script>
-	(async () => {
-		let resp = await fetch('/assets/about-content.html');
-		let html = await resp.text();
-		let message = document.querySelector('#content')
-		message.innerHTML = html;
-	})();
 
+<script>
 	const close_button = document.querySelector('#close-button');
 	close_button.addEventListener('click', () => window.location.href = '/index.html');
-
-	const back_button = document.querySelector('#back-button');
-	back_button.addEventListener('click', () => window.location.href = '/index.html');
 
 	const modal_container = document.querySelector('#modal-alert');
 	const task_bar = document.querySelector('#task-bar');
 	const alert = document.querySelector('#dnalert');
-	const title_bar = document.querySelector('#about-title-bar');
+	const title_bar = document.querySelector('#content-title-bar');
 
 	alert.addEventListener('okclick', () => {
 		title_bar.classList.remove('inactive');

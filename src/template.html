@@ -35,17 +35,12 @@
 		<div id="content-window" class="window frame">
 			<div id="code-title-bar" class="title-bar">
 				<div class="title-bar-text">
-					Programming Projects
-				</div>
-				<div class="title-bar-controls">
-					<!-- <button aria-label="Minimize"></button>
-					<button aria-label="Maximize"></button> -->
-					<button id="close-button" aria-label="Close"></button>
+					<!-- TITLE -->
 				</div>
 			</div>
 			<div class="window-body">
 				<div id="content">
-					<a href="/src/moji-mash.html">Moji Mash</a>
+					<!-- CONTENT -->
 				</div>
 			</div>
 		</div>
@@ -71,7 +66,7 @@
 	const modal_container = document.querySelector('#modal-alert');
 	const task_bar = document.querySelector('#task-bar');
 	const alert = document.querySelector('#dnalert');
-	const title_bar = document.querySelector('#code-title-bar');
+	const title_bar = document.querySelector('#content-title-bar');
 
 	alert.addEventListener('okclick', () => {
 		title_bar.classList.remove('inactive');
