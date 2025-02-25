@@ -10,6 +10,10 @@ import taskbarSetup from './task-bar/index.js'
 const TaskBar = await taskbarSetup(style_src);
 defines.push((['win-task-bar', TaskBar, 'div']));
 
+import gallerySetup from './gallery/index.js'
+const Gallery = await gallerySetup(style_src);
+defines.push((['image-gallery', Gallery, 'div']));
+
 function defineAll() {
 	defines.forEach((data) => {
 		const [tag, classObj, base] = data;

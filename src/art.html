@@ -25,6 +25,18 @@
 			display: flex;
 			margin: 0px;
 			flex-grow: 1;
+			overflow: hidden;
+		}
+
+		#content {
+			overflow-y: scroll;
+			max-height: 100%;
+			background: linear-gradient(38deg, rgba(109,138,171,1) 0%, rgba(89,216,255,1) 100%);
+			display: flex;
+		}
+
+		image-gallery {
+			padding: 12px;
 		}
 	</style>
 </head>
@@ -45,7 +57,7 @@
 			</div>
 			<div class="window-body">
 				<div id="content">
-					<!-- CONTENT -->
+					<image-gallery info-src="/assets/art/info.json"></image-gallery>
 				</div>
 			</div>
 		</div>

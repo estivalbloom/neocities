@@ -1,15 +1,9 @@
 [
 	{
-		"file": "d20.png",
-		"name": "D20",
-		"created": "June 8th 2021",
-		"caption": "Just a random die I decided to make once."
-	},
-	{
-		"file": "butterfliesx2.png",
-		"name": "Extradimensional Butterfly Collection",
-		"created": "Feb 22nd 2025",
-		"caption": "What happens when you start to make an icon for your website and get distracted a second time."
+		"file": "full3x.png",
+		"name": "Self-Portrait",
+		"created": "Feb 24th 2025",
+		"caption": "I'm actually really proud of this; this is my first time making something with this kinda detail and I've been struggling to get that drawing style of hair down for YEARS."
 	},
 	{
 		"file": "cone-effectsx2.png",
@@ -18,10 +12,15 @@
 		"caption": "What happens when you start to make an icon for your website and get distracted."
 	},
 	{
-		"file": "full3x.png",
-		"name": "Self-Portrait",
-		"created": "Feb 24th 2025",
-		"caption": "I'm actually really proud of this; this is my first time making something with this kinda detail and I've been struggling to get that drawing style of hair down for YEARS."
+		"file": "butterfliesx2.png",
+		"name": "Extradimensional Butterfly Collection",
+		"created": "Feb 22nd 2025",
+		"caption": "What happens when you start to make an icon for your website and get distracted a second time."
+	},
+	{
+		"file": "d20.png",
+		"name": "D20",
+		"created": "June 8th 2021",
+		"caption": "Just a random die I decided to make once."
 	}
-
 ]

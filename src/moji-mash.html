@@ -21,7 +21,7 @@
 			height: 720px;
 		}
 
-		#code-window > .window-body {
+		#code-window>.window-body {
 			display: flex;
 			margin: 0px;
 			flex-grow: 1;
@@ -40,7 +40,12 @@
 		<div id="code-window" class="window frame">
 			<div id="code-title-bar" class="title-bar">
 				<div class="title-bar-text">
-					Programming Projects
+					Moji Mash
+				</div>
+				<div class="title-bar-controls">
+					<!-- <button aria-label="Minimize"></button>
+					<button aria-label="Maximize"></button> -->
+					<button id="close-button" aria-label="Close"></button>
 				</div>
 			</div>
 			<div class="window-body">
@@ -53,18 +58,18 @@
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
 	<div id="modal-alert">
-		<win-alert
-			id="dnalert"
-			title-text="Action Required"
-		>
-		<div slot="window-body">
-			Deez nuts lmao
-		</div>
+		<win-alert id="dnalert" title-text="Action Required">
+			<div slot="window-body">
+				Deez nuts lmao
+			</div>
 		</win-alert>
 	</div>
 </body>
 
 <script>
+	const close_button = document.querySelector('#close-button');
+	close_button.addEventListener('click', () => window.location.href = '/src/code.html');
+
 	const modal_container = document.querySelector('#modal-alert');
 	const task_bar = document.querySelector('#task-bar');
 	const alert = document.querySelector('#dnalert');
@@ -82,13 +87,13 @@
 </script>
 
 <script type="module">
-import * as moji from 'moji-mash'
+	import * as moji from 'moji-mash'
 
-const emoji_list = ['🥳','🤬','🤔','🥳'];
-const partList = moji.emojiStringToPartStringList(emoji_list);
-const emojiSvg = await moji.makeSvgEmoji(...partList.choices);
+	const emoji_list = ['🥳', '🤬', '🤔', '🥳'];
+	const partList = moji.emojiStringToPartStringList(emoji_list);
+	const emojiSvg = await moji.makeSvgEmoji(...partList.choices);
 
-document.querySelector('#content').innerHTML = emojiSvg.svg;
+	document.querySelector('#content').innerHTML = emojiSvg.svg;
 </script>
 
 </html>
