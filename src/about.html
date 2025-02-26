@@ -37,7 +37,6 @@
 
 		#content {
 			text-wrap: wrap;
-			font-size: 11px;
 			font-family: "Pixelated MS Sans Serif",Arial;
 			width: 225px;
 		}
@@ -57,7 +56,7 @@
 	<div id="main-container">
 		<div class="spacer"></div>
 		<div id="about-window" class="window">
-			<div id="about-title-bar" class="title-bar">
+			<div id="page-title-bar" class="title-bar">
 				<div class="title-bar-text">
 					About Me
 				</div>
@@ -68,7 +67,7 @@
 				</div>
 			</div>
 			<div class="window-body">
-				<img src="/assets/art/full3x.png" alt="pixel art portrait of Esti">
+				<img src="/assets/art/full-3x-wm.png" alt="pixel art portrait of Esti">
 				<div id="r-col">
 					<pre id="content"></pre>
 					<button id="back-button">Back Home</button>
@@ -95,17 +94,9 @@
 		<div class="spacer"></div>
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
-	<div id="modal-alert">
-		<win-alert
-			id="dnalert"
-			title-text="Action Required"
-		>
-		<div slot="window-body">
-			Deez nuts lmao
-		</div>
-		</win-alert>
-	</div>
 </body>
+
+<script type="module" src="/src/dn-alert.js"></script>
 <script>
 	(async () => {
 		let resp = await fetch('/assets/about-content.html');
@@ -119,21 +110,6 @@
 
 	const back_button = document.querySelector('#back-button');
 	back_button.addEventListener('click', () => window.location.href = '/index.html');
-
-	const modal_container = document.querySelector('#modal-alert');
-	const task_bar = document.querySelector('#task-bar');
-	const alert = document.querySelector('#dnalert');
-	const title_bar = document.querySelector('#about-title-bar');
-
-	alert.addEventListener('okclick', () => {
-		title_bar.classList.remove('inactive');
-		modal_container.style.visibility = 'hidden'
-	});
-	task_bar.addEventListener('startclick', () => {
-		title_bar.classList.add('inactive');
-		modal_container.style.visibility = 'visible'
-		alert.ding()
-	});
 </script>
 
 </html>

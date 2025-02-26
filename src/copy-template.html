@@ -37,6 +37,11 @@
 				<div class="title-bar-text">
 					<!-- TITLE -->
 				</div>
+				<div class="title-bar-controls">
+					<!-- <button aria-label="Minimize"></button>
+					<button aria-label="Maximize"></button> -->
+					<button id="close-button" aria-label="Close"></button>
+				</div>
 			</div>
 			<div class="window-body">
 				<div id="content">
@@ -47,36 +52,12 @@
 		<div class="spacer"></div>
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
-	<div id="modal-alert">
-		<win-alert
-			id="dnalert"
-			title-text="Action Required"
-		>
-		<div slot="window-body">
-			Deez nuts lmao
-		</div>
-		</win-alert>
-	</div>
 </body>
+<script type="module" src="/src/dn-alert.js"></script>
 
 <script>
 	const close_button = document.querySelector('#close-button');
-	close_button.addEventListener('click', () => window.location.href = '/index.html');
-
-	const modal_container = document.querySelector('#modal-alert');
-	const task_bar = document.querySelector('#task-bar');
-	const alert = document.querySelector('#dnalert');
-	const title_bar = document.querySelector('#content-title-bar');
-
-	alert.addEventListener('okclick', () => {
-		title_bar.classList.remove('inactive');
-		modal_container.style.visibility = 'hidden'
-	});
-	task_bar.addEventListener('startclick', () => {
-		title_bar.classList.add('inactive');
-		modal_container.style.visibility = 'visible'
-		alert.ding()
-	});
+	close_button.addEventListener('click', () => window.location.href = '' /* PREV PAGE */);
 </script>
 
 </html>

@@ -46,9 +46,9 @@ body {
 	margin: 0px auto;
 	flex-grow: 1;
 	text-wrap: wrap;
-  	font-size: 11px;
 	box-sizing: border-box;
 	font-family: "Pixelated MS Sans Serif",Arial;
+	padding: 12px;
 }
 
 #button-drawer {
@@ -58,52 +58,6 @@ body {
 	margin: 0px auto;
 }
 
-#nav-list {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-}
-
-#nav-item {
-	display: grid;
-	align-items: center;
-	box-sizing: border-box;
-	width: 384px;
-	margin: 1px;
-	padding: 4px;
-	grid-template-columns: 64px 64px 192px;
-	column-gap: 16px;
-}
-
-#nav-icon {
-	width: 64px;
-	height: 64px;
-	grid-column-start: 1;
-	grid-column-end: 2;
-}
-
-#nav-title {
-	font-size: 22px;
-	font-weight: bold;
-	width: 64px;
-	grid-column-start: 2;
-	grid-column-end: 3;	
-}
-
-#nav-desc {
-	grid-column-start: 3;
-	grid-column-end: 4;
-}
-
-#nav-item {
-	color: black;
-	text-decoration: none;
-}
-
-#nav-item:hover {
-	background-color: blue;
-	color: white;
-}
 
 #desktop-icon-container {
 	flex-grow: 1;
@@ -140,6 +94,23 @@ body {
 	justify-content: center;
 }
 
-#dnalert {
+#dn-alert {
 	width: 250px;
+}
+
+#dn-text {
+	margin-bottom: 4px;
+}
+
+:root {
+	--code-color: #3ca24f;
+	--code-card-bg: #202020;
+}
+
+.code-content {
+	background: var(--code-color);
+	background: linear-gradient(38deg, rgba(50,88,62,1) 0%, rgba(73,214,95,1) 100%);
+	max-height: 100%;
+	overflow-y: scroll;
+
 }

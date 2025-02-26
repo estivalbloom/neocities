@@ -25,6 +25,54 @@
 			margin-right: 0px;
 			margin-left: 4px;
 		}
+
+		#nav-list {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+#nav-item {
+	display: grid;
+	align-items: center;
+	box-sizing: border-box;
+	width: 384px;
+	margin: 1px;
+	padding: 4px;
+	grid-template-columns: 64px 72px 192px;
+	column-gap: 16px;
+}
+
+#nav-icon {
+	width: 64px;
+	height: 64px;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+
+#nav-title {
+	font-size: 2em;
+	font-weight: bold;
+	width: 64px;
+	grid-column-start: 2;
+	grid-column-end: 3;	
+}
+
+#nav-desc {
+	grid-column-start: 3;
+	grid-column-end: 4;
+}
+
+#nav-item {
+	color: black;
+	text-decoration: none;
+}
+
+#nav-item:hover {
+	background-color: blue;
+	color: white;
+}
+
 	</style>
 </head>
 
@@ -32,7 +80,7 @@
 	<div id="main-container">
 		<div class="spacer"></div>
 		<div id="main-window" class="window">
-			<div id="main-title-bar" class="title-bar">
+			<div id="page-title-bar" class="title-bar">
 				<div class="title-bar-text">
 					Welcome!
 				</div>
@@ -70,6 +118,11 @@
 						<div id="nav-title">Art</div>
 						<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
 					</a>
+					<a id="nav-item" href="/src/dev-diary.html">
+						<img id="nav-icon" src="/assets/icons/diary-icon.png">
+						<div id="nav-title">Devlog</div>
+						<div id="nav-desc">Quick posts about what I'm working on</div>
+					</a>
 				</nav>
 			</div>
 			<div id="welcome-status" class="status-bar">
@@ -87,34 +140,9 @@
 		<div class="spacer"></div>
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
-	<div id="modal-alert">
-		<win-alert
-			id="dnalert"
-			title-text="Action Required"
-		>
-		<div slot="window-body">
-			Deez nuts lmao
-		</div>
-		</win-alert>
-	</div>
 </body>
-
-<script>
-	const modal_container = document.querySelector('#modal-alert');
-	const task_bar = document.querySelector('#task-bar');
-	const alert = document.querySelector('#dnalert');
-	const title_bar = document.querySelector('#main-title-bar');
-
-	alert.addEventListener('okclick', () => {
-		title_bar.classList.remove('inactive');
-		modal_container.style.visibility = 'hidden'
-	});
-	task_bar.addEventListener('startclick', () => {
-		title_bar.classList.add('inactive');
-		modal_container.style.visibility = 'visible'
-		alert.ding()
-	});
-
+<script type="module" src="/src/dn-alert.js"></script>
+<script type="module">
 	(async () => {
 		let resp = await fetch('/assets/welcome-message.html');
 		let html = await resp.text();

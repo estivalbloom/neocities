@@ -25,6 +25,64 @@
 			display: flex;
 			margin: 0px;
 			flex-grow: 1;
+			overflow: hidden;
+		}
+
+		#links {
+			display: flex;
+			flex-direction: row;
+			padding: 12px;
+			flex-wrap: wrap;
+			gap: 24px;
+			row-gap: 24px;
+			justify-content: center;
+		}
+
+		.link-card {
+			text-decoration: none;
+			display: grid;
+			background-color: var(--code-card-bg);
+			color: var(--code-color);
+			padding: 12px;
+			grid-auto-flow: row;
+			grid-template-columns: 72px 250px;
+			grid-template-rows: 72px 100px;
+			grid-gap: 12px;
+			box-shadow:
+				2px 0px 0px 0px var(--code-card-bg),
+				0px 2px 0px 0px var(--code-card-bg),
+			  	-2px 0px 0px 0px var(--code-card-bg),
+				0px -2px 0px 0px var(--code-card-bg)
+			;
+		}
+
+		.link-card > * {
+			background-color: #2d2d2d;
+			box-sizing: border-box;
+			box-shadow:
+				2px 0px 0px 0px var(--code-color),
+			 	0px 2px 0px 0px var(--code-color),
+				-2px 0px 0px 0px var(--code-color),
+				0px -2px 0px 0px var(--code-color)
+			;
+		}
+
+		.link-thumbnail {
+			object-fit: cover;
+			width: 100%;
+			padding: 6px;
+		}
+
+		.link-title {
+			font-weight: bold;
+			font-size: 2em;
+			align-content: center;
+			text-align: center;
+		}
+
+		.link-description {
+			grid-column: 1 / span 2;
+			padding: 12px;
 		}
 	</style>
 </head>
@@ -33,7 +91,7 @@
 	<div id="main-container">
 		<div class="spacer"></div>
 		<div id="content-window" class="window frame">
-			<div id="code-title-bar" class="title-bar">
+			<div id="page-title-bar" class="title-bar">
 				<div class="title-bar-text">
 					Programming Projects
 				</div>
@@ -44,44 +102,53 @@
 				</div>
 			</div>
 			<div class="window-body">
-				<div id="content">
-					<a href="/src/moji-mash.html">Moji Mash</a>
+				<div id="content" class="code-content">
+					<div id="links">
+						<div class="card-container">
+							<a class="link-card" href="/src/moji-mash.html">
+								<img class="link-thumbnail" src="/assets/code/angyparty.png">
+								<div class="link-title">
+									Moji Mash
+								</div>
+								<div class="link-description">
+									Lets you pick parts from different emoji and combine them into new ones! Only supports a limited set since I break them apart manually. Also comes in discord bot flavor! 
+								</div>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="spacer"></div>
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
-	<div id="modal-alert">
-		<win-alert
-			id="dnalert"
-			title-text="Action Required"
-		>
-		<div slot="window-body">
-			Deez nuts lmao
-		</div>
-		</win-alert>
-	</div>
 </body>
 
+<script type="module" src="/src/dn-alert.js"></script>
 <script>
 	const close_button = document.querySelector('#close-button');
 	close_button.addEventListener('click', () => window.location.href = '/index.html');
 
-	const modal_container = document.querySelector('#modal-alert');
-	const task_bar = document.querySelector('#task-bar');
-	const alert = document.querySelector('#dnalert');
-	const title_bar = document.querySelector('#code-title-bar');
+	const first_card = links.children[0];
+	let qty = 1;
+	function updateQty() {
+		const links = document.querySelector('#links');
+		links.innerHTML = '';
+		for(let i = 0; i < qty; i++) {
+			links.appendChild(first_card.cloneNode(true));
+		}
+	}
 
-	alert.addEventListener('okclick', () => {
-		title_bar.classList.remove('inactive');
-		modal_container.style.visibility = 'hidden'
-	});
-	task_bar.addEventListener('startclick', () => {
-		title_bar.classList.add('inactive');
-		modal_container.style.visibility = 'visible'
-		alert.ding()
-	});
+	document.addEventListener('keydown', (e) => {
+		if(event.key === 'ArrowUp') {
+			qty++;
+		}
+		if(event.key === 'ArrowDown') {
+			qty--;
+		}
+		qty = Math.max(qty, 0);
+		updateQty();
+	})
 </script>
 
 </html>

@@ -39,6 +39,7 @@ async function setup(style_src) {
 		}
 
 		ding() {
+			this._ding.fastSeek(0);
 			this._ding.play();
 		}
 	}

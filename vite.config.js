@@ -25,7 +25,8 @@ export default defineConfig({
 				about: resolve(__dirname, 'src/about.html'),
 				code: resolve(__dirname, 'src/code.html'),
 				moji: resolve(__dirname, 'src/moji-mash.html'),
-				art: resolve(__dirname, 'src/art.html')
+				art: resolve(__dirname, 'src/art.html'),
+				dev_diary: resolve(__dirname, 'src/dev-diary.html')
 			}
 		}
 	}
