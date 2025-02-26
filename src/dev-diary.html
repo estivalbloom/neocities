@@ -21,14 +21,48 @@
 			height: 720px;
 		}
 
-		#content-window > .window-body {
+		#content-window>.window-body {
 			display: flex;
 			margin: 0px;
 			flex-grow: 1;
 		}
 
 		#content {
-			padding: 12px !important;
+			background-color: white;
+		}
+
+		#posts {
+			padding: 24px;
+			display: block;
+			margin: 24px 128px;
+		}
+
+		.post-date {
+			font-weight: bold;
+		}
+
+		.post {
+			margin: 32px;
+		}
+
+		.post img {
+			box-shadow: 0px 0px 0px 2px black;
+			box-sizing: border-box;
+			background: #BEBEBE;
+		}
+
+		.post .left {
+			float: left;
+			margin-right: 12px;
+		}
+
+		.post .right {
+			float: right;
+			margin-left: 12px;
+		}
+
+		.post p {
+			margin-bottom: 22px;
 		}
 	</style>
 </head>
@@ -49,7 +83,9 @@
 			</div>
 			<div class="window-body">
 				<div id="content">
-					Oop, nothing here yet :(
+					<iv id="posts">
+
+					</iv>
 				</div>
 			</div>
 		</div>
@@ -59,7 +95,30 @@
 </body>
 
 <script type="module" src="/src/dn-alert.js"></script>
-<script>
+<script type="module">
+	const content = document.querySelector('#posts');
+	const info_req = await fetch('/assets/dev-logs/info.json');
+	const info = await info_req.json();
+
+	info.reduce(async (prev, post_info) => {
+		await prev;
+
+		const url = (new URL(`./${post_info.file}`, info_req.url)).href;
+		const post_req = await fetch(url);
+		const post = await post_req.text();
+
+		const container = document.createElement('div');
+		const date_elem = document.createElement('div');
+		const post_elem = document.createElement('div');
+		date_elem.textContent = post_info.created;
+		date_elem.classList.add('post-date');
+		post_elem.insertAdjacentHTML('beforeend', post);
+		post_elem.classList.add('post');
+		container.appendChild(date_elem);
+		container.appendChild(post_elem);
+		content.appendChild(container);
+	}, Promise.resolve());
+
 	const close_button = document.querySelector('#close-button');
 	close_button.addEventListener('click', () => window.location.href = '/index.html');
 </script>

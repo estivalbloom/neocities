@@ -129,26 +129,26 @@
 	const close_button = document.querySelector('#close-button');
 	close_button.addEventListener('click', () => window.location.href = '/index.html');
 
-	const first_card = links.children[0];
-	let qty = 1;
-	function updateQty() {
-		const links = document.querySelector('#links');
-		links.innerHTML = '';
-		for(let i = 0; i < qty; i++) {
-			links.appendChild(first_card.cloneNode(true));
-		}
-	}
+	// const first_card = links.children[0];
+	// let qty = 1;
+	// function updateQty() {
+	// 	const links = document.querySelector('#links');
+	// 	links.innerHTML = '';
+	// 	for(let i = 0; i < qty; i++) {
+	// 		links.appendChild(first_card.cloneNode(true));
+	// 	}
+	// }
 
-	document.addEventListener('keydown', (e) => {
-		if(event.key === 'ArrowUp') {
-			qty++;
-		}
-		if(event.key === 'ArrowDown') {
-			qty--;
-		}
-		qty = Math.max(qty, 0);
-		updateQty();
-	})
+	// document.addEventListener('keydown', (e) => {
+	// 	if(event.key === 'ArrowUp') {
+	// 		qty++;
+	// 	}
+	// 	if(event.key === 'ArrowDown') {
+	// 		qty--;
+	// 	}
+	// 	qty = Math.max(qty, 0);
+	// 	updateQty();
+	// })
 </script>
 
 </html>
