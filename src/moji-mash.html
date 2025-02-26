@@ -27,11 +27,43 @@
 			flex-grow: 1;
 		}
 
-		
+		#main-card {
+			margin: 24px;
+			padding: 12px;
+			width: fit-content;
+			background-color: var(--code-card-bg);
+			color: var(--code-color);
+			box-shadow:
+				2px 0px 0px 0px var(--code-card-bg),
+				0px 2px 0px 0px var(--code-card-bg),
+			  	-2px 0px 0px 0px var(--code-card-bg),
+				0px -2px 0px 0px var(--code-card-bg)
+			;
+		}
 
-		svg {
-			width: 512px;
-			height: 512px;
+		#card-body {
+			padding: 12px;
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			gap: 12px;
+			background-color: #2d2d2d;
+			box-sizing: border-box;
+			box-shadow:
+				2px 0px 0px 0px var(--code-color),
+			 	0px 2px 0px 0px var(--code-color),
+				-2px 0px 0px 0px var(--code-color),
+				0px -2px 0px 0px var(--code-color)
+			;
+		}
+
+		#emoji-list {
+			font-size: 24px;
+		}
+
+		#emoji svg {
+			width: 128px;
+			height: 128px;
 		}
 	</style>
 </head>
@@ -52,9 +84,17 @@
 			</div>
 			<div class="window-body">
 				<div id="content" class="code-content">
-					<div id="emoji"></div>
-					<div>
-						You'll be able to pick emoji soon but for now here's a button:
+					<div id="app">
+						<div id="main-card">
+							<div id="card-body">
+								<div>
+									I'll properly implement this soon but for now have a button:
+								</div>
+								<button id="random-button">Randomise</button>
+								<div id="emoji-list"></div>
+								<div id="emoji"></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -71,11 +111,20 @@
 
 	import * as moji from 'moji-mash'
 
+	const emoji_elem = document.querySelector('#emoji');
+	const emoji_list_elem = document.querySelector('#emoji-list');
 	const emoji_list = ['🥳', '🤬', '🤔', '🥳'];
-	const partList = moji.emojiStringToPartStringList(emoji_list);
-	const emojiSvg = await moji.makeSvgEmoji(...partList.choices);
+	const angy_part_list = moji.emojiStringToPartStringList(emoji_list);
+	const angy_party = await moji.makeSvgEmoji(...angy_part_list.choices);
 
-	document.querySelector('#emoji').innerHTML = emojiSvg.svg;
+	emoji_list_elem.textContent = angy_party.list
+	emoji_elem.innerHTML = angy_party.svg;
+
+	document.querySelector('#random-button').addEventListener('click', async () => {
+		const random_emoji = await moji.randomEmoji();
+		emoji_list_elem.textContent = random_emoji.list
+		emoji_elem.innerHTML = random_emoji.svg;
+	})
 </script>
 
 </html>
