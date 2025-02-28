@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -19,7 +19,7 @@
 			margin: auto;
 		}
 
-		#main-window > .window-body {
+		#main-window>.window-body {
 			display: flex;
 			height: 100%;
 			margin-right: 0px;
@@ -27,59 +27,58 @@
 		}
 
 		#nav-list {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-}
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+		}
 
-#nav-item {
-	display: grid;
-	align-items: center;
-	box-sizing: border-box;
-	width: 384px;
-	margin: 1px;
-	padding: 4px;
-	grid-template-columns: 64px 72px 192px;
-	column-gap: 16px;
-}
+		#nav-item {
+			display: grid;
+			align-items: center;
+			box-sizing: border-box;
+			width: 384px;
+			margin: 1px;
+			padding: 4px;
+			grid-template-columns: 64px 72px 192px;
+			column-gap: 16px;
+		}
 
-#nav-icon {
-	width: 64px;
-	height: 64px;
-	grid-column-start: 1;
-	grid-column-end: 2;
-}
+		#nav-icon {
+			width: 64px;
+			height: 64px;
+			grid-column-start: 1;
+			grid-column-end: 2;
+		}
 
-#nav-title {
-	font-size: 2em;
-	font-weight: bold;
-	width: 64px;
-	grid-column-start: 2;
-	grid-column-end: 3;	
-}
+		#nav-title {
+			font-size: 2em;
+			font-weight: bold;
+			width: 64px;
+			grid-column-start: 2;
+			grid-column-end: 3;
+		}
 
-#nav-desc {
-	grid-column-start: 3;
-	grid-column-end: 4;
-}
+		#nav-desc {
+			grid-column-start: 3;
+			grid-column-end: 4;
+		}
 
-#nav-item {
-	color: black;
-	text-decoration: none;
-}
+		#nav-item {
+			color: black;
+			text-decoration: none;
+		}
 
-#nav-item:hover {
-	background-color: blue;
-	color: white;
-}
-
+		#nav-item:hover {
+			background-color: blue;
+			color: white;
+		}
 	</style>
 </head>
 
 <body>
 	<div id="main-container">
 		<div class="spacer"></div>
-		<div id="main-window" class="window">
+		<main id="main-window" class="window">
 			<div id="page-title-bar" class="title-bar">
 				<div class="title-bar-text">
 					Welcome!
@@ -87,8 +86,8 @@
 			</div>
 			<div class="window-body">
 				<div id="center-col">
-					<img id="logo" src="/assets/shitty-logo.png">
-					<pre id="message"></pre>
+					<img id="logo" alt="site logo" src="/assets/shitty-logo.png">
+					<div id="message" class="fake-pre"></div>
 					<div id="button-drawer">
 						<img src="/assets/buttons/queercodedthis.png">
 						<img src="/assets/buttons/gamecube.png">
@@ -136,19 +135,19 @@
 					Styled by <a href="https://jdan.github.io/98.css/">98.css</a>
 				</div>
 			</div>
-		</div>
+		</main>
 		<div class="spacer"></div>
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
 </body>
-<script type="module" src="/src/dn-alert.js"></script>
+<script type="module" src="/src/dn-alert/index.js"></script>
 <script>
-	(async () => {
-		let resp = await fetch('/assets/welcome-message.html');
-		let html = await resp.text();
-		let message = document.querySelector('#message')
-		message.innerHTML = html;
-	})();
+		(async () => {
+			let resp = await fetch('/assets/welcome-message.html');
+			let html = await resp.text();
+			let message = document.querySelector('#message')
+			message.innerHTML = html;
+		})();
 </script>
 
 </html>

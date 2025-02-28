@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Esti's Old Computer</title>
+	<title> About Me - Esti's Old Computer</title>
 	<link rel="icon" href="/assets/icons/thinking-even98er.png" type="image/png">
 	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
 	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
@@ -55,7 +55,7 @@
 <body>
 	<div id="main-container">
 		<div class="spacer"></div>
-		<div id="about-window" class="window">
+		<main id="about-window" class="window">
 			<div id="page-title-bar" class="title-bar">
 				<div class="title-bar-text">
 					About Me
@@ -63,14 +63,18 @@
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
 					<button aria-label="Maximize"></button> -->
-					<button id="close-button" aria-label="Close"></button>
+					<a href="/index.html">
+						<button tabindex="-1" id="close-button" aria-label="Close"></button>
+					</a>
 				</div>
 			</div>
 			<div class="window-body">
 				<img src="/assets/art/full-3x-wm.png" alt="pixel art portrait of Esti">
 				<div id="r-col">
 					<pre id="content"></pre>
-					<button id="back-button">Back Home</button>
+					<a href="/index.html">
+						<button tabindex="-1" id="back-button">Back Home</button>
+					</a>
 				</div>
 			</div>
 			<div id="welcome-status" class="status-bar">
@@ -90,13 +94,13 @@
 					Music artist: Rezz
 				</div>
 			</div>
-		</div>
+		</main>
 		<div class="spacer"></div>
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
 </body>
 
-<script type="module" src="/src/dn-alert.js"></script>
+<script type="module" src="/src/dn-alert/index.js"></script>
 <script>
 	(async () => {
 		let resp = await fetch('/assets/about-content.html');
@@ -104,12 +108,6 @@
 		let message = document.querySelector('#content')
 		message.innerHTML = html;
 	})();
-
-	const close_button = document.querySelector('#close-button');
-	close_button.addEventListener('click', () => window.location.href = '/index.html');
-
-	const back_button = document.querySelector('#back-button');
-	back_button.addEventListener('click', () => window.location.href = '/index.html');
 </script>
 
 </html>

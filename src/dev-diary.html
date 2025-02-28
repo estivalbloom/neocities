@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Esti's Old Computer</title>
+	<title>Dev Diary - Esti's Old Computer</title>
 	<link rel="icon" href="/assets/icons/thinking-even98er.png" type="image/png">
 	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
 	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
@@ -37,10 +37,6 @@
 			margin: 24px 128px;
 		}
 
-		.post-date {
-			font-weight: bold;
-		}
-
 		.post {
 			margin: 32px;
 		}
@@ -53,16 +49,22 @@
 
 		.post .left {
 			float: left;
-			margin-right: 12px;
 		}
 
 		.post .right {
 			float: right;
-			margin-left: 12px;
 		}
 
 		.post p {
 			margin-bottom: 22px;
+		}
+
+		.post figure {
+			box-sizing: border-box;
+		}
+
+		.post figcaption {
+			text-align: center;
 		}
 	</style>
 </head>
@@ -70,7 +72,7 @@
 <body>
 	<div id="main-container">
 		<div class="spacer"></div>
-		<div id="content-window" class="window frame">
+		<main id="content-window" class="window frame">
 			<div id="page-title-bar" class="title-bar">
 				<div class="title-bar-text">
 					Dev Diary
@@ -78,23 +80,25 @@
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
 					<button aria-label="Maximize"></button> -->
-					<button id="close-button" aria-label="Close"></button>
+					<a href="/index.html">
+						<button tabindex="-1" id="close-button" aria-label="Close"></button>
+					</a>
 				</div>
 			</div>
 			<div class="window-body">
 				<div id="content">
-					<iv id="posts">
+					<div id="posts">
 
-					</iv>
+					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 		<div class="spacer"></div>
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
 </body>
 
-<script type="module" src="/src/dn-alert.js"></script>
+<script type="module" src="/src/dn-alert/index.js"></script>
 <script type="module">
 	const content = document.querySelector('#posts');
 	const info_req = await fetch('/assets/dev-logs/info.json');
@@ -107,8 +111,8 @@
 		const post_req = await fetch(url);
 		const post = await post_req.text();
 
-		const container = document.createElement('div');
-		const date_elem = document.createElement('div');
+		const container = document.createElement('section');
+		const date_elem = document.createElement('h5');
 		const post_elem = document.createElement('div');
 		date_elem.textContent = post_info.created;
 		date_elem.classList.add('post-date');
@@ -118,9 +122,6 @@
 		container.appendChild(post_elem);
 		content.appendChild(container);
 	}, Promise.resolve());
-
-	const close_button = document.querySelector('#close-button');
-	close_button.addEventListener('click', () => window.location.href = '/index.html');
 </script>
 
 </html>

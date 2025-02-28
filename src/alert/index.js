@@ -13,14 +13,14 @@ async function setup(style_src) {
 		connectedCallback() {
 			const shadow = initShadow(this, template, style_src);
 
-			const close_button = shadow.querySelector('#close-button');
-			const ok_button = shadow.querySelector('#ok-button');
-			const cancel_button = shadow.querySelector('#cancel-button');
+			this._close_button = shadow.querySelector('#close-button');
+			this._ok_button = shadow.querySelector('#ok-button');
+			this._cancel_button = shadow.querySelector('#cancel-button');
 			this._title_text_elem = shadow.querySelector('#title-text');
 
-			wrapClick(this, ok_button, 'okclick');
-			wrapClick(this, cancel_button, 'cancelclick');
-			wrapClick(this, close_button, 'closeclick');
+			wrapClick(this, this._ok_button, 'okclick');
+			wrapClick(this, this._cancel_button, 'cancelclick');
+			wrapClick(this, this._close_button, 'closeclick');
 
 			this._ding = shadow.querySelector('#ding');
 		}
@@ -41,6 +41,20 @@ async function setup(style_src) {
 		ding() {
 			this._ding.fastSeek(0);
 			this._ding.play();
+		}
+
+		setFocus(button) {
+			switch (button) {
+				case "ok":
+					this._ok_button.focus()
+					break;
+				case "cancel":
+					this._cancel_button.focus()
+					break;
+				case "close":
+					this._close_button.focus()
+					break;
+			}
 		}
 	}
 

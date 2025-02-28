@@ -22,8 +22,8 @@ async function setup(style_src) {
 		connectedCallback() {
 			this._shadow = initShadow(this, template, style_src);
 			
-			const start_button = this._shadow.querySelector('#start-button');
-			wrapClick(this, start_button, 'startclick');
+			this._start_button = this._shadow.querySelector('#start-button');
+			wrapClick(this, this._start_button, 'startclick');
 
 			const clock = this._shadow.querySelector('#clock');
 			clock.style.minWidth = clock_width_px;
@@ -39,10 +39,15 @@ async function setup(style_src) {
 			}, 500);
 		}
 
+		focusStart() {
+			this._start_button.focus()
+		}
+
 		disconnectedCallback() {
 			clearInterval(this._clock_handler_id)
 		}
 	}
+
 }
 
 export default setup
