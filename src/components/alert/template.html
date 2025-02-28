@@ -1,0 +1,26 @@
+<template>
+	<style>
+		#ok-button {
+			/* Bit of a hack for now, but this fixes blurriness */
+			min-width: 76px;
+		}
+	</style>
+	<div role="alertdialog" aria-labelledby="title-text" aria-describedby="window-desc" class="window">
+		<div class="title-bar">
+			<div id="title-text" class="title-bar-text"></div>
+			<div class="title-bar-controls">
+				<!-- <button aria-label="Minimize"></button>
+				<button aria-label="Maximize"></button> -->
+				<button id="close-button" aria-label="Close"></button>
+			</div>
+		</div>
+		<div class="window-body">
+			<slot name="window-body"></slot>
+			<section class="field-row" style="justify-content: flex-end">
+				<button id="ok-button">OK</button>
+				<button id="cancel-button">Cancel</button>
+			</section>
+		</div>
+	</div>
+	<audio id="ding" src="/assets/DING.flac"></audio>
+</template>

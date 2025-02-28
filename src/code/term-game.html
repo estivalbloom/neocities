@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Retro Computer Game Prototype - Esti's Old Computer</title>
+	<link rel="icon" href="/assets/icons/thinking-even98er.png" type="image/png">
+	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
+	<script type="module">
+		import { defineAll } from '/src/main.js'
+		defineAll()
+	</script>
+	<style>
+		#code-window {
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			width: 960px;
+		}
+
+		#code-window>.window-body {
+			display: flex;
+			margin: 0px;
+			flex-grow: 1;
+		}
+
+		#content {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			background-color: var(--code-card-fg);
+		}
+
+		#content>iframe {
+			height: 384px;
+			box-sizing: border-box;
+		}
+
+		#text {
+			color: var(--code-color);
+			padding: 24px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main-container">
+		<div class="spacer"></div>
+		<main id="code-window" class="window frame">
+			<div id="page-title-bar" class="title-bar">
+				<div class="title-bar-text">
+					Retro Computer Game Demo
+				</div>
+				<div class="title-bar-controls">
+					<!-- <button aria-label="Minimize"></button>
+					<butF.*ton ari★ (.*)a-label="Maximize"></button> -->
+					<a href="/src/code/">
+						<button id="close-button" aria-label="Close"></button>
+					</a>
+				</div>
+			</div>
+			<div class="window-body">
+				<div id="content" class="code-content">
+					<iframe aria-describedby="description" src="/assets/code/terminal-game/index.html"></iframe>
+					<div id="text">
+						<p id="description">
+							Not much content to it; basically just a proof of concept for the look. Type "help" to list
+							the allowed commands. If you're confused about what any of them do and just want to see how
+							text on screen looks, try "lorem" or "color_party". To terminate a currently-running
+							program, use ctrl+c. Using the "exit" command just kinda freezes the game right now.
+						</p>
+						VFX controls:
+						<ul>
+							<li>F1: Toggle screen warp</li>
+							<li>F2: Adjust screen warp radius</li>
+							<li>F3: Toggle chromatic aberration</li>
+							<li>F4: Adjust chromatic aberration distance</li>
+							<li>F5: Toggle scan lines</li>
+							<li>F6: Adjust scan line effect strength</li>
+							<li>F7: Toggle noise</li>
+							<li>F8: Adjust noise effect strength</li>
+							<li>F9: Reset effect configuration</li>
+						</ul>
+						Hold shift to adjust in the opposite direction
+					</div>
+				</div>
+			</div>
+			<div class="status-bar">
+				<div class="status-bar-field">
+					Created: Jan 2025
+				</div>
+				<div class="status-bar-field">
+					Made with: Godot
+				</div>
+			</div>
+		</main>
+		<div class="spacer"></div>
+	</div>
+	<win-task-bar id="task-bar"></win-task-bar>
+</body>
+<script type="module" src="/src/dn-alert/index.js"></script>
+
+</html>

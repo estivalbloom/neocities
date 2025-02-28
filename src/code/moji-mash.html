@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Moji Mash - Esti's Old Computer</title>
+	<link rel="icon" href="/assets/icons/thinking-even98er.png" type="image/png">
+	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
+	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
+	<script type="module">
+		import { defineAll } from '/src/main.js'
+		defineAll()
+	</script>
+	<style>
+		#code-window {
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			width: 960px;
+			height: 720px;
+		}
+
+		#code-window>.window-body {
+			display: flex;
+			margin: 0px;
+			flex-grow: 1;
+		}
+
+		#main-card {
+			margin: 24px;
+			padding: 12px;
+			width: fit-content;
+			background-color: var(--code-card-bg);
+			color: var(--code-color);
+			box-shadow:
+				2px 0px 0px 0px var(--code-card-bg),
+				0px 2px 0px 0px var(--code-card-bg),
+			  	-2px 0px 0px 0px var(--code-card-bg),
+				0px -2px 0px 0px var(--code-card-bg)
+			;
+		}
+
+		#card-body {
+			padding: 12px;
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			gap: 12px;
+			background-color: #2d2d2d;
+			box-sizing: border-box;
+			box-shadow:
+				2px 0px 0px 0px var(--code-color),
+			 	0px 2px 0px 0px var(--code-color),
+				-2px 0px 0px 0px var(--code-color),
+				0px -2px 0px 0px var(--code-color)
+			;
+		}
+
+		#emoji-list {
+			font-size: 24px;
+		}
+
+		#emoji svg {
+			width: 128px;
+			height: 128px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main-container">
+		<div class="spacer"></div>
+		<div id="code-window" class="window frame">
+			<div id="page-title-bar" class="title-bar">
+				<div class="title-bar-text">
+					Moji Mash
+				</div>
+				<div class="title-bar-controls">
+					<!-- <button aria-label="Minimize"></button>
+					<button aria-label="Maximize"></button> -->
+					<button id="close-button" aria-label="Close"></button>
+				</div>
+			</div>
+			<div class="window-body">
+				<div id="content" class="code-content">
+					<div id="app">
+						<div id="main-card">
+							<div id="card-body">
+								<div>
+									I'll properly implement this soon but for now have a button:
+								</div>
+								<button id="random-button">Randomise</button>
+								<div id="emoji-list"></div>
+								<div id="emoji"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="status-bar">
+				<div class="status-bar-field">
+					Created: April 2022
+				</div>
+				<div class="status-bar-field">
+					Made with: Javascript
+				</div>
+			</div>
+		</div>
+		<div class="spacer"></div>
+	</div>
+	<win-task-bar id="task-bar"></win-task-bar>
+</body>
+
+<script type="module" src="/src/dn-alert/index.js"></script>
+<script type="module">
+	const close_button = document.querySelector('#close-button');
+	close_button.addEventListener('click', () => window.location.href = '/src/code/');
+
+	import * as moji from 'moji-mash'
+
+	const emoji_elem = document.querySelector('#emoji');
+	const emoji_list_elem = document.querySelector('#emoji-list');
+	const emoji_list = ['🥳', '🤬', '🤔', '🥳'];
+	const angy_part_list = moji.emojiStringToPartStringList(emoji_list);
+	const angy_party = await moji.makeSvgEmoji(...angy_part_list.choices);
+
+	emoji_list_elem.textContent = angy_party.list
+	emoji_elem.innerHTML = angy_party.svg;
+
+	document.querySelector('#random-button').addEventListener('click', async () => {
+		const random_emoji = await moji.randomEmoji();
+		emoji_list_elem.textContent = random_emoji.list
+		emoji_elem.innerHTML = random_emoji.svg;
+	})
+</script>
+
+</html>

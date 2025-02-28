@@ -1,0 +1,62 @@
+<template>
+	<style>
+		#image-container {
+			display: flex;
+			gap: 16px;
+		}
+
+		.gallery-image {
+			width: 128px;
+			height: 128px;
+			object-fit: cover;
+			object-position: 50% 0%;
+			cursor: pointer;
+			box-shadow: 0px 0px 0px 3px white, 6px 6px 0px 3px black;
+		}
+
+		#modal {
+			z-index: 100;
+			position: fixed;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			visibility: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#modal-body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#modal-img {
+			object-fit: none;
+		}
+
+		#modal-caption {
+			text-wrap: wrap;
+		}
+	</style>
+	<div id="image-container"></div>
+	<div id="modal">
+		<div class="window">
+			<div class="title-bar">
+				<div id="modal-title-text" class="title-bar-text"></div>
+				<div class="title-bar-controls">
+					<!-- <button aria-label="Minimize"></button>
+					<button aria-label="Maximize"></button> -->
+					<button id="close-button" aria-label="Close"></button>
+				</div>
+			</div>
+			<div id="modal-body" class="window-body">
+				<img id="modal-img">
+				<pre id="modal-caption"></pre>
+			</div>
+			<div id="modal-footer" class="status-bar">
+			</div>
+		</div>
+	</div>
+</template>

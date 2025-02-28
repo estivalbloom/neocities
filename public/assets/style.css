@@ -104,6 +104,7 @@ body {
 :root {
 	--code-color: #3ca24f;
 	--code-card-bg: #202020;
+	--code-card-fg: #2d2d2d;
 }
 
 .code-content {
