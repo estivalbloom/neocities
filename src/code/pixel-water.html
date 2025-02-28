@@ -17,7 +17,7 @@
 			display: flex;
 			flex-direction: column;
 			margin: auto;
-			width: 960px;
+			width: 1024px;
 		}
 
 		#code-window>.window-body {
@@ -30,43 +30,18 @@
 			display: flex;
 			flex-direction: column;
 			align-items: stretch;
+			background-color: var(--code-card-fg);
 		}
 
-		#content > iframe {
+		#content>iframe {
 			height: 512px;
 			box-sizing: border-box;
 		}
 
-
-		#main-card {
-			margin: 24px;
-			padding: 12px;
-			background-color: var(--code-card-bg);
+		#text {
 			color: var(--code-color);
-			box-shadow:
-				2px 0px 0px 0px var(--code-card-bg),
-				0px 2px 0px 0px var(--code-card-bg),
-			  	-2px 0px 0px 0px var(--code-card-bg),
-				0px -2px 0px 0px var(--code-card-bg)
-			;
-			flex-grow: 1;
-		}
-
-		#card-body {
-			height: 100%;
-			padding: 12px;
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			gap: 12px;
-			background-color: #2d2d2d;
-			box-sizing: border-box;
-			box-shadow:
-				2px 0px 0px 0px var(--code-color),
-			 	0px 2px 0px 0px var(--code-color),
-				-2px 0px 0px 0px var(--code-color),
-				0px -2px 0px 0px var(--code-color)
-			;
+			padding: 24px;
+			border: 4px solid var(--code-color);
 		}
 	</style>
 </head>
@@ -89,16 +64,33 @@
 			</div>
 			<div class="window-body">
 				<div id="content" class="code-content">
-					<iframe aria-describedby="card-body" src="/assets/code/pixel-water/index.html"></iframe>
-					<div id="main-card">
-						<div id="card-body">
-							<p>
-								Just a simple demo of the effect with no interactivity. The water height is generated using 3D simplex noise with domain warping. That texture is sampled from two locations with different X and Y offsets that are added together for the final water height, to get the effect of waves traveling in different directions. The height is used to calculate the water normal at each pixel, which is used to calculate the reflectance of the water with the fresnel equations, as well as the refraction angle based on camera angle parameters. Two different camera angle values can be used for the refraction and reflection calculations for finer control of the final look. The shader is capable of aligning the refraction to the pixel grid, but I found I preferred higher resolution refraction. Light absorbance is calculated based on the estimated path length of light through the water for each pixel. Then the shader blends from from the water color to the color where the refracted ray hits based on the absorbance, and from that to white based on the reflectance. The reflectance value is discretized to 16ths to give the reflection a more reduced-color-palette look. If the water is less than a certain depth, it is colored white for the foam.
-							</p>
-							<p>
-								Ideally in the future I'd like to implement some sort of ray tracing or ray marching type of solution to better calculate how the color of the water is applied, calculate where the refracted light hits, and generate realistic caustics. I may also want to add a dithering effect; currently there's a trade off between having the posterization color depth higher to avoid color banding, and lower to help hide the shape of the noise texture used.
-							</p>
-						</div>
+					<iframe aria-describedby="text" src="/assets/code/pixel-water/index.html"></iframe>
+					<div id="text">
+						<p>
+							Just a simple demo of the effect with no interactivity. The water height is generated
+							using 3D simplex noise with domain warping. That texture is sampled from two locations
+							with different X and Y offsets that are added together for the final water height, to
+							get the effect of waves traveling in different directions. The height is used to
+							calculate the water normal at each pixel, which is used to calculate the reflectance of
+							the water with the fresnel equations, as well as the refraction angle based on camera
+							angle parameters. Two different camera angle values can be used for the refraction and
+							reflection calculations for finer control of the final look. The shader is capable of
+							aligning the refraction to the pixel grid, but I found I preferred higher resolution
+							refraction. Light absorbance is calculated based on the estimated path length of light
+							through the water for each pixel. Then the shader blends from from the water color to
+							the color where the refracted ray hits based on the absorbance, and from that to white
+							based on the reflectance. The reflectance value is discretized to 16ths to give the
+							reflection a more reduced-color-palette look. If the water is less than a certain depth,
+							it is colored white for the foam.
+						</p>
+						<p>
+							Ideally in the future I'd like to implement some sort of ray tracing or ray marching
+							type of solution to better calculate how the color of the water is applied, calculate
+							where the refracted light hits, and generate realistic caustics. I may also want to add
+							a dithering effect; currently there's a trade off between having the posterization color
+							depth higher to avoid color banding, and lower to help hide the shape of the noise
+							texture used.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -116,4 +108,5 @@
 	<win-task-bar id="task-bar"></win-task-bar>
 </body>
 <script type="module" src="/src/dn-alert/index.js"></script>
+
 </html>
