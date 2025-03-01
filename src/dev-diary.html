@@ -25,13 +25,15 @@
 			display: flex;
 			margin: 0px;
 			flex-grow: 1;
+			overflow: hidden;
 		}
 
 		#content {
-			background: url('/assets/red-space-inverted-sparse.png')
+			background: url('/assets/red-space-inverted-sparse.png');
+			overflow-y: scroll;
 		}
 
-		#posts {
+		#posts>section {
 			background-color: #FFFFFFD8;
 			border: 2px solid white;
 			border-radius: 2px;
@@ -64,10 +66,13 @@
 
 		.post figure {
 			box-sizing: border-box;
+			margin: 0px 30px;
 		}
 
 		.post figcaption {
 			text-align: center;
+			font-size: 8px;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 		}
 	</style>
 </head>
