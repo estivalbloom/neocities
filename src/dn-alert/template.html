@@ -1,6 +1,10 @@
 <template>
-	<div id="modal-alert" aria-modal="true">
-		<div is="win-alert" id="dn-alert" title-text="Action Required">
+	<div id="modal-alert" aria-hidden="true" aria-labelledby="window-title" aria-describedby="window-desc" role="alertdialog">
+		<div></div>
+		<div is="win-alert" id="dn-alert">
+			<h1 id="window-title" slot="window-title">
+				Action Required
+			</h1>
 			<div id="window-desc" slot="window-body">
 				Deez nuts lmao
 			</div>

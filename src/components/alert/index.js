@@ -1,4 +1,4 @@
-import { parseTemplate, initShadow, wrapClick, useDeference } from "/src/util.js";
+import { parseTemplate, initShadow, wrapClick } from "/src/util.js";
 import template_html from './template.html?raw'
 
 async function setup(style_src) {
@@ -25,19 +25,6 @@ async function setup(style_src) {
 			this._ding = shadow.querySelector('#ding');
 		}
 
-		static get observedAttributes() {
-			return ['title-text']
-		};
-
-		// Early calls will defer until connectedCallback()
-		attributeChangedCallback(name, _oldVal, newVal) {
-			switch (name) {
-				case 'title-text':
-					this._title_text_elem.textContent = newVal;
-					break;
-			}
-		}
-
 		ding() {
 			this._ding.fastSeek(0);
 			this._ding.play();
@@ -57,9 +44,6 @@ async function setup(style_src) {
 			}
 		}
 	}
-
-	// Only thing I don't like about this is that I'd like it inside the class def
-	useDeference(Alert, Alert.prototype.attributeChangedCallback, Alert.prototype.connectedCallback);
 
 	return Alert;
 }

@@ -36,7 +36,8 @@
 		}
 
 		image-gallery {
-			padding: 12px;
+			padding: 24px;
+			flex-grow: 1;
 		}
 	</style>
 </head>
@@ -52,8 +53,8 @@
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
 					<button aria-label="Maximize"></button> -->
-					<a href="/">
-						<button id="close-button" aria-label="Close"></button>
+					<a href="/" class="page-close-link">
+						<button tabindex="-1" id="close-button" aria-label="Close"></button>
 					</a>
 				</div>
 			</div>

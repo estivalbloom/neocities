@@ -358,7 +358,7 @@ const InternalConfig = function (initConfig) { // eslint-disable-line no-unused-
 		 * @type {boolean}
 		 * @default
 		 */
-		focusCanvas: true,
+		focusCanvas: false,
 		/**
 		 * When enabled, this will turn on experimental virtual keyboard support on mobile.
 		 *

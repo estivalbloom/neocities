@@ -4,14 +4,22 @@
 			/* Bit of a hack for now, but this fixes blurriness */
 			min-width: 76px;
 		}
+
+		.title-bar-controls button:focus {
+			outline: 1px dotted #000 !important;
+			outline-offset: -3px;
+		}
+		
 	</style>
-	<div role="alertdialog" aria-labelledby="title-text" aria-describedby="window-desc" class="window">
+	<div class="window" role="document">
 		<div class="title-bar">
-			<div id="title-text" class="title-bar-text"></div>
+			<div id="title-text" class="title-bar-text">
+				<slot name="window-title"></slot>
+			</div>
 			<div class="title-bar-controls">
 				<!-- <button aria-label="Minimize"></button>
 				<button aria-label="Maximize"></button> -->
-				<button id="close-button" aria-label="Close"></button>
+				<button id="close-button" type="button" aria-label="Close"></button>
 			</div>
 		</div>
 		<div class="window-body">

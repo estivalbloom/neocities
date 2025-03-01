@@ -39,8 +39,8 @@ async function setup(style_src) {
 			}, 500);
 		}
 
-		focusStart() {
-			this._start_button.focus()
+		get startButton() {
+			return this._start_button;
 		}
 
 		disconnectedCallback() {

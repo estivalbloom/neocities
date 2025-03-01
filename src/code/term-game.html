@@ -56,21 +56,22 @@
 				</h1>
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
-					<butF.*ton ari★ (.*)a-label="Maximize"></button> -->
-					<a href="/src/code/">
-						<button id="close-button" aria-label="Close"></button>
+					<button aria-label="Maximize"></button> -->
+					<a href="/src/code/" class="page-close-link">
+						<button tabindex="-1" id="close-button" aria-label="Close"></button>
 					</a>
 				</div>
 			</div>
 			<div class="window-body">
 				<div id="content" class="code-content">
-					<iframe aria-describedby="description" src="/assets/code/terminal-game/index.html"></iframe>
+					<iframe tabindex="0" id="game-frame" aria-describedby="description"
+						src="/assets/code/terminal-game/index.html"></iframe>
 					<div id="text">
 						<p id="description">
 							Not much content to it; basically just a proof of concept for the look. Type "help" to list
-							the allowed commands. If you're confused about what any of them do and just want to see how
-							text on screen looks, try "lorem" or "color_party". To terminate a currently-running
-							program, use ctrl+c. Using the "exit" command just kinda freezes the game right now.
+							the allowed commands. To terminate a currently-running program, use ctrl+c. Using the "exit"
+							command just kinda freezes the game right now. Currently you can use tab to return focus to
+							this window but that may change in the future.
 						</p>
 						VFX controls:
 						<ul>
@@ -101,6 +102,27 @@
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
 </body>
+
 <script type="module" src="/src/dn-alert/index.js"></script>
+<script type="module">
+	import { tabbable, focusable } from 'tabbable';
+
+	const game_frame = document.querySelector('#game-frame');
+
+	window.addEventListener('message', (e) => {
+		const data = e.data;
+		console.log(data);
+		if (data.key === 'Tab') {
+			const tabbable_elems = tabbable(document.body, { getShadowRoot: true })
+			const current_idx = tabbable_elems.indexOf(game_frame)
+			const next_idx = data.shift ? current_idx - 1 : current_idx + 1;
+			console.log(tabbable_elems, next_idx);
+			if (next_idx < 0 || next_idx >= tabbable_elems.length) {
+				return;
+			}
+			tabbable_elems[next_idx].focus();
+		}
+	})
+</script>
 
 </html>

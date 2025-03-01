@@ -3,15 +3,50 @@
 		#image-container {
 			display: flex;
 			gap: 16px;
+			justify-content: center;
+		}
+
+		.image-button {
+			position: relative;
+			width: 128px;
+			height: 128px;
+			padding: 0px;
+			cursor: pointer;
+			outline: 3px solid white;
+			box-shadow: 5px 5px 0px 3px black !important;
+			background: unset;
+			transition: all 0.15s;
+		}
+
+		.image-button:hover {
+			transform: translate(-4px, -4px);
+			box-shadow: 9px 9px 0px 3px black !important;
+		}
+
+		.image-button:focus {
+			outline: 3px solid white;
+			outline-offset: unset;
+		}
+
+		.image-overlay {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			transition: all 0.15s;
+		}
+
+		.image-button:focus>.image-overlay{
+			background-color: #FFFFFF80;
+			z-index: 1;
 		}
 
 		.gallery-image {
-			width: 128px;
-			height: 128px;
+			width: 100%;
+			height: 100%;
 			object-fit: cover;
 			object-position: 50% 0%;
-			cursor: pointer;
-			box-shadow: 0px 0px 0px 3px white, 6px 6px 0px 3px black;
 		}
 
 		#modal {
@@ -21,10 +56,13 @@
 			bottom: 0px;
 			left: 0px;
 			right: 0px;
-			visibility: hidden;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+		}
+
+		#modal[aria-hidden='true'] {
+			display: none;
 		}
 
 		#modal-body {
@@ -43,16 +81,30 @@
 			text-wrap: wrap;
 			box-sizing: border-box;
 		}
+
+		#overlay {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		#gallery-title-bar button:focus {
+			outline: 1px dotted #000 !important;
+			outline-offset: -3px;
+		}
 	</style>
 	<div id="image-container"></div>
-	<div id="modal">
+	<div id="modal" aria-hidden="true" aria-labelledby="modal-title-text" aria-describedby="modal-caption" >
+		<div id="overlay" data-a11y-dialog-hide></div>
 		<div class="window">
 			<div class="title-bar">
-				<h1 id="modal-title-text" class="title-bar-text"></h1>
-				<div class="title-bar-controls">
+				<h2 id="modal-title-text" class="title-bar-text"></h2>
+				<div id="gallery-title-bar" class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
 					<button aria-label="Maximize"></button> -->
-					<button id="close-button" aria-label="Close"></button>
+					<button id="close-button" data-a11y-dialog-hide aria-label="Close"></button>
 				</div>
 			</div>
 			<div id="modal-body" class="window-body">

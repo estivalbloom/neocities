@@ -12,6 +12,8 @@
     "vite": "^6.1.1"
   },
   "dependencies": {
-    "moji-mash": "github:estivalbloom/moji-mash"
+    "a11y-dialog": "^8.1.1",
+    "moji-mash": "github:estivalbloom/moji-mash",
+    "tabbable": "^6.2.0"
   }
 }

@@ -57,14 +57,14 @@
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
 					<button aria-label="Maximize"></button> -->
-					<a href="/src/code/"> <!-- PREVIOUS PAGE -->
-						<button id="close-button" aria-label="Close"></button>
+					<a href="/src/code/" class="page-close-link">
+						<button tabindex="-1" id="close-button" aria-label="Close"></button>
 					</a>
 				</div>
 			</div>
 			<div class="window-body">
 				<div id="content" class="code-content">
-					<iframe aria-describedby="text" src="/assets/code/pixel-water/index.html"></iframe>
+					<iframe inert aria-describedby="text" src="/assets/code/pixel-water/index.html"></iframe>
 					<div id="text">
 						<p>
 							Just a simple demo of the effect with no interactivity. The water height is generated

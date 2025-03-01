@@ -50,6 +50,7 @@ body {
 	margin: 2px 1px;
 }
 
+
 #modal-alert {
 	z-index: 100;
 	position: fixed;
@@ -57,10 +58,13 @@ body {
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
-	visibility: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+#modal-alert[aria-hidden='true'] {
+	display: none;
 }
 
 #dn-alert {
@@ -85,13 +89,9 @@ body {
 
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
 	font-size: 1em;
 	margin: 0px;
-}
-
-h2 {
-	font-size: 2em;
 }
 
 .fake-pre {

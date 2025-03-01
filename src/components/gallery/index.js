@@ -1,5 +1,6 @@
 import { parseTemplate, initShadow, useDeference, applyStyle } from "/src/util.js";
 import template_html from './template.html?raw'
+import A11yDialog from "a11y-dialog";
 
 async function setup(style_src) {
 	const template = parseTemplate(template_html);
@@ -20,9 +21,9 @@ async function setup(style_src) {
 			this._modal_caption = shadow.querySelector('#modal-caption');
 			this._modal_footer = shadow.querySelector('#modal-footer');
 
-			const close_button = shadow.querySelector('#close-button');
-			close_button.addEventListener('click', () => this._modal.style.visibility = 'hidden');
-			this._modal.addEventListener('click', () => this._modal.style.visibility = 'hidden');
+			this._close_button = shadow.querySelector('#close-button');
+
+			this._dialog = new A11yDialog(this._modal);
 		}
 
 		static get observedAttributes() {
@@ -35,6 +36,7 @@ async function setup(style_src) {
 			this._modal_img.src = image.src;
 			this._modal_caption.textContent = info.caption;
 			this._modal_caption.style.maxWidth = `${image.naturalWidth + 4}px`;
+			this._dialog.show();
 		}
 
 		async populateGallery(info_path) {
@@ -43,15 +45,23 @@ async function setup(style_src) {
 
 			this._image_container.innerHTML = '';
 			info.forEach(image_info => {
+				const button = document.createElement('button');
+				button.classList.add('image-button');
 				const image = document.createElement('img');
 				image.src = (new URL(`./${image_info.file}`, info_req.url)).href;
 				image.classList.add('gallery-image');
 				image.alt = image_info.name;
 
-				image.addEventListener('click', (e) => {
+				button.addEventListener('click', (e) => {
 					this.showModal(image,  image_info);
 				})
-				this._image_container.appendChild(image);
+				button.appendChild(image);
+
+				const overlay = document.createElement('div');
+				overlay.classList.add('image-overlay');
+				button.appendChild(overlay);
+
+				this._image_container.append(button);
 			})
 		}
 
