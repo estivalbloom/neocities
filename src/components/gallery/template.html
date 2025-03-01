@@ -34,17 +34,21 @@
 
 		#modal-img {
 			object-fit: none;
+			box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+			background: white;
+			padding: 2px;
 		}
 
 		#modal-caption {
 			text-wrap: wrap;
+			box-sizing: border-box;
 		}
 	</style>
 	<div id="image-container"></div>
 	<div id="modal">
 		<div class="window">
 			<div class="title-bar">
-				<div id="modal-title-text" class="title-bar-text"></div>
+				<h1 id="modal-title-text" class="title-bar-text"></h1>
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
 					<button aria-label="Maximize"></button> -->

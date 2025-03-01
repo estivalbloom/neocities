@@ -18,6 +18,21 @@
 		defineAll()
 	</script>
 	<style>
+		#logo {
+			width: 512px;
+			height: 256px;
+		}
+
+		#message {
+			margin: 0px auto;
+			flex-grow: 1;
+			text-wrap: wrap;
+			box-sizing: border-box;
+			font-family: "Pixelated MS Sans Serif", Arial;
+			padding: 12px;
+			width: 444px;
+		}
+
 		#main-window {
 			display: flex;
 			flex-direction: column;
@@ -34,7 +49,6 @@
 		#nav-list {
 			display: flex;
 			flex-direction: column;
-			flex-grow: 1;
 		}
 
 		#nav-item {
@@ -43,9 +57,16 @@
 			box-sizing: border-box;
 			width: 384px;
 			margin: 1px;
-			padding: 4px;
+			padding: 2px 4px;
 			grid-template-columns: 64px 72px 192px;
 			column-gap: 16px;
+			color: black;
+			text-decoration: none;
+		}
+
+		#nav-item:hover {
+			background-color: blue;
+			color: white;
 		}
 
 		#nav-icon {
@@ -68,14 +89,25 @@
 			grid-column-end: 4;
 		}
 
-		#nav-item {
-			color: black;
-			text-decoration: none;
+		#l-col {
+			padding: 12px;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
 		}
 
-		#nav-item:hover {
-			background-color: blue;
-			color: white;
+		#r-col {
+			display: flex;
+			flex-direction: column;
+		}
+
+		#button-drawer {
+			display: flex;
+			width: 264px;
+			flex-wrap: wrap;
+			margin: 0px auto;
+			flex-grow: 1;
+			align-content: center;
 		}
 	</style>
 </head>
@@ -85,14 +117,39 @@
 		<div class="spacer"></div>
 		<main id="main-window" class="window">
 			<div id="page-title-bar" class="title-bar">
-				<div class="title-bar-text">
+				<h1 class="title-bar-text">
 					Welcome!
-				</div>
+				</h1>
 			</div>
 			<div class="window-body">
-				<div id="center-col">
+				<div id="l-col">
 					<img id="logo" alt="site logo" src="/assets/shitty-logo.png">
 					<div id="message" class="fake-pre"></div>
+				</div>
+				<div class="vertical-rule" style="margin-right: 1px;"></div>
+				<div id="r-col">
+					<nav id="nav-list">
+						<a id="nav-item" href="/src/about.html">
+							<img id="nav-icon" src="/assets/icons/thinking-even98er.png">
+							<div id="nav-title">Bio</div>
+							<div id="nav-desc">About the Esti</div>
+						</a>
+						<a id="nav-item" href="/src/code/">
+							<img id="nav-icon" src="/assets/icons/code-icon.png">
+							<div id="nav-title">Code</div>
+							<div id="nav-desc">Games, demos, and interactive art</div>
+						</a>
+						<a id="nav-item" href="/src/art.html">
+							<img id="nav-icon" src="/assets/icons/palette-icon.png">
+							<div id="nav-title">Art</div>
+							<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
+						</a>
+						<a id="nav-item" href="/src/dev-diary.html">
+							<img id="nav-icon" src="/assets/icons/diary-icon.png">
+							<div id="nav-title">Devlog</div>
+							<div id="nav-desc">Quick posts about what I'm working on</div>
+						</a>
+					</nav>
 					<div id="button-drawer">
 						<img src="/assets/buttons/queercodedthis.png">
 						<img src="/assets/buttons/gamecube.png">
@@ -105,29 +162,6 @@
 						<script src="https://transring.neocities.org/ring.js" data-widget="nb"></script>
 					</div>
 				</div>
-				<div class="vertical-rule" style="margin-right: 1px;"></div>
-				<nav id="nav-list">
-					<a id="nav-item" href="/src/about.html">
-						<img id="nav-icon" src="/assets/icons/thinking-even98er.png">
-						<div id="nav-title">Bio</div>
-						<div id="nav-desc">About the Esti</div>
-					</a>
-					<a id="nav-item" href="/src/code/">
-						<img id="nav-icon" src="/assets/icons/code-icon.png">
-						<div id="nav-title">Code</div>
-						<div id="nav-desc">Games, demos, and interactive art</div>
-					</a>
-					<a id="nav-item" href="/src/art.html">
-						<img id="nav-icon" src="/assets/icons/palette-icon.png">
-						<div id="nav-title">Art</div>
-						<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
-					</a>
-					<a id="nav-item" href="/src/dev-diary.html">
-						<img id="nav-icon" src="/assets/icons/diary-icon.png">
-						<div id="nav-title">Devlog</div>
-						<div id="nav-desc">Quick posts about what I'm working on</div>
-					</a>
-				</nav>
 			</div>
 			<div id="welcome-status" class="status-bar">
 				<div id="req-js" class="status-bar-field">

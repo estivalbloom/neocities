@@ -28,36 +28,6 @@ body {
 	flex-grow: 1;
 }
 
-#center-col {
-	padding: 12px;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
-
-#logo {
-	width: 512px;
-	height: 256px;
-}
-
-#message {
-	width: 384px;
-	margin: 0px auto;
-	flex-grow: 1;
-	text-wrap: wrap;
-	box-sizing: border-box;
-	font-family: "Pixelated MS Sans Serif",Arial;
-	padding: 12px;
-}
-
-#button-drawer {
-	display: flex;
-	width: 264px;
-	flex-wrap: wrap;
-	margin: 0px auto;
-}
-
-
 #desktop-icon-container {
 	flex-grow: 1;
 	display: flex;
@@ -115,8 +85,13 @@ body {
 
 }
 
-h5 {
+h1 {
 	font-size: 1em;
+	margin: 0px;
+}
+
+h2 {
+	font-size: 2em;
 }
 
 .fake-pre {

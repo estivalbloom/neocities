@@ -1,4 +1,4 @@
-import { parseTemplate, initShadow, useDeference } from "/src/util.js";
+import { parseTemplate, initShadow, useDeference, applyStyle } from "/src/util.js";
 import template_html from './template.html?raw'
 
 async function setup(style_src) {
@@ -11,6 +11,7 @@ async function setup(style_src) {
 
 		connectedCallback() {
 			const shadow = initShadow(this, template, style_src);
+			applyStyle(shadow, '/assets/style.css')
 		
 			this._image_container = shadow.querySelector('#image-container');
 			this._modal = shadow.querySelector('#modal');
@@ -33,7 +34,7 @@ async function setup(style_src) {
 			this._modal_title.textContent = info.name;
 			this._modal_img.src = image.src;
 			this._modal_caption.textContent = info.caption;
-			this._modal_caption.style.maxWidth = `${image.naturalWidth}px`;
+			this._modal_caption.style.maxWidth = `${image.naturalWidth + 4}px`;
 		}
 
 		async populateGallery(info_path) {
