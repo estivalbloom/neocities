@@ -152,14 +152,16 @@
 						</a>
 					</nav>
 					<div id="button-drawer">
-						<img src="/assets/buttons/queercodedthis.png" alt="you're telling me a queer cooded this button">
+						<img src="/assets/buttons/queercodedthis.png"
+							alt="you're telling me a queer cooded this button">
 						<img src="/assets/buttons/gamecube.png" alt="gamecube logo button">
 						<img src="/assets/buttons/transrightsnow.png" alt="trans rights now button">
 						<img src="/assets/buttons/drpepper.gif" alt="powered by dr. pepper button">
 						<img src="/assets/buttons/transyourgender.gif" alt="trans your gender button">
 						<img src="/assets/buttons/godot.png" alt="godot game engine button">
 						<a href="https://www.mabsland.com/Adoption.html">
-							<img src="/assets/buttons/censor_14c.gif" alt="rated 14+ button" style="width: 88px; height:  31px;">
+							<img src="/assets/buttons/censor_14c.gif" alt="rated 14+ button"
+								style="width: 88px; height:  31px;">
 						</a>
 						<img src="/assets/buttons/graphicdesign.png" alt="graphic design is my passion button">
 					</div>
@@ -180,18 +182,96 @@
 				</div>
 			</div>
 		</main>
-		<div class="spacer"></div>
+		<div id="desktop-icon-container">
+			<a class="desktop-icon" aria-labelledby="mailto-text" href="mailto:esti.cities@proton.me">
+				<img src="/assets/icons/32/mail-icon.png">
+				<div id="mailto-text" class="desktop-icon-text">
+					E-mail
+					<canvas class="icon-canvas icon-canvas-light"></canvas>
+					<canvas class="icon-canvas icon-canvas-strong"></canvas>
+				</div>
+			</a>
+			<a class="desktop-icon" aria-labelledby="bsky-text" href="https://bsky.app/profile/estivalbloom.bsky.social">
+				<img src="/assets/icons/32/bsky-icon.png">
+				<div id="bsky-text" class="desktop-icon-text">
+					Bluesky
+					<canvas class="icon-canvas icon-canvas-light"></canvas>
+					<canvas class="icon-canvas icon-canvas-strong"></canvas>
+				</div>
+			</a>
+		</div>
 	</div>
 	<win-task-bar id="task-bar"></win-task-bar>
 </body>
 <script type="module" src="/src/dn-alert/index.js"></script>
 <script>
-		(async () => {
-			let resp = await fetch('/assets/welcome-message.html');
-			let html = await resp.text();
-			let message = document.querySelector('#message')
-			message.innerHTML = html;
-		})();
+	function coordToIdx(rect, v) {
+		return (v.x + v.y * rect.x) * 4;
+	}
+	
+	function inBounds(rect, v) {
+		return v.x >= 0 && v.y >= 0 && v.x < rect.x && v.y < rect.y;
+	}
+	
+	function plus(v1, v2) {
+		return { x: v1.x + v2.x, y: v1.y + v2.y };
+	}
+
+	function setPixel(image_data, idx, color) {
+		image_data.data[idx + 0] = color.r;
+		image_data.data[idx + 1] = color.g;
+		image_data.data[idx + 2] = color.b;
+		image_data.data[idx + 3] = color.a;
+	}
+
+	function initImageData(canvas, size) {
+		const ctx = canvas.getContext('2d');
+		const image_data = ctx.createImageData(size.x, size.y);
+		canvas.setAttribute('width', `${size.x}px`);
+		canvas.setAttribute('height', `${size.y}px`);
+		return { ctx, image_data };
+	}
+	
+	directions = [
+		{ x:  1, y:  0 },
+		{ x:  0, y:  1 },
+		{ x: -1, y:  0 },
+		{ x:  0, y: -1 }
+	]
+	const icon_texts = document.querySelectorAll('.desktop-icon-text');
+	const light_color = { r: 255, g: 0, b:0 , a: 255 };
+	const strong_color_border = { r: 255, g: 255, b: 0, a: 255 };
+
+	icon_texts.forEach(text => {
+		const size = { x: text.offsetWidth, y: text.offsetHeight };
+		const canvas_light = text.children[0];
+		const canvas_strong = text.children[1];
+		const { ctx: ctx_light, image_data: image_data_light } = initImageData(canvas_light, size);
+		const { ctx: ctx_strong, image_data: image_data_strong } = initImageData(canvas_strong, size);
+		let position = { x: -1, y: 0 };
+		let next = position;
+		directions.forEach(dir => {
+			next = plus(position, dir);
+			do {
+				position = next;
+				if( (position.x + position.y) % 2 == 0 ){
+					const idx = coordToIdx(size, position);
+					setPixel(image_data_light, idx, light_color);
+					setPixel(image_data_strong, idx, strong_color_border);
+				}
+				next = plus(position, dir);
+			} while( inBounds(size, next) )
+		})
+		ctx_light.putImageData(image_data_light, 0, 0);
+		ctx_strong.putImageData(image_data_strong, 0, 0);
+	});
+
+	(async () => {
+		let resp = await fetch('/assets/welcome-message.html');
+		let html = await resp.text();
+		let message = document.querySelector('#message')
+		message.innerHTML = html;
+	})();
 </script>
 
 </html>

@@ -32,14 +32,56 @@ body {
 	flex-grow: 1;
 	display: flex;
 	justify-content: center;
-	margin-top: 12px;;
+	align-items: start;
+	margin-top: 12px;
+	gap: 1.5px;
+	margin-right: 0.5px;
 }
 
 .desktop-icon {
-	color: white;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-decoration: none;
+	width: 74px;
+	gap: 4px;
+}
+
+.desktop-icon:focus {
+	outline: unset;
+}
+
+.desktop-icon:focus .icon-canvas-light {
+	visibility: visible;
+}
+
+.desktop-icon:active .icon-canvas-strong {
+	visibility: visible;
+}
+
+.desktop-icon-text {
+	position: relative;
+	box-sizing: content-box;
+	color: white;
+	font-size: 11px;
+	text-align: center;
+	font-family: "Pixelated MS Sans Serif",Arial;
+	padding: 1px 1px 0px 2px;
+	margin-left: 2px;
+}
+
+.icon-canvas {
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+}
+
+.icon-canvas-strong {
+	background-color: blue;
 }
 
 .vertical-rule {
@@ -83,7 +125,6 @@ body {
 
 .code-content {
 	background: #1d7833;
-	/* background: linear-gradient(38deg, rgba(50,88,62,1) 0%, rgba(73,214,95,1) 100%); */
 	max-height: 100%;
 	overflow-y: scroll;
 
