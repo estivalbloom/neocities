@@ -186,7 +186,7 @@
 			<a class="desktop-icon" aria-labelledby="mailto-text" href="mailto:esti.cities@proton.me">
 				<img src="/assets/icons/32/mail-icon.png">
 				<div id="mailto-text" class="desktop-icon-text">
-					E-mail
+					<div>E-mail</div>
 					<canvas class="icon-canvas icon-canvas-light"></canvas>
 					<canvas class="icon-canvas icon-canvas-strong"></canvas>
 				</div>
@@ -194,7 +194,7 @@
 			<a class="desktop-icon" aria-labelledby="bsky-text" href="https://bsky.app/profile/estivalbloom.bsky.social">
 				<img src="/assets/icons/32/bsky-icon.png">
 				<div id="bsky-text" class="desktop-icon-text">
-					Bluesky
+					<div>Bluesky</div>
 					<canvas class="icon-canvas icon-canvas-light"></canvas>
 					<canvas class="icon-canvas icon-canvas-strong"></canvas>
 				</div>
@@ -227,8 +227,8 @@
 	function initImageData(canvas, size) {
 		const ctx = canvas.getContext('2d');
 		const image_data = ctx.createImageData(size.x, size.y);
-		canvas.setAttribute('width', `${size.x}px`);
-		canvas.setAttribute('height', `${size.y}px`);
+		canvas.width = size.x;
+		canvas.height = size.y;
 		return { ctx, image_data };
 	}
 	
@@ -242,10 +242,12 @@
 	const light_color = { r: 255, g: 0, b:0 , a: 255 };
 	const strong_color_border = { r: 255, g: 255, b: 0, a: 255 };
 
-	icon_texts.forEach(text => {
+	icon_texts.forEach(text_container => {
+		console.log(text_container.children);
+		const text = text_container.children[0];
 		const size = { x: text.offsetWidth, y: text.offsetHeight };
-		const canvas_light = text.children[0];
-		const canvas_strong = text.children[1];
+		const canvas_light = text_container.children[1];
+		const canvas_strong = text_container.children[2];
 		const { ctx: ctx_light, image_data: image_data_light } = initImageData(canvas_light, size);
 		const { ctx: ctx_strong, image_data: image_data_strong } = initImageData(canvas_strong, size);
 		let position = { x: -1, y: 0 };

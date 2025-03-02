@@ -66,8 +66,10 @@ body {
 	font-size: 11px;
 	text-align: center;
 	font-family: "Pixelated MS Sans Serif",Arial;
+}
+
+.desktop-icon-text>div {
 	padding: 1px 1px 0px 2px;
-	margin-left: 2px;
 }
 
 .icon-canvas {
