@@ -13,7 +13,7 @@ importers:
         version: 8.1.1
       matrix-image-gen:
         specifier: github:estivalbloom/matrix-image-gen
-        version: https://codeload.github.com/estivalbloom/matrix-image-gen/tar.gz/912f85797a1e64d566f74cae41f00bed9d5c2da4
+        version: https://codeload.github.com/estivalbloom/matrix-image-gen/tar.gz/73b8c48981287f503efb9c65f7830b490e68f8a3
       moji-mash:
         specifier: github:estivalbloom/moji-mash
         version: https://codeload.github.com/estivalbloom/moji-mash/tar.gz/af952c4747310dcba5daa74d833a802c12207e12
@@ -336,8 +336,8 @@ packages:
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
-  matrix-image-gen@https://codeload.github.com/estivalbloom/matrix-image-gen/tar.gz/912f85797a1e64d566f74cae41f00bed9d5c2da4:
-    resolution: {tarball: https://codeload.github.com/estivalbloom/matrix-image-gen/tar.gz/912f85797a1e64d566f74cae41f00bed9d5c2da4}
+  matrix-image-gen@https://codeload.github.com/estivalbloom/matrix-image-gen/tar.gz/73b8c48981287f503efb9c65f7830b490e68f8a3:
+    resolution: {tarball: https://codeload.github.com/estivalbloom/matrix-image-gen/tar.gz/73b8c48981287f503efb9c65f7830b490e68f8a3}
     version: 1.0.0
 
   moji-mash@https://codeload.github.com/estivalbloom/moji-mash/tar.gz/af952c4747310dcba5daa74d833a802c12207e12:
@@ -668,7 +668,7 @@ snapshots:
 
   inherits@2.0.4: {}
 
-  matrix-image-gen@https://codeload.github.com/estivalbloom/matrix-image-gen/tar.gz/912f85797a1e64d566f74cae41f00bed9d5c2da4: {}
+  matrix-image-gen@https://codeload.github.com/estivalbloom/matrix-image-gen/tar.gz/73b8c48981287f503efb9c65f7830b490e68f8a3: {}
 
   moji-mash@https://codeload.github.com/estivalbloom/moji-mash/tar.gz/af952c4747310dcba5daa74d833a802c12207e12:
     dependencies:
