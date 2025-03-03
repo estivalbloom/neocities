@@ -122,13 +122,13 @@ body {
 }
 
 :root {
-	--code-color: #3ca24f;
-	--code-card-bg: #202020;
-	--code-card-fg: #2d2d2d;
+	--code-color: #00FF00;
+	--code-card-bg: #008200;
+	--code-card-fg: #000000;
 }
 
 .code-content {
-	background: #1d7833;
+	background: url('/assets/matrix-text.png');
 	max-height: 100%;
 	overflow-y: scroll;
 

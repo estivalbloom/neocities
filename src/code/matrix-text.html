@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Matrix Text - Esti's Old Computer</title>
+	<link rel="icon" href="/assets/icons/64/thinking-even98er.png" type="image/png">
+	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
+	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
+	<script type="module">
+		import { defineAll } from '/src/main.js'
+		defineAll()
+	</script>
+	<style>
+		#code-window {
+			display: flex;
+			flex-direction: column;
+			margin: auto;
+			width: 960px;
+			height: 720px;
+		}
+
+		#code-window>.window-body {
+			display: flex;
+			margin: 0px;
+			flex-grow: 1;
+		}
+
+		#app {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+
+		#main-card {
+			margin: auto;
+			padding: 12px;
+			width: fit-content;
+			background-color: var(--code-card-bg);
+			color: var(--code-color);
+			box-shadow:
+				2px 0px 0px 0px var(--code-card-bg),
+				0px 2px 0px 0px var(--code-card-bg),
+				-2px 0px 0px 0px var(--code-card-bg),
+				0px -2px 0px 0px var(--code-card-bg);
+		}
+
+		#card-body {
+			padding: 12px;
+			display: flex;
+			align-items: start;
+			gap: 12px;
+			background-color: #2d2d2d;
+			box-sizing: border-box;
+			box-shadow:
+				2px 0px 0px 0px var(--code-color),
+				0px 2px 0px 0px var(--code-color),
+				-2px 0px 0px 0px var(--code-color),
+				0px -2px 0px 0px var(--code-color);
+		}
+
+		#cfg-form {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		#cfg-form>div {
+			width: 192px;
+		}
+
+		#cfg-form>label {
+			width: 192px;
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		#cfg-form>label>input {
+			width: 92px;
+		}
+
+		#cfg-form>button {
+			margin-right: 1px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main-container">
+		<div class="spacer"></div>
+		<div id="code-window" class="window frame">
+			<div id="page-title-bar" class="title-bar">
+				<div class="title-bar-text">
+					Moji Mash
+				</div>
+				<div class="title-bar-controls">
+					<!-- <button aria-label="Minimize"></button>
+					<button aria-label="Maximize"></button> -->
+					<a href="/src/code/" class="page-close-link">
+						<button tabindex="-1" id="close-button" aria-label="Close"></button>
+					</a>
+				</div>
+			</div>
+			<div class="window-body">
+				<div id="content" class="code-content">
+					<div id="app">
+						<div class="spacer"></div>
+						<div id="main-card">
+							<div id="card-body">
+								<form id="cfg-form">
+									<div>
+										Be careful about turning the numbers up too high, or else you'll freeze the browser tab.
+									</div>
+									<label>
+										String Count:
+										<input id="str-count" type="number" value="192">
+									</label>
+									<label>
+										String Length:
+										<input id="str-len" type="number" value="8">
+									</label>
+									<label>
+										Effect Passes:
+										<input id="n-passes" type="number" value="16">
+									</label>
+									<label>
+										Main Text Color:
+										<input id="color-main" type="color" value="#00FF00">
+									</label>
+									<label>
+										Text Effect Color:
+										<input id="color-secondary" type="color" value="#008000">
+									</label>
+									<label>
+										Background Color:
+										<input id="color-bg" type="color" value="#000000">
+									</label>
+									<button id="generate-button">Generate</button>
+								</form>
+								<canvas id="matrix-canvas"></canvas>
+							</div>
+						</div>
+						<div class="spacer"></div>
+					</div>
+				</div>
+			</div>
+			<div class="status-bar">
+				<div class="status-bar-field">
+					Created: March 2025
+				</div>
+				<div class="status-bar-field">
+					Made with: Javascript
+				</div>
+			</div>
+		</div>
+		<div class="spacer"></div>
+	</div>
+	<div is="win-task-bar" id="task-bar"></div>
+</body>
+
+<script type="module" src="/src/dn-alert/index.js"></script>
+<script type="module">
+	import { draw } from 'matrix-image-gen'
+
+	const canvas = document.querySelector('#matrix-canvas');
+	canvas.width = 512;
+	canvas.height = 512;
+	const ctx = canvas.getContext('2d');
+
+	function generate() {
+		const n_strs = Number(document.querySelector('#str-count').value);
+		const str_len = Number(document.querySelector('#str-len').value);
+		const n_passes = Number(document.querySelector('#n-passes').value);
+		const color_main = document.querySelector('#color-main').value;
+		const color_secondary = document.querySelector('#color-secondary').value;
+		const color_bg = document.querySelector('#color-bg').value;
+
+		draw(ctx, {
+			w: canvas.width,
+			h: canvas.height,
+			n_strs,
+			str_len,
+			n_passes,
+			color_main,
+			color_secondary,
+			color_bg
+		});
+	}
+
+	const generateButton = document.querySelector('#generate-button');
+	generateButton.addEventListener('click', (e) => {
+		e.preventDefault();
+		generate();
+	});
+
+	generate()
+</script>
+
+</html>

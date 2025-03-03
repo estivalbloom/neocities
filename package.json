@@ -9,11 +9,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^6.1.1"
+    "vite": "^6.2.0"
   },
   "dependencies": {
     "a11y-dialog": "^8.1.1",
+    "matrix-image-gen": "github:estivalbloom/matrix-image-gen",
     "moji-mash": "github:estivalbloom/moji-mash",
     "tabbable": "^6.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
