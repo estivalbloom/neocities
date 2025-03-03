@@ -27,6 +27,7 @@ export default defineConfig({
 				moji: resolve(__dirname, 'src/code/moji-mash.html'),
 				pix_water: resolve(__dirname, 'src/code/pixel-water.html'),
 				term_game: resolve(__dirname, 'src/code/term-game.html'),
+				matrix_text: resolve(__dirname, 'src/code/matrix-text.html'),
 				art: resolve(__dirname, 'src/art.html'),
 				dev_diary: resolve(__dirname, 'src/dev-diary.html')
 			}

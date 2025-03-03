@@ -51,7 +51,7 @@
 			display: flex;
 			align-items: start;
 			gap: 12px;
-			background-color: #2d2d2d;
+			background-color: var(--code-card-fg);
 			box-sizing: border-box;
 			box-shadow:
 				2px 0px 0px 0px var(--code-color),
@@ -83,6 +83,10 @@
 		#cfg-form>button {
 			margin-right: 1px;
 		}
+
+		#cfg-form>a {
+			color: var(--code-color)
+		}
 	</style>
 </head>
 
@@ -92,7 +96,7 @@
 		<div id="code-window" class="window frame">
 			<div id="page-title-bar" class="title-bar">
 				<div class="title-bar-text">
-					Moji Mash
+					Matrix Text Generator
 				</div>
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
@@ -112,6 +116,9 @@
 									<div>
 										Be careful about turning the numbers up too high, or else you'll freeze the browser tab.
 									</div>
+									<a href="https://github.com/estivalbloom/matrix-image-gen">
+										Source available on github.
+									</a>
 									<label>
 										String Count:
 										<input id="str-count" type="number" value="192">
