@@ -245,9 +245,8 @@
 	const strong_color_border = { r: 255, g: 255, b: 0, a: 255 };
 
 	icon_texts.forEach(text_container => {
-		console.log(text_container.children);
 		const text = text_container.children[0];
-		const size = { x: text.offsetWidth, y: text.offsetHeight };
+		const size = { x: text.offsetWidth - 2, y: text.offsetHeight }; // TODO: WHY
 		const canvas_light = text_container.children[1];
 		const canvas_strong = text_container.children[2];
 		const { ctx: ctx_light, image_data: image_data_light } = initImageData(canvas_light, size);
