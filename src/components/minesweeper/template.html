@@ -1,0 +1,252 @@
+<template>
+	<style>
+		#modal-minesweeper {
+			z-index: 50;
+			position: fixed;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		#modal-minesweeper[aria-hidden='true'] {
+			display: none;
+		}
+
+		.window-body.minesweeper-body {
+			margin: 4px;
+		}
+
+		.title-bar-controls button:focus {
+			outline: 1px dotted #000 !important;
+			outline-offset: -3px;
+		}
+
+		#scoreboard {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 4px 6px;
+			margin-bottom: 6px;
+		}
+
+		#smiley {
+			min-width: 24px;
+			min-height: 24px;
+			max-width: 24px;
+			max-height: 24px;
+			padding: 0px;
+			background-image: url('/assets/minesweeper-smiles.png');
+		}
+
+		#smiley[data-mood='normal'] {
+			background-position: calc(21px * 0 + 1px) 1px;
+		}
+
+		#smiley[data-mood='worried'] {
+			background-position: calc(21px * -1 + 1px) 1px;
+		}
+
+		#smiley[data-mood='lose'] {
+			background-position: calc(21px * -2 + 1px) 1px;
+		}
+
+		#smiley[data-mode='win'] {
+			background-position: calc(21px * -3 + 1px) 1px;
+		}
+
+		.custom-inset {
+			border-width: 2px;
+			border-style: inset;
+			border-color: #C0C0C0 white white #C0C0C0;
+		}
+
+		.custom-outset {
+			box-shadow: unset;
+			border-width: 2px;
+			border-style: outset;
+			border-color: white #C0C0C0 #C0C0C0 white;
+		}
+
+		#minefield button {
+			position: absolute;
+			box-sizing: border-box;
+			padding: 0px;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			min-width: 16px;
+			min-height: 16px;
+			max-width: 16px;
+			max-height: 16px;
+		}
+
+		.minefield-row {
+			height: 16px;
+			display: flex;
+		}
+
+		.minesweeper-square {
+			position: relative;
+			min-width: 16px;
+			min-height: 16px;
+			max-width: 16px;
+			max-height: 16px;
+		}
+	
+		.square-button[data-flagged='true'] {
+			background-image: url('/assets/minesweeper-sprites.png');
+		}
+
+		.square-revealed {
+			position: absolute;
+			border-top: 1px dotted black;
+			border-left: 1px dotted black;
+			align-content: center;
+			text-align: center;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			padding: 2px;
+			background-image: url('/assets/minesweeper-sprites.png');
+		}
+
+		.square-revealed[data-value='0'] {
+			background-image: unset;
+		}
+
+		.square-revealed[data-value='1'] {
+			background-position: calc(-16px * 1 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='2'] {
+			background-position: calc(-16px * 2 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='3'] {
+			background-position: calc(-16px * 3 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='4'] {
+			background-position: calc(-16px * 4 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='5'] {
+			background-position: calc(-16px * 5 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='6'] {
+			background-position: calc(-16px * 6 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='7'] {
+			background-position: calc(-16px * 7 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='8'] {
+			background-position: calc(-16px * 8 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='-1'] {
+			background-position: calc(-16px * 9 - 1px) -1px;
+		}
+
+		.square-revealed[data-clicked-mine='true'] {
+			background-color: red;
+		}
+
+		.square-button[data-flagged='true'] {
+			background-position: -2px -2px;
+		}
+
+		#flag-count, #timer{
+			display: flex;
+		}
+
+		.counter {
+			border-width: 1px;
+			border-style: inset;
+			border-color: #C0C0C0 white white #C0C0C0;
+		}
+
+		.counter-digit {
+			background-image: url('/assets/8-seg-thick-real-zero.png');
+			width: 13px;
+			height: 23px;
+		}
+
+		.counter-digit[data-value='1'] {
+			background-position: calc(-13px * 1);
+		}
+
+		.counter-digit[data-value='2'] {
+			background-position: calc(-13px * 2);
+		}
+
+		.counter-digit[data-value='3'] {
+			background-position: calc(-13px * 3);
+		}
+
+		.counter-digit[data-value='4'] {
+			background-position: calc(-13px * 4);
+		}
+
+		.counter-digit[data-value='5'] {
+			background-position: calc(-13px * 5);
+		}
+
+		.counter-digit[data-value='6'] {
+			background-position: calc(-13px * 6);
+		}
+
+		.counter-digit[data-value='7'] {
+			background-position: calc(-13px * 7);
+		}
+
+		.counter-digit[data-value='8'] {
+			background-position: calc(-13px * 8);
+		}
+
+		.counter-digit[data-value='9'] {
+			background-position: calc(-13px * 9);
+		}
+	</style>
+	<div id="modal-minesweeper" aria-hidden="true" aria-labelledby="window-title" role="alertdialog">
+		<div></div>
+		<div class="window" role="document">
+			<div class="title-bar">
+				<div id="window-title" class="title-bar-text">
+					Minesweeper
+				</div>
+				<div class="title-bar-controls">
+					<!-- <button aria-label="Minimize"></button>
+					<button aria-label="Maximize"></button> -->
+					<button id="close-button" type="button" aria-label="Close" data-a11y-dialog-hide></button>
+				</div>
+			</div>
+			<div class="window-body minesweeper-body">
+				<div id="scoreboard" class="custom-inset">
+					<div id="flag-count" class="counter">
+						<div id="flags-hundreds" class="counter-digit"></div>
+						<div id="flags-tens" class="counter-digit"></div>
+						<div id="flags-ones" class="counter-digit"></div>
+					</div>
+					<button id="smiley"></button>
+					<div id="timer" class="counter">
+						<div id="timer-hundreds" class="counter-digit"></div>
+						<div id="timer-tens" class="counter-digit"></div>
+						<div id="timer-ones" class="counter-digit"></div>
+					</div>
+				</div>
+				<div id="minefield" class="custom-inset">
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

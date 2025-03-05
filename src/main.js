@@ -8,17 +8,26 @@ defines.push(['win-alert', Alert, 'div']);
 
 import taskbarSetup from './components/task-bar/index.js'
 const TaskBar = await taskbarSetup(style_src);
-defines.push((['win-task-bar', TaskBar, 'div']));
+defines.push(['win-task-bar', TaskBar, 'div']);
 
 import gallerySetup from './components/gallery/index.js'
 const Gallery = await gallerySetup(style_src);
-defines.push((['image-gallery', Gallery, 'div']));
+defines.push(['image-gallery', Gallery, 'div']);
+
+import minesweeperSetup from './components/minesweeper/index.js'
+const Minesweeper = await minesweeperSetup(style_src);
+defines.push(['minesweeper-dlg', Minesweeper, 'div']);
 
 function defineAll() {
 	defines.forEach((data) => {
 		const [tag, classObj, base] = data;
 		customElements.define(tag, classObj, { extends: base });
-	})
+	});
 }
 
-export { defineAll, Alert, TaskBar }
+document.querySelector('#minesweeper-button').addEventListener('click', () => {
+	const minesweeper = document.querySelector('#minesweeper');
+	minesweeper.start();
+});
+
+export { defineAll, Alert, TaskBar, Gallery, Minesweeper }

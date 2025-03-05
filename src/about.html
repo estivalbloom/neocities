@@ -97,7 +97,14 @@
 		</main>
 		<div class="spacer"></div>
 	</div>
-	<div is="win-task-bar" id="task-bar"></div>
+	<div is="win-task-bar" id="task-bar">
+		<div id="shortcuts" slot="shortcuts">
+			<button id="minesweeper-button">
+				<div id="minesweeper-icon"></div>
+			</button>
+		</div>
+	</div>
+	<div is="minesweeper-dlg" id="minesweeper"></div>
 </body>
 
 <script type="module" src="/src/dn-alert/index.js"></script>

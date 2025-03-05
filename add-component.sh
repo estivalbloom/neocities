@@ -5,12 +5,12 @@ fi
 
 FILE=$1
 CLASS=$2
-DIR="./src/$FILE"
+DIR="./src/components/$FILE"
 
 mkdir "$DIR"
 
 cat >"$DIR/index.js" <<EOL
-import { parseTemplate, initShadow } from "/src/util.js";
+import { parseTemplate, initShadow } from "../../util.js";
 import template_html from './template.html?raw'
 
 async function setup(style_src) {

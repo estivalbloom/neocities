@@ -10,6 +10,13 @@ function applyStyle(shadow, src) {
 	shadow.appendChild(style_link);
 }
 
+/**
+ * Creates and attaches a shadow DOM and template to the target element
+ * @param {HTMLElement} component 
+ * @param {Document} template 
+ * @param {string} style_src 
+ * @returns {ShadowRoot}
+ */
 function initShadow(component, template, style_src) {
 	const shadow = component.attachShadow({ mode: 'open' });
 	shadow.appendChild(template.content.cloneNode(true));

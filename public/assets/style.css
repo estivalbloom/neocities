@@ -144,3 +144,39 @@ h1, h2, h3, h4, h5, h6 {
 	box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
 	display: block;
 }
+
+
+
+#minesweeper-button {
+	min-width: 16px;
+	min-height: 16px;
+	max-width: 16px;
+	max-height: 16px;
+	padding: 4px 3px 3px 4px;
+	box-sizing: content-box;
+	box-shadow: unset;
+}
+
+#shortcuts button:hover {
+	box-shadow: 
+		inset -1px -1px gray,
+		inset 1px 1px white
+	;
+}
+
+#shortcuts button:active {
+	box-shadow: 
+		inset -1px -1px white,
+		inset 1px 1px gray
+	;
+}
+
+#minesweeper-icon {
+	min-width: 16px;
+	min-height: 16px;
+	max-width: 16px;
+	max-height: 16px;
+	background-image: url('/assets/minesweeper-sprites.png');
+	background-position: calc(-16px * 9 - 1px) -1px;
+	padding: 0px;
+}
