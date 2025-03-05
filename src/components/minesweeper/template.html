@@ -98,7 +98,7 @@
 			max-width: 16px;
 			max-height: 16px;
 		}
-	
+
 		.square-button[data-flagged='true'] {
 			background-image: url('/assets/minesweeper-sprites.png');
 		}
@@ -165,7 +165,8 @@
 			background-position: -2px -2px;
 		}
 
-		#flag-count, #timer{
+		#flag-count,
+		#timer {
 			display: flex;
 		}
 
@@ -216,6 +217,18 @@
 		.counter-digit[data-value='9'] {
 			background-position: calc(-13px * 9);
 		}
+
+		#minefield-container {
+			position: relative;
+		}
+
+		#minefield-overlay {
+			position: absolute;
+			top: 0px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+		}
 	</style>
 	<div id="modal-minesweeper" aria-hidden="true" aria-labelledby="window-title" role="alertdialog">
 		<div></div>
@@ -244,7 +257,9 @@
 						<div id="timer-ones" class="counter-digit"></div>
 					</div>
 				</div>
-				<div id="minefield" class="custom-inset">
+				<div id="minefield-container">
+					<div id="minefield" class="custom-inset"></div>
+					<div id="minefield-overlay"></div>
 				</div>
 			</div>
 		</div>

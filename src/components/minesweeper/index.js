@@ -39,6 +39,11 @@ async function setup(style_src) {
 				if(this._smiley_button.dataset.mood === 'worried') {
 					this._smiley_button.dataset.mood = 'normal';
 				}
+			});
+			
+			this._overlay = this._shadow.querySelector('#minefield-overlay');
+			this._overlay.addEventListener('contextmenu', (e) => {
+				e.preventDefault();
 			})
 
 			this._flag_counter = this._shadow.querySelector('#flag-count');
@@ -92,6 +97,7 @@ async function setup(style_src) {
 
 		gameOver(win) {
 			this._field.inert = true;
+			this._overlay.inert = '';
 			this.stopTimer();
 			this._smiley_button.dataset.mood = win ? 'win' : 'lose';
 		}
@@ -208,6 +214,7 @@ async function setup(style_src) {
 			this.time_elapsed = 0;
 			this._smiley_button.dataset.mood = 'normal';
 			this._field.inert = '';
+			this._overlay.inert = true;
 
 			const field_data = new Array(height * width);
 			field_data.fill(0);
