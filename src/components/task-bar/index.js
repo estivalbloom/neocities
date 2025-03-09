@@ -1,4 +1,4 @@
-import { parseTemplate, initShadow, wrapClick } from "/src/util.js";
+import { parseTemplate, initShadow, wrapClick, applyStyle } from "/src/util.js";
 import template_html from './template.html?raw'
 const timefmt = new Intl.DateTimeFormat('en-US', {
 	hour12: true,
@@ -21,6 +21,7 @@ async function setup(style_src) {
 
 		connectedCallback() {
 			this._shadow = initShadow(this, template, style_src);
+			applyStyle(this._shadow, '/assets/style.css');
 			
 			this._start_button = this._shadow.querySelector('#start-button');
 			wrapClick(this, this._start_button, 'startclick');

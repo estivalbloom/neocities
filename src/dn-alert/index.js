@@ -23,7 +23,6 @@ customElements.whenDefined('win-alert').then(() => {
 	});
 
 	task_bar.addEventListener('startclick', () => {
-		title_bar.classList.add('inactive');
 		dialog.show();
 		alert_elem.ding();
 		alert_elem.setFocus('ok');

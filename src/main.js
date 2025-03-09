@@ -30,4 +30,11 @@ document.querySelector('#minesweeper-button').addEventListener('click', () => {
 	minesweeper.start();
 });
 
-export { defineAll, Alert, TaskBar, Gallery, Minesweeper }
+import initWindowManager from './window-manager.js'
+
+function init() {
+	defineAll();
+	initWindowManager();
+}
+
+export { init, Alert, TaskBar, Gallery, Minesweeper }

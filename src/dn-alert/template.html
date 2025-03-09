@@ -2,9 +2,14 @@
 	<div id="modal-alert" aria-hidden="true" aria-labelledby="window-title" aria-describedby="window-desc" role="alertdialog">
 		<div></div>
 		<div is="win-alert" id="dn-alert">
-			<h1 id="window-title" slot="window-title">
-				Action Required
-			</h1>
+			<div id="window-title" slot="window-title">
+				<h1 class="title-bar-text">
+					<img src="/assets/icons/16/alert-icon.png">
+					<div>
+						Action Required
+					</div>
+				</h1>
+			</div>
 			<div id="window-desc" slot="window-body">
 				Deez nuts lmao
 			</div>

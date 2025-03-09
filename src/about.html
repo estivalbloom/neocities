@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
 	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
 	<script type="module">
-		import { defineAll } from '/src/main.js'
-		defineAll()
+		import { init } from '/src/main.js'
+		init()
 	</script>
 	<style>
 		#about-window{
@@ -58,7 +58,10 @@
 		<main id="about-window" class="window">
 			<div id="page-title-bar" class="title-bar">
 				<h1 class="title-bar-text">
-					About Me
+					<img src="/assets/icons/16/info-icon.png">
+					<div>
+						About Me
+					</div>
 				</h1>
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>

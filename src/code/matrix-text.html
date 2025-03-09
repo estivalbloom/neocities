@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
 	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
 	<script type="module">
-		import { defineAll } from '/src/main.js'
-		defineAll()
+		import { init } from '/src/main.js'
+		init()
 	</script>
 	<style>
 		#code-window {
@@ -95,9 +95,12 @@
 		<div class="spacer"></div>
 		<div id="code-window" class="window frame">
 			<div id="page-title-bar" class="title-bar">
-				<div class="title-bar-text">
-					Matrix Text Generator
-				</div>
+				<h1 class="title-bar-text">
+					<img src="/assets/icons/16/code-icon-sm.png">
+					<div>
+						Matrix Text Generator
+					</div>
+				</h1>
 				<div class="title-bar-controls">
 					<!-- <button aria-label="Minimize"></button>
 					<button aria-label="Maximize"></button> -->

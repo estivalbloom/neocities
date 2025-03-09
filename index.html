@@ -14,8 +14,8 @@
 	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
 	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
 	<script type="module">
-		import { defineAll } from '/src/main.js'
-		defineAll()
+		import { init } from '/src/main.js'
+		init()
 	</script>
 	<style>
 		#logo {
@@ -120,7 +120,10 @@
 		<main id="main-window" class="window">
 			<div id="page-title-bar" class="title-bar">
 				<h1 class="title-bar-text">
-					Welcome!
+					<img src="/assets/icons/16/tinysparklies.png">
+					<div>
+						Welcome!
+					</div>
 				</h1>
 			</div>
 			<div class="window-body">
@@ -181,7 +184,7 @@
 					Developed in Firefox on a 1920x1080 display
 				</div>
 				<div id="css-98" class="status-bar-field">
-					Styled by <a href="https://jdan.github.io/98.css/">98.css</a>
+					Style based on the amazing <a href="https://jdan.github.io/98.css/">98.css</a>
 				</div>
 			</div>
 		</main>

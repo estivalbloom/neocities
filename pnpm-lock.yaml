@@ -17,6 +17,9 @@ importers:
       moji-mash:
         specifier: github:estivalbloom/moji-mash
         version: https://codeload.github.com/estivalbloom/moji-mash/tar.gz/af952c4747310dcba5daa74d833a802c12207e12
+      query-selector-shadow-dom:
+        specifier: ^1.0.1
+        version: 1.0.1
       tabbable:
         specifier: ^6.2.0
         version: 6.2.0
@@ -368,6 +371,9 @@ packages:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
 
+  query-selector-shadow-dom@1.0.1:
+    resolution: {integrity: sha512-lT5yCqEBgfoMYpf3F2xQRK7zEr1rhIIZuceDK6+xRkJQ4NMbHTwXqk4NkwDwQMNqXgG9r9fyHnzwNVs6zV5KRw==}
+
   queue@6.0.2:
     resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
 
@@ -695,6 +701,8 @@ snapshots:
       nanoid: 3.3.8
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  query-selector-shadow-dom@1.0.1: {}
 
   queue@6.0.2:
     dependencies:

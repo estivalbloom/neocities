@@ -16,7 +16,7 @@ async function setup(style_src) {
 		
 			this._image_container = shadow.querySelector('#image-container');
 			this._modal = shadow.querySelector('#modal');
-			this._modal_title = shadow.querySelector('#modal-title-text');
+			this._modal_title = shadow.querySelector('#modal-title-text>div');
 			this._modal_img = shadow.querySelector('#modal-img');
 			this._modal_caption = shadow.querySelector('#modal-caption');
 			this._modal_footer = shadow.querySelector('#modal-footer');

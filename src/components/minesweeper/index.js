@@ -1,4 +1,4 @@
-import { parseTemplate, initShadow } from "../../util.js";
+import { parseTemplate, initShadow, applyStyle } from "../../util.js";
 import template_html from './template.html?raw'
 import A11yDialog from 'a11y-dialog'
 
@@ -23,6 +23,7 @@ async function setup(style_src) {
 
 		connectedCallback() {
 			this._shadow = initShadow(this, template, style_src);
+			applyStyle(this._shadow, '/assets/style.css');
 
 			const dialogEl = this._shadow.querySelector('#modal-minesweeper');
 			this._dialog = new A11yDialog(dialogEl);

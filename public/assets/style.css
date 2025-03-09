@@ -180,3 +180,60 @@ h1, h2, h3, h4, h5, h6 {
 	background-position: calc(-16px * 9 - 1px) -1px;
 	padding: 0px;
 }
+
+#taskbar-item-container {
+	display: flex;
+	gap: 3px;
+}
+
+.title-bar {
+	padding: 1px 2px;
+}
+
+.title-bar-text {
+	display: flex;
+	gap: 3px;
+	align-items: center;
+}
+
+.title-bar-text>div {
+	padding: 1px 0px 0px 0px;
+}
+
+.taskbar-item {
+	background: silver;
+  	box-shadow:
+		inset -1px -1px #0a0a0a,
+		inset 1px 1px #fff,
+		inset -2px -2px grey,
+		inset 2px 2px #dfdfdf
+	;
+	border: none;
+	border-radius: 0;
+	box-sizing: border-box;
+	min-height: 23px;
+	width: 160px;
+	max-width: 160px;
+	padding: 1px 0px 0px 4px;
+	display: flex;
+	gap: 3px;
+	align-items: center;
+}
+
+.taskbar-item>div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+}
+
+.taskbar-item-active {
+	box-shadow:
+		inset -1px -1px #fff,
+		inset 1px 1px #0a0a0a,
+		inset -2px -2px #c0c0c0,
+		inset 2px 2px grey,
+		inset 0px 3px white
+	;
+	background: url('/assets/active-taskbar-dither.png');
+	font-weight: bold;
+}
