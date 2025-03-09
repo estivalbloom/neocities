@@ -39,6 +39,7 @@ body {
 }
 
 .desktop-icon {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -47,11 +48,25 @@ body {
 	gap: 4px;
 }
 
+.desktop-icon-overlay {
+	position: absolute;
+	top: 0px;
+	left: 21px;
+	right: 21px;
+	height: 32px;
+	background-image: url('/assets/blue-dither.png');
+	visibility: hidden;
+}
+
 .desktop-icon:focus {
 	outline: unset;
 }
 
 .desktop-icon:focus .icon-canvas-light {
+	visibility: visible;
+}
+
+.desktop-icon:active .desktop-icon-overlay {
 	visibility: visible;
 }
 
@@ -176,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 	min-height: 16px;
 	max-width: 16px;
 	max-height: 16px;
-	background-image: url('/assets/minesweeper-sprites.png');
+	background-image: url('/assets/minesweeper/minesweeper-sprites.png');
 	background-position: calc(-16px * 9 - 1px) -1px;
 	padding: 0px;
 }

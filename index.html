@@ -191,6 +191,7 @@
 		<div id="desktop-icon-container">
 			<a class="desktop-icon" aria-labelledby="mailto-text" href="mailto:esti.cities@proton.me">
 				<img src="/assets/icons/32/mail-icon.png">
+				<div class="desktop-icon-overlay"></div>
 				<div id="mailto-text" class="desktop-icon-text">
 					<div>E-mail</div>
 					<canvas class="icon-canvas icon-canvas-light"></canvas>
@@ -199,6 +200,7 @@
 			</a>
 			<a class="desktop-icon" aria-labelledby="bsky-text" href="https://bsky.app/profile/estivalbloom.bsky.social">
 				<img src="/assets/icons/32/bsky-icon.png">
+				<div class="desktop-icon-overlay"></div>
 				<div id="bsky-text" class="desktop-icon-text">
 					<div>Bluesky</div>
 					<canvas class="icon-canvas icon-canvas-light"></canvas>
@@ -286,6 +288,12 @@
 		let message = document.querySelector('#message')
 		message.innerHTML = html;
 	})();
+
+	const icon_imgs = document.querySelectorAll('.desktop-icon>img');
+	const icon_overlays = document.querySelectorAll('.desktop-icon-overlay');
+	for(let i = 0; i < icon_imgs.length; i++) {
+		icon_overlays[i].style.maskImage = `url(${icon_imgs[i].src})`;
+	}
 </script>
 
 </html>
