@@ -105,8 +105,8 @@
 
 		.square-revealed {
 			position: absolute;
-			border-top: 1px dotted black;
-			border-left: 1px dotted black;
+			border-bottom: 1px dotted black;
+			border-right: 1px dotted black;
 			align-content: center;
 			text-align: center;
 			top: 0px;
@@ -155,6 +155,10 @@
 
 		.square-revealed[data-value='-1'] {
 			background-position: calc(-16px * 9 - 1px) -1px;
+		}
+
+		.square-revealed[data-value='x'] {
+			background-position: calc(-16px * 10 - 1px) -1px;
 		}
 
 		.square-revealed[data-clicked-mine='true'] {

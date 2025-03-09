@@ -36,11 +36,11 @@ async function setup(style_src) {
 				this._smiley_button.dataset.mood = 'worried'
 			});
 			document.addEventListener('mouseup', () => {
-				if(this._smiley_button.dataset.mood === 'worried') {
+				if (this._smiley_button.dataset.mood === 'worried') {
 					this._smiley_button.dataset.mood = 'normal';
 				}
 			});
-			
+
 			this._overlay = this._shadow.querySelector('#minefield-overlay');
 			this._overlay.addEventListener('contextmenu', (e) => {
 				e.preventDefault();
@@ -98,13 +98,30 @@ async function setup(style_src) {
 		gameOver(win) {
 			this._field.inert = true;
 			this._overlay.inert = '';
-			this.stopTimer();
 			this._smiley_button.dataset.mood = win ? 'win' : 'lose';
+
+			if (!win) {
+				this._buttons.forEach((e, idx) => {
+					if (this._field_data.at(idx) === -1) {
+						e.style.visibility = 'hidden';
+					}
+					else if(this._buttons[idx].dataset.flagged === 'true') {
+						e.style.visibility = 'hidden';
+						this._revealed[idx].dataset.value = 'x';
+					}
+				})
+			}
+			this.stopTimer();
 		}
 
 		reveal(x, y) {
 			if (this.isOutOfBounds(x, y)) {
 				return;
+			}
+
+			if (this._first_reveal) {
+				this._first_reveal = false;
+				this.setupFieldMines(x, y);
 			}
 
 			const idx = this.idxOf(x, y);
@@ -209,29 +226,23 @@ async function setup(style_src) {
 			}
 		}
 
-		setupField(width, height, mines) {
-			this.flag_count = mines;
-			this.time_elapsed = 0;
-			this._smiley_button.dataset.mood = 'normal';
-			this._field.inert = '';
-			this._overlay.inert = true;
+		setupFieldMines(start_x, start_y) {
+			let mines_remaining = this.flag_count;
+			let offset = 0;
+			for (let i = 0; i < (this._field_data.length - 1); i++) {
+				const pos = this.posOf(i + offset);
+				if( start_x === pos.x && start_y === pos.y ) {
+					offset = 1;
+					continue;
+				}
 
-			const field_data = new Array(height * width);
-			field_data.fill(0);
-			this._field_width = width;
-			this._field_height = height;
-			this._field_data = field_data;
-			this._remaining_squares = field_data.length - mines;
-
-			let mines_remaining = mines;
-			for (let i = 0; i < field_data.length; i++) {
-				const spaces_remaining = field_data.length - (i + 1);
-				const p = mines_remaining / spaces_remaining;
+				const spaces_remaining = this._field_data.length - (i + 2);
+				const p = mines_remaining / (spaces_remaining - 1);
 				if (Math.random() < p) {
-					field_data[i] = -1;
+
+					this._field_data[i + offset] = -1;
 					mines_remaining--;
 
-					const pos = this.posOf(i);
 					directions.forEach(d => {
 						const n_x = pos.x + d.x;
 						const n_y = pos.y + d.y;
@@ -239,6 +250,24 @@ async function setup(style_src) {
 					})
 				}
 			}
+
+			this._field_data.forEach((v, idx) => this._revealed[idx].dataset.value = v);
+		}
+
+		setupFieldElements(width, height, mines) {
+			this.flag_count = mines;
+			this.time_elapsed = 0;
+			this._smiley_button.dataset.mood = 'normal';
+			this._field.inert = '';
+			this._overlay.inert = true;
+			this._first_reveal = true;
+
+			const field_data = new Array(height * width);
+			field_data.fill(0);
+			this._field_width = width;
+			this._field_height = height;
+			this._field_data = field_data;
+			this._remaining_squares = field_data.length - mines;
 
 			this._field.innerHTML = '';
 			this._buttons = [];
@@ -252,10 +281,12 @@ async function setup(style_src) {
 
 					const revealed = document.createElement('div');
 					revealed.classList.add('square-revealed');
-					revealed.dataset.value = this.valueAt(i, j);
 					revealed.addEventListener('auxclick', () => {
 						this.autoClear(i, j);
 					});
+					revealed.addEventListener('contextmenu', (e) => {
+						e.preventDefault();
+					})
 					this._revealed.push(revealed);
 
 					const button = document.createElement('button')
@@ -281,7 +312,7 @@ async function setup(style_src) {
 
 		start() {
 			this._dialog.show();
-			this.setupField(30, 16, 99);
+			this.setupFieldElements(30, 16, 99);
 		}
 	}
 
