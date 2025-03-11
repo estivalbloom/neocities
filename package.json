@@ -5,10 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+	"prebuild": "pnpm run gen-screenshots",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+	"gen-screenshots": "node preview-gen.js",
+	"deploy": "./deploy.sh",
+	"prepublish": "pnpm run build",
+	"publish": "pnpm run deploy"
   },
   "devDependencies": {
+    "puppeteer": "^24.4.0",
     "vite": "^6.2.0"
   },
   "dependencies": {
