@@ -1,9 +1,9 @@
-import { dirname, resolve, posix } from 'node:path'
+import path from 'path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from "vite"
 
 const base_url = 'https://estivalbloom.neocities.org';
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export const routes = [
 	['main', 		'index'					],
@@ -20,21 +20,24 @@ export const routes = [
 
 const input = Object.fromEntries(
 	routes.map(pair => {
-		return [pair[0], resolve(__dirname, `${pair[1]}.html`)]
+		return [pair[0], path.resolve(__dirname, `${pair[1]}.html`)]
 	})
 );
 
 /** @typedef {import('vite').HtmlTagDescriptor} HtmlTagDescriptor */
 /**
  * Injects opengraph meta tags into each endpoint.
- * @returns 
+ * @returns {import('vite').Plugin}
  */
 function og_plugin() {
 	return {
 		name: 'og-transform',
 		transformIndexHtml(_html, context) {
 			const url = new URL(context.path, base_url).href;
-			const preview_path = posix.join('/assets/previews', posix.basename(context.path, '.html') + '.png');
+			const page_dir = path.dirname(context.path);
+			const page_name = path.basename(context.path, '.html');
+			const relative_preview_path = path.join(page_dir, `${page_name}.png`);
+			const preview_path = path.join('/assets/previews', relative_preview_path);
 			const preview_url = new URL(preview_path, base_url).href;
 			return [
 				{

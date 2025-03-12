@@ -22,6 +22,15 @@ body {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	align-items: center;
+}
+
+#content-window {
+	display: flex;
+	flex-direction: column;
+	max-height: 70vh;
+	flex-grow: 2;
+	width: 960px;
 }
 
 .spacer {
@@ -251,4 +260,23 @@ h1, h2, h3, h4, h5, h6 {
 	;
 	background: url('/assets/active-taskbar-dither.png');
 	font-weight: bold;
+}
+
+/* Media breakpoints copied off of bootstrap */
+@media (max-width: 992px) {
+	#content-window {
+		width: 720px;
+	}
+}
+
+@media (max-width: 768px) {
+	#content-window {
+		width: 540px;
+	}
+}
+
+@media (max-width: 576px) {
+	#content-window {
+		width: 360px;
+	}
 }

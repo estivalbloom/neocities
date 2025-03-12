@@ -13,14 +13,6 @@
 		init()
 	</script>
 	<style>
-		#content-window {
-			display: flex;
-			flex-direction: column;
-			margin: auto;
-			width: 960px;
-			height: 720px;
-		}
-
 		#content-window>.window-body {
 			display: flex;
 			margin: 0px;
@@ -29,7 +21,10 @@
 		}
 
 		#content {
-			background: url('/assets/red-space-inverted-sparse.png');
+			background-image: url('/assets/red-space-inverted-sparse.png');
+			background-position: center center;
+			background-repeat: no-repeat, no-repeat, no-repeat;
+			background-clip: border-box, border-box, border-box;
 			overflow-y: scroll;
 		}
 
@@ -40,6 +35,25 @@
 			padding: 24px;
 			display: block;
 			margin: 24px 128px;
+		}
+
+		/* Media breakpoints copied off of bootstrap */
+		@media (max-width: 992px) {
+			#posts>section {
+				margin: 24px 64px;
+			}
+		}
+
+		@media (max-width: 768px) {
+			#posts>section {
+				margin: 24px 32px;
+			}
+		}
+
+		@media (max-width: 576px) {
+			#posts>section {
+				margin: 24px 16px;
+			}
 		}
 
 		.post {
@@ -66,13 +80,16 @@
 
 		.post figure {
 			box-sizing: border-box;
-			margin: 0px 30px;
+			margin: 10px 30px;
+			display: table;
 		}
 
 		.post figcaption {
 			text-align: center;
 			font-size: 8px;
 			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			display: table-caption;
+			caption-side: bottom;
 		}
 
 		.post-date {
