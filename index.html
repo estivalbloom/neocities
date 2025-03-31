@@ -37,16 +37,11 @@
 			margin: auto;
 		}
 
-		#main-window>.window-body {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.main-content {
+		#main-content {
 			display: flex;
 			height: 100%;
-			margin-right: -8px;
-			margin-left: -4px;
+			margin-right: 0px;
+			margin-left: 0px;
 		}
 
 		#nav-list {
@@ -130,74 +125,76 @@
 					</div>
 				</h1>
 			</div>
-			<div class="window-body">
-				<div class="main-content">
-					<div id="l-col">
-						<a href="https://www.flamingtext.com/">
-							<img id="logo" alt="Esti's PC logo" src="/assets/flamingtext.gif">
+			<div is="address-bar" icon-src="/assets/icons/16/tinysparklies.png"></div>
+			<div id="main-content" class="window-body">
+				<div id="l-col">
+					<a href="https://www.flamingtext.com/">
+						<img id="logo" alt="Esti's PC logo" src="/assets/flamingtext.gif">
+					</a>
+					<div id="message" class="fake-pre"></div>
+					<div id="button-drawer">
+						<img src="/assets/buttons/queercodedthis.png"
+							alt="you're telling me a queer cooded this button">
+						<img src="/assets/buttons/gamecube.png" alt="gamecube logo button">
+						<img src="/assets/buttons/transrightsnow.png" alt="trans rights now button">
+						<img src="/assets/buttons/drpepper.gif" alt="powered by dr. pepper button">
+						<img src="/assets/buttons/transyourgender.gif" alt="trans your gender button">
+						<img src="/assets/buttons/godot.png" alt="godot game engine button">
+						<a href="https://www.mabsland.com/Adoption.html">
+							<img src="/assets/buttons/censor_14c.gif" alt="rated 14+ button"
+								style="width: 88px; height:  31px;">
 						</a>
-						<div id="message" class="fake-pre"></div>
-						<div id="button-drawer">
-							<img src="/assets/buttons/queercodedthis.png"
-								alt="you're telling me a queer cooded this button">
-							<img src="/assets/buttons/gamecube.png" alt="gamecube logo button">
-							<img src="/assets/buttons/transrightsnow.png" alt="trans rights now button">
-							<img src="/assets/buttons/drpepper.gif" alt="powered by dr. pepper button">
-							<img src="/assets/buttons/transyourgender.gif" alt="trans your gender button">
-							<img src="/assets/buttons/godot.png" alt="godot game engine button">
-							<a href="https://www.mabsland.com/Adoption.html">
-								<img src="/assets/buttons/censor_14c.gif" alt="rated 14+ button"
-									style="width: 88px; height:  31px;">
-							</a>
-							<img src="/assets/buttons/graphicdesign.png" alt="graphic design is my passion button">
-						</div>
+						<img src="/assets/buttons/graphicdesign.png" alt="graphic design is my passion button">
 					</div>
-					<div class="vertical-rule" style="margin-right: 1px;"></div>
-					<div id="r-col">
-						<nav id="nav-list">
+				</div>
+				<div class="vertical-rule" style="margin-right: 1px;"></div>
+				<div id="r-col">
+					<nav id="nav-list">
 							<a id="nav-item" href="/src/about.html">
-								<img id="nav-icon" src="/assets/icons/64/thinking-even98er.png">
-								<div id="nav-title">Bio</div>
-								<div id="nav-desc">About the Esti</div>
-							</a>
+							<img id="nav-icon" src="/assets/icons/64/thinking-even98er.png">
+							<div id="nav-title">Bio</div>
+							<div id="nav-desc">About the Esti</div>
+						</a>
 							<a id="nav-item" href="/src/code/">
-								<img id="nav-icon" src="/assets/icons/64/code-icon.png">
-								<div id="nav-title">Code</div>
-								<div id="nav-desc">Games, demos, and interactive art</div>
-							</a>
+							<img id="nav-icon" src="/assets/icons/64/code-icon.png">
+							<div id="nav-title">Code</div>
+							<div id="nav-desc">Games, demos, and interactive art</div>
+						</a>
 							<a id="nav-item" href="/src/art.html">
-								<img id="nav-icon" src="/assets/icons/64/palette-icon.png">
-								<div id="nav-title">Art</div>
-								<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
-							</a>
+							<img id="nav-icon" src="/assets/icons/64/palette-icon.png">
+							<div id="nav-title">Art</div>
+							<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
+						</a>
 							<a id="nav-item" href="/src/kandi.html">
-								<img id="nav-icon" src="/assets/icons/64/kandi-pile-plain.png">
-								<div id="nav-title">Kandi</div>
-								<div id="nav-desc">Catalogue of all the Kandi I've receieved from others</div>
-							</a>
+							<img id="nav-icon" src="/assets/icons/64/kandi-pile-plain.png">
+							<div id="nav-title">Kandi</div>
+							<div id="nav-desc">Catalogue of all the Kandi I've receieved from others</div>
+						</a>
 							<a id="nav-item" href="/src/dev-diary.html">
-								<img id="nav-icon" src="/assets/icons/64/diary-icon.png">
-								<div id="nav-title">Blog</div>
-								<div id="nav-desc">Quick posts about what I'm up to :)</div>
-							</a>
-						</nav>
-						<div style="display: flex; justify-content: center;">
-							<script src="https://transring.neocities.org/ring.js" data-widget="nb"></script>
-						</div>
+							<img id="nav-icon" src="/assets/icons/64/diary-icon.png">
+							<div id="nav-title">Blog</div>
+							<div id="nav-desc">Quick posts about what I'm up to :)</div>
+						</a>
+					</nav>
+					<div style="display: flex; justify-content: center;">
+						<script src="https://transring.neocities.org/ring.js" data-widget="nb"></script>
 					</div>
 				</div>
 			</div>
-				<div id="welcome-status" class="status-bar">
-					<div id="req-js" class="status-bar-field">
-						Requires Javascript
-					</div>
-					<div id="dev-ff" class="status-bar-field">
-						Developed in Firefox on a 1920x1080 display
-					</div>
-					<div id="css-98" class="status-bar-field">
-						Style based on the amazing <a href="https://jdan.github.io/98.css/">98.css</a>
-					</div>
+			<div id="welcome-status" class="status-bar">
+				<div id="req-js" class="status-bar-field">
+					Requires Javascript
 				</div>
+				<div id="dev-ff" class="status-bar-field">
+					Developed in Firefox on a 1920x1080 display
+				</div>
+				<div id="css-98" class="status-bar-field">
+					Style based on the amazing <a href="https://jdan.github.io/98.css/">98.css</a>
+				</div>
+				<div class="status-bar-field">
+					This text just fixes the spacing so I don't have aliasing problems
+				</div>
+			</div>
 		</main>
 		<div id="desktop-icon-container">
 			<a class="desktop-icon" aria-labelledby="mailto-text" href="mailto:esti.cities@proton.me">
@@ -271,7 +268,6 @@
 
 	icon_texts.forEach(text_container => {
 		const text = text_container.children[0];
-		console.log(text);
 		const size = { x: text.offsetWidth, y: text.offsetHeight };
 		const canvas_light = text_container.children[1];
 		const canvas_strong = text_container.children[2];

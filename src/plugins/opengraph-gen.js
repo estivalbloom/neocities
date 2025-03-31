@@ -1,7 +1,6 @@
 import path from 'path'
 
-
-const base_url = 'https://estivalbloom.neocities.org';
+const base_url = 'https://estivalbloom.dev';
 
 /** @typedef {import('vite').HtmlTagDescriptor} HtmlTagDescriptor */
 /**

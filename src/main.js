@@ -18,6 +18,10 @@ import minesweeperSetup from './components/minesweeper/index.js'
 const Minesweeper = await minesweeperSetup(style_src);
 defines.push(['minesweeper-dlg', Minesweeper, 'div']);
 
+import addressbarSetup from './components/address-bar/index.js'
+const AddressBar = await addressbarSetup(style_src);
+defines.push(['address-bar', AddressBar, 'div']);
+
 function defineAll() {
 	defines.forEach((data) => {
 		const [tag, classObj, base] = data;

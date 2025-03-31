@@ -120,6 +120,14 @@ body {
 	margin: 2px 1px;
 }
 
+.horizontal-rule {
+	box-shadow: inset 0px -1px #dfdfdf, inset 0px 1px grey;
+	max-height: 2px;
+	min-height: 2px;
+	margin: 1px 2px;
+	box-sizing: border-box;
+}
+
 
 #modal-alert {
 	z-index: 100;
@@ -168,8 +176,6 @@ h1, h2, h3, h4, h5, h6 {
 	box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
 	display: block;
 }
-
-
 
 #minesweeper-button {
 	min-width: 16px;

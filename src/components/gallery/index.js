@@ -27,7 +27,7 @@ async function setup(style_src) {
 		}
 
 		static get observedAttributes() {
-			return ['info-src', 'footer-fields']
+			return ['info-src', 'footer-fields'];
 		};
 
 		showModal(image, info) {

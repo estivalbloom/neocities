@@ -1,0 +1,37 @@
+<template>
+	<style>
+		#bar {
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			padding-left: 2px;
+			padding-right: 2px;
+		}
+		#field {
+			padding: 3px;
+			display: flex;
+			justify-content: start;
+			align-items: center;
+			gap: 5px;
+			flex-grow: 1;
+		}
+
+		#address {
+			display: flex;
+			margin-top: 2px;
+		}
+	</style>
+	<div id="container">
+		<div class="horizontal-rule"></div>
+		<div id="bar">
+			<div>Address:</div>
+			<div id="field" class="fake-pre">
+				<img id="icon">
+				<div id="address">
+					<div>https://estivalbloom.dev/</div>
+				</div>
+			</div>
+		</div>
+		<div class="horizontal-rule"></div>
+	</div>
+</template>
