@@ -1,17 +1,23 @@
 <template>
+	<style>
+
+	</style>
 	<div id="modal-alert" aria-hidden="true" aria-labelledby="window-title" aria-describedby="window-desc" role="alertdialog">
 		<div></div>
 		<div is="win-alert" id="dn-alert">
 			<div id="window-title" slot="window-title">
-				<h1 class="title-bar-text">
-					<img src="/assets/icons/16/alert-icon.png">
+				<h1 class="title-bar-text" data-no-taskbar>
+					<!-- <img src="/assets/icons/16/interro-alert-sm.png"> -->
 					<div>
 						Action Required
 					</div>
 				</h1>
 			</div>
-			<div id="window-desc" slot="window-body">
-				Deez nuts lmao
+			<div id="window-desc" slot="window-body" style="display: flex; gap: 12px; align-items: start; padding-top: 4px;">
+				<img src="/assets/icons/32/interro-alert-icon.png" >
+				<div>
+					Deez nuts lmao gottem
+				</div>
 			</div>
 		</div>
 	</div>

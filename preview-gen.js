@@ -17,7 +17,7 @@ const CONFIG = {
 		height: 720
 	},
 	wait_for_selector: null,
-	addtional_wait: 1000
+	addtional_wait: 500
 };
 const route_paths = routes.map(e => e[1]);
 

@@ -39,9 +39,14 @@
 
 		#main-window>.window-body {
 			display: flex;
+			flex-direction: column;
+		}
+
+		.main-content {
+			display: flex;
 			height: 100%;
-			margin-right: 0px;
-			margin-left: 4px;
+			margin-right: -8px;
+			margin-left: -4px;
 		}
 
 		#nav-list {
@@ -97,6 +102,7 @@
 		#r-col {
 			display: flex;
 			flex-direction: column;
+			justify-content: space-around;
 		}
 
 		#button-drawer {
@@ -105,7 +111,7 @@
 			flex-wrap: wrap;
 			margin: 0px auto;
 			flex-grow: 1;
-			align-content: center;
+			align-items: baseline;
 			justify-content: center;
 		}
 	</style>
@@ -125,72 +131,73 @@
 				</h1>
 			</div>
 			<div class="window-body">
-				<div id="l-col">
-					<a href="https://www.flamingtext.com/">
-						<img id="logo" alt="Esti's PC logo" src="/assets/flamingtext.gif">
-					</a>
-					<div id="message" class="fake-pre"></div>
-					<div id="button-drawer">
-						<img src="/assets/buttons/queercodedthis.png"
-							alt="you're telling me a queer cooded this button">
-						<img src="/assets/buttons/gamecube.png" alt="gamecube logo button">
-						<img src="/assets/buttons/transrightsnow.png" alt="trans rights now button">
-						<img src="/assets/buttons/drpepper.gif" alt="powered by dr. pepper button">
-						<img src="/assets/buttons/transyourgender.gif" alt="trans your gender button">
-						<img src="/assets/buttons/godot.png" alt="godot game engine button">
-						<a href="https://www.mabsland.com/Adoption.html">
-							<img src="/assets/buttons/censor_14c.gif" alt="rated 14+ button"
-								style="width: 88px; height:  31px;">
+				<div class="main-content">
+					<div id="l-col">
+						<a href="https://www.flamingtext.com/">
+							<img id="logo" alt="Esti's PC logo" src="/assets/flamingtext.gif">
 						</a>
-						<img src="/assets/buttons/graphicdesign.png" alt="graphic design is my passion button">
+						<div id="message" class="fake-pre"></div>
+						<div id="button-drawer">
+							<img src="/assets/buttons/queercodedthis.png"
+								alt="you're telling me a queer cooded this button">
+							<img src="/assets/buttons/gamecube.png" alt="gamecube logo button">
+							<img src="/assets/buttons/transrightsnow.png" alt="trans rights now button">
+							<img src="/assets/buttons/drpepper.gif" alt="powered by dr. pepper button">
+							<img src="/assets/buttons/transyourgender.gif" alt="trans your gender button">
+							<img src="/assets/buttons/godot.png" alt="godot game engine button">
+							<a href="https://www.mabsland.com/Adoption.html">
+								<img src="/assets/buttons/censor_14c.gif" alt="rated 14+ button"
+									style="width: 88px; height:  31px;">
+							</a>
+							<img src="/assets/buttons/graphicdesign.png" alt="graphic design is my passion button">
+						</div>
 					</div>
-				</div>
-				<div class="vertical-rule" style="margin-right: 1px;"></div>
-				<div id="r-col">
-					<nav id="nav-list">
-						<a id="nav-item" href="/src/about.html">
-							<img id="nav-icon" src="/assets/icons/64/thinking-even98er.png">
-							<div id="nav-title">Bio</div>
-							<div id="nav-desc">About the Esti</div>
-						</a>
-						<a id="nav-item" href="/src/code/">
-							<img id="nav-icon" src="/assets/icons/64/code-icon.png">
-							<div id="nav-title">Code</div>
-							<div id="nav-desc">Games, demos, and interactive art</div>
-						</a>
-						<a id="nav-item" href="/src/art.html">
-							<img id="nav-icon" src="/assets/icons/64/palette-icon.png">
-							<div id="nav-title">Art</div>
-							<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
-						</a>
-						<a id="nav-item" href="/src/kandi.html">
-							<img id="nav-icon" src="/assets/icons/64/kandi-pile-plain.png">
-							<div id="nav-title">Kandi</div>
-							<div id="nav-desc">Catalogue of all the Kandi I've receieved from others</div>
-						</a>
-						<a id="nav-item" href="/src/dev-diary.html">
-							<img id="nav-icon" src="/assets/icons/64/diary-icon.png">
-							<div id="nav-title">Blog</div>
-							<div id="nav-desc">Quick posts about what I'm up to :)</div>
-						</a>
-					</nav>
-					<div class="spacer"></div>
-					<div style="display: flex; justify-content: center;">
-						<script src="https://transring.neocities.org/ring.js" data-widget="nb"></script>
+					<div class="vertical-rule" style="margin-right: 1px;"></div>
+					<div id="r-col">
+						<nav id="nav-list">
+							<a id="nav-item" href="/src/about.html">
+								<img id="nav-icon" src="/assets/icons/64/thinking-even98er.png">
+								<div id="nav-title">Bio</div>
+								<div id="nav-desc">About the Esti</div>
+							</a>
+							<a id="nav-item" href="/src/code/">
+								<img id="nav-icon" src="/assets/icons/64/code-icon.png">
+								<div id="nav-title">Code</div>
+								<div id="nav-desc">Games, demos, and interactive art</div>
+							</a>
+							<a id="nav-item" href="/src/art.html">
+								<img id="nav-icon" src="/assets/icons/64/palette-icon.png">
+								<div id="nav-title">Art</div>
+								<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
+							</a>
+							<a id="nav-item" href="/src/kandi.html">
+								<img id="nav-icon" src="/assets/icons/64/kandi-pile-plain.png">
+								<div id="nav-title">Kandi</div>
+								<div id="nav-desc">Catalogue of all the Kandi I've receieved from others</div>
+							</a>
+							<a id="nav-item" href="/src/dev-diary.html">
+								<img id="nav-icon" src="/assets/icons/64/diary-icon.png">
+								<div id="nav-title">Blog</div>
+								<div id="nav-desc">Quick posts about what I'm up to :)</div>
+							</a>
+						</nav>
+						<div style="display: flex; justify-content: center;">
+							<script src="https://transring.neocities.org/ring.js" data-widget="nb"></script>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div id="welcome-status" class="status-bar">
-				<div id="req-js" class="status-bar-field">
-					Requires Javascript
+				<div id="welcome-status" class="status-bar">
+					<div id="req-js" class="status-bar-field">
+						Requires Javascript
+					</div>
+					<div id="dev-ff" class="status-bar-field">
+						Developed in Firefox on a 1920x1080 display
+					</div>
+					<div id="css-98" class="status-bar-field">
+						Style based on the amazing <a href="https://jdan.github.io/98.css/">98.css</a>
+					</div>
 				</div>
-				<div id="dev-ff" class="status-bar-field">
-					Developed in Firefox on a 1920x1080 display
-				</div>
-				<div id="css-98" class="status-bar-field">
-					Style based on the amazing <a href="https://jdan.github.io/98.css/">98.css</a>
-				</div>
-			</div>
 		</main>
 		<div id="desktop-icon-container">
 			<a class="desktop-icon" aria-labelledby="mailto-text" href="mailto:esti.cities@proton.me">
@@ -202,7 +209,8 @@
 					<canvas class="icon-canvas icon-canvas-strong"></canvas>
 				</div>
 			</a>
-			<a class="desktop-icon" aria-labelledby="bsky-text" href="https://bsky.app/profile/estivalbloom.bsky.social">
+			<a class="desktop-icon" aria-labelledby="bsky-text"
+				href="https://bsky.app/profile/estivalbloom.bsky.social">
 				<img src="/assets/icons/32/bsky-icon.png">
 				<div class="desktop-icon-overlay"></div>
 				<div id="bsky-text" class="desktop-icon-text">
@@ -223,15 +231,15 @@
 	<div is="minesweeper-dlg" id="minesweeper"></div>
 </body>
 <script type="module" src="/src/dn-alert/index.js"></script>
-<script>
+<script type="module">
 	function coordToIdx(rect, v) {
 		return (v.x + v.y * rect.x) * 4;
 	}
-	
+
 	function inBounds(rect, v) {
 		return v.x >= 0 && v.y >= 0 && v.x < rect.x && v.y < rect.y;
 	}
-	
+
 	function plus(v1, v2) {
 		return { x: v1.x + v2.x, y: v1.y + v2.y };
 	}
@@ -250,20 +258,21 @@
 		canvas.height = size.y;
 		return { ctx, image_data };
 	}
-	
-	directions = [
-		{ x:  1, y:  0 },
-		{ x:  0, y:  1 },
-		{ x: -1, y:  0 },
-		{ x:  0, y: -1 }
+
+	const directions = [
+		{ x: 1, y: 0 },
+		{ x: 0, y: 1 },
+		{ x: -1, y: 0 },
+		{ x: 0, y: -1 }
 	]
 	const icon_texts = document.querySelectorAll('.desktop-icon-text');
-	const light_color = { r: 255, g: 0, b:0 , a: 255 };
+	const light_color = { r: 255, g: 0, b: 0, a: 255 };
 	const strong_color_border = { r: 255, g: 255, b: 0, a: 255 };
 
 	icon_texts.forEach(text_container => {
 		const text = text_container.children[0];
-		const size = { x: text.offsetWidth - 2, y: text.offsetHeight }; // TODO: WHY
+		console.log(text);
+		const size = { x: text.offsetWidth, y: text.offsetHeight };
 		const canvas_light = text_container.children[1];
 		const canvas_strong = text_container.children[2];
 		const { ctx: ctx_light, image_data: image_data_light } = initImageData(canvas_light, size);
@@ -274,13 +283,13 @@
 			next = plus(position, dir);
 			do {
 				position = next;
-				if( (position.x + position.y) % 2 == 0 ){
+				if ((position.x + position.y) % 2 == 0) {
 					const idx = coordToIdx(size, position);
 					setPixel(image_data_light, idx, light_color);
 					setPixel(image_data_strong, idx, strong_color_border);
 				}
 				next = plus(position, dir);
-			} while( inBounds(size, next) )
+			} while (inBounds(size, next))
 		})
 		ctx_light.putImageData(image_data_light, 0, 0);
 		ctx_strong.putImageData(image_data_strong, 0, 0);
@@ -295,7 +304,7 @@
 
 	const icon_imgs = document.querySelectorAll('.desktop-icon>img');
 	const icon_overlays = document.querySelectorAll('.desktop-icon-overlay');
-	for(let i = 0; i < icon_imgs.length; i++) {
+	for (let i = 0; i < icon_imgs.length; i++) {
 		icon_overlays[i].style.maskImage = `url(${icon_imgs[i].src})`;
 	}
 </script>

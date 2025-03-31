@@ -1,7 +1,51 @@
 import { querySelectorAllDeep } from "query-selector-shadow-dom";
 
-export default function() {
+function is_visible(element) {
+	let current = element;
+	while (current) {
+		const currentStyle = getComputedStyle(current);
+		if (currentStyle.display === 'none') {
+			return false;
+		}
+		current = current.parentElement;
+	}
+	return true;
+}
 
+function populate_taskbar(taskbar_item_container, titles) {
+	taskbar_item_container.innerHTML = '';
+	let last_active;
+	let last_parent;
+	titles.forEach(t => {
+		t.parentElement.classList.add('inactive');
+		last_parent = t.parentElement;
+		last_active = null;
+
+		if ('noTaskbar' in t.dataset) {
+			return;
+		}
+
+		const item = document.createElement('div');
+		item.innerHTML = t.innerHTML;
+		item.classList.add('taskbar-item');
+		taskbar_item_container.appendChild(item);
+		last_active = item;
+	});
+	last_active?.classList.add('taskbar-item-active');
+	last_parent?.classList.remove('inactive');
+}
+
+function update(root, taskbar_item_container, last_counts) {
+	let titles = Array.from(querySelectorAllDeep('.title-bar-text', root));
+	let visible = titles.filter(t => is_visible(t));
+	if (last_counts.titles !== titles.length || last_counts.visible !== visible.length) {
+		populate_taskbar(taskbar_item_container, visible);
+	}
+
+	return { titles: titles.length, visible: visible.length };
+}
+
+export default function() {
 	const taskbar = document.querySelector('[is="win-task-bar"]');
 	const taskbar_item_container = document.createElement('div');
 	taskbar_item_container.setAttribute('slot', 'open-windows');
@@ -14,71 +58,12 @@ export default function() {
 		.map(e => e.shadowRoot);
 	observer_targets.push(document);
 
-	let titles = new Array();
-	let visibility = new Array();
-
-	function isVisible(element) {
-		let current = element;
-		while (current) {
-			const currentStyle = getComputedStyle(current);
-			if (currentStyle.display === 'none') {
-				return false;
-			}
-			current = current.parentElement;
-		}
-		return true;
-	}
-
-	function updateVisibility() {
-		titles = Array.from(querySelectorAllDeep('.title-bar-text'));
-		let changed = false;
-
-		if (titles.length != visibility.length) {
-			visibility = new Array(titles.length);
-			changed = true;
-		}
-
-		visibility = titles.map((t, idx) => {
-			const new_val = isVisible(t);
-			if (visibility[idx] !== new_val) {
-				changed = true;
-			}
-			return new_val;
-		});
-		return changed;
-	}
-
-	function populateTaskbar() {
-		taskbar_item_container.innerHTML = '';
-		let last_active;
-		let last_parent;
-		titles.forEach((t, idx) => {
-			if (!visibility[idx]) {
-				return;
-			}
-
-			const item = document.createElement('div');
-			item.innerHTML = t.innerHTML;
-			item.classList.add('taskbar-item');
-			t.parentElement.classList.add('inactive');
-			taskbar_item_container.appendChild(item);
-
-			last_active = item;
-			last_parent = t.parentElement;
-		});
-		last_active?.classList.add('taskbar-item-active');
-		last_parent?.classList.remove('inactive');
-	}
-
 	// TODO: maybe disconnect and reconnect to avoid unnecessary updates
-	function update() {
-		console.log('update');
-		if (updateVisibility()) {
-			populateTaskbar();
-		}
-	}
-
-	const observer = new MutationObserver(() => update());
+	let last_counts = {
+		titles: -1,
+		visible: -1
+	};
+	const observer = new MutationObserver(() => last_counts = update(document, taskbar_item_container, last_counts));
 
 	const observer_cfg = {
 		attributes: true,

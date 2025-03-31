@@ -5,17 +5,18 @@ import { defineConfig } from "vite"
 const base_url = 'https://estivalbloom.neocities.org';
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+// name | path | display
 export const routes = [
-	['main', 		'index'					],
-	['about',	 	'src/about'				],
-	['code', 		'src/code/index'		],
-	['moji', 		'src/code/moji-mash'	],
-	['pix_water', 	'src/code/pixel-water'	],
-	['term_game', 	'src/code/term-game'	],
-	['matrix_text', 'src/code/matrix-text'	],
-	['art', 		'src/art'				],
-	['kandi', 		'src/kandi'				],
-	['dev_diary', 	'src/dev-diary'			]
+	['main', 		'index',				'Home'			],
+	['about',	 	'src/about',			'About Me'		],
+	['code', 		'src/code/index',		'Code',			],
+	['moji', 		'src/code/moji-mash',	'Moji Mash'		],
+	['pix_water', 	'src/code/pixel-water',	'Pixel Water'	],
+	['term_game', 	'src/code/term-game',	'Terminal Game'	],
+	['matrix_text', 'src/code/matrix-text',	'Matrix Text'	],
+	['art', 		'src/art',				'Art'			],
+	['kandi', 		'src/kandi',			'Kandi'			],
+	['dev_diary', 	'src/dev-diary',		'Dev Diary'		]
 ];
 
 const input = Object.fromEntries(
