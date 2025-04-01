@@ -1,8 +1,8 @@
 import path from 'path'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from "vite"
-import { routes } from './src/route-info'
-import { og_plugin } from './src/plugins/opengraph-gen'
+import { routes } from './src/route-info.js'
+import { og_plugin } from './src/plugins/opengraph-gen.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

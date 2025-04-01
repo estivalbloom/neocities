@@ -3,7 +3,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import * as fs from 'fs/promises';
 import { exit } from 'node:process';
-import { routes } from './vite.config.js';
+import { routes } from './src/route-info.js';
 import path from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

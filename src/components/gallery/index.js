@@ -34,7 +34,7 @@ async function setup(style_src) {
 			this._modal.style.visibility = 'visible';
 			this._modal_title.textContent = info.name;
 			this._modal_img.src = image.src;
-			this._modal_caption.textContent = info.caption;
+			this._modal_caption.innerHTML = info.caption;
 			this._modal_caption.style.maxWidth = `${image.naturalWidth + 4}px`;
 			this._dialog.show();
 		}

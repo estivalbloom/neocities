@@ -67,7 +67,7 @@ export default function() {
 
 	const observer_cfg = {
 		attributes: true,
-		attributeFilter: ['style', 'class'],
+		attributeFilter: ['style', 'class', 'aria-hidden'],
 		subtree: true,
 		childList: true
 	};

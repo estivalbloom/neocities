@@ -18,20 +18,19 @@ async function setup(style_src) {
 
 			this._icon_elem = shadow.querySelector('#icon');
 			const url = new URL(document.URL);
-			let route;
-			if (url.pathname.endsWith('.html')) {
-				route = url.pathname.slice(1, -5);
+			let route = url.pathname;
+			if (route.endsWith('.html')) {
+				route = route.slice(1, -5);
 			}
-			else {
-				route = `${url.pathname.slice(1)}index`
+			if (route.startsWith('/')) {
+				route = route.slice(1);
 			}
-			const routeInfo = routeObjs.find(e => e.path === route);
+			const routeInfo = routeObjs.find(e => e.path === route || e.path === `${route}index`);
 			const parts = []
 			for(let currentInfo = routeMap.get(routeInfo.parent); currentInfo; currentInfo = routeMap.get(currentInfo.parent)) {
 				parts.push(currentInfo);
 			}
 			parts.reverse();
-			console.log(parts);
 			parts.forEach(e => {
 				const link = document.createElement('a');
 				link.href = `/${e.path}.html`;
