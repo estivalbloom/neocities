@@ -13,7 +13,7 @@
 		init()
 	</script>
 	<style>
-		#content-window > .window-body {
+		#content-window>.window-body {
 			display: flex;
 			margin: 0px;
 			flex-grow: 1;
@@ -22,7 +22,7 @@
 
 		#content {
 			max-height: 100%;
-			background: linear-gradient(38deg, rgba(109,138,171,1) 0%, rgba(89,216,255,1) 100%);
+			background: linear-gradient(38deg, rgba(109, 138, 171, 1) 0%, rgba(89, 216, 255, 1) 100%);
 			display: flex;
 		}
 
@@ -53,6 +53,7 @@
 					</a>
 				</div>
 			</div>
+			<div is="menu-bar"></div>
 			<div is="address-bar" icon-src="/assets/icons/16/palette-icon-sm.png"></div>
 			<div class="window-body">
 				<div id="content">
@@ -72,4 +73,5 @@
 	<div is="minesweeper-dlg" id="minesweeper"></div>
 </body>
 <script type="module" src="/src/dn-alert/index.js"></script>
+
 </html>

@@ -22,6 +22,10 @@ import addressbarSetup from './components/address-bar/index.js'
 const AddressBar = await addressbarSetup(style_src);
 defines.push(['address-bar', AddressBar, 'div']);
 
+import menubarSetup from './components/menu-bar/index.js'
+const MenuBar = await menubarSetup(style_src);
+defines.push(['menu-bar', MenuBar, 'div']);
+
 function defineAll() {
 	defines.forEach((data) => {
 		const [tag, classObj, base] = data;

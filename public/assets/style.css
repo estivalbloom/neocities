@@ -269,6 +269,22 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 }
 
+.shortcut {
+	position: relative;
+}
+
+.shortcut::after {
+	content: ' ';
+	position: absolute;
+	bottom: 1px;
+	height: 1px;
+	left: -1px;
+	right: 1px;
+	background-color: black;
+	max-width: 7px;
+	margin: auto;
+}
+
 /* Media breakpoints copied off of bootstrap */
 @media (max-width: 992px) {
 	#content-window {

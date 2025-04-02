@@ -13,13 +13,13 @@
 		init()
 	</script>
 	<style>
-		#about-window{
+		#about-window {
 			display: flex;
 			flex-direction: column;
 			margin: auto;
 		}
 
-		#about-window > .window-body {
+		#about-window>.window-body {
 			display: flex;
 			height: 100%;
 			align-items: center;
@@ -37,7 +37,7 @@
 
 		#content {
 			text-wrap: wrap;
-			font-family: "Pixelated MS Sans Serif",Arial;
+			font-family: "Pixelated MS Sans Serif", Arial;
 			width: 225px;
 		}
 
@@ -71,6 +71,7 @@
 					</a>
 				</div>
 			</div>
+			<div is="menu-bar"></div>
 			<div is="address-bar" icon-src="/assets/icons/16/info-icon.png"></div>
 			<div class="window-body">
 				<img src="/assets/art/full-3x-wm.png" alt="pixel art portrait of Esti">
@@ -91,7 +92,7 @@
 				<div id="abt-animal" class="status-bar-field">
 					(Non-pet) Animal: Orcas
 				</div>
-				<div  id="abt-movie" class="status-bar-field">
+				<div id="abt-movie" class="status-bar-field">
 					Movie: Kimi no Na Wa
 				</div>
 				<div id="abt-music" class="status-bar-field">
@@ -113,12 +114,12 @@
 
 <script type="module" src="/src/dn-alert/index.js"></script>
 <script>
-	(async () => {
-		let resp = await fetch('/assets/about-content.html');
-		let html = await resp.text();
-		let message = document.querySelector('#content')
-		message.innerHTML = html;
-	})();
+		(async () => {
+			let resp = await fetch('/assets/about-content.html');
+			let html = await resp.text();
+			let message = document.querySelector('#content')
+			message.innerHTML = html;
+		})();
 </script>
 
 </html>
