@@ -79,7 +79,6 @@ async function setup(style_src) {
 				}
 			});
 			
-			console.log(slotItems)
 			this.populate(slotItems);
 		}
 	}

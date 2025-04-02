@@ -20,32 +20,17 @@
 		#status-indicators {
 			flex-grow: 0;
 			padding: unset;
+			display: flex;
+			align-items: start;
 		}
 
 		#start-button img {
 			width: 16px;
 			height: 16px;
-
-			image-rendering: optimizeSpeed;
-			/* STOP SMOOTHING, GIVE ME SPEED  */
-			image-rendering: -moz-crisp-edges;
-			/* Firefox                        */
-			image-rendering: -o-crisp-edges;
-			/* Opera                          */
-			image-rendering: -webkit-optimize-contrast;
-			/* Chrome (and eventually Safari) */
-			image-rendering: pixelated;
-			/* Universal support since 2021   */
-			image-rendering: optimize-contrast;
-			/* CSS3 Proposed                  */
-			-ms-interpolation-mode: nearest-neighbor;
-			/* IE8+       					  */
 		}
 
 		#clock {
 			position: relative;
-			margin: auto 0px;
-			align-items: center;
 			cursor: default;
 		}
 
@@ -55,7 +40,7 @@
 			padding-top: 6px;
 		}
 
-		#clock:hover:after {
+		.tooltip:hover:after {
 			content: attr(data-tooltip);
 			position: absolute;
 			top: -20px;
@@ -64,6 +49,20 @@
 			background-image: url("/assets/tooltip-dither.png");
 			padding: 2px;
 			border: 1px solid black;
+		}
+
+		#copyright-button {
+			all: unset;
+			height: 100%;
+			cursor: pointer;
+			position: relative;
+		}
+
+		#copyright {
+			width: 16px;
+			height: 100%;
+			object-fit: contain;
+			margin-left: 3px;
 		}
 
 		.spacer {
@@ -93,7 +92,10 @@
 				<div class="spacer"></div>
 				<div class="vertical-rule"></div>
 				<div id="status-indicators" class="status-bar-field">
-					<div id="clock">
+					<button id="copyright-button" class="tooltip" data-tooltip="© EstivalBloom 2025 - Forever" >
+						<img id="copyright" src="/assets/icons/16/copyright-white.png" alt="Copyright EstivalBloom 2025 - Forever">
+					</button>
+					<div id="clock" class="tooltip">
 						<div id="clock-text"></div>
 					</div>
 				</div>

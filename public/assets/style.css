@@ -1,3 +1,7 @@
+:root {
+	--98-css-down: url("https://unpkg.com/98.css@0.1.20/icon/button-down.svg");
+}
+
 html { 
 	height: 100%;
 }
@@ -271,6 +275,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .shortcut {
 	position: relative;
+	min-height: 13px;
 }
 
 .shortcut::after {

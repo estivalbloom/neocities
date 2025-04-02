@@ -20,11 +20,20 @@
 			align-items: center;
 			gap: 5px;
 			flex-grow: 1;
+			padding: 2px 2px 2px 3px;
 		}
 
 		#address {
 			display: flex;
 			margin-top: 2px;
+			flex-grow: 1;
+		}
+
+		#dropdown {
+			min-height: 17px;
+			min-width: 16px;
+			padding: 0px 0px 0px 1px;
+  			background-image: var(--98-css-down);
 		}
 	</style>
 	<div id="container">
@@ -36,6 +45,7 @@
 				<div id="address">
 					<div>https://estivalbloom.dev/</div>
 				</div>
+				<button id="dropdown" inert></button>
 			</div>
 		</div>
 		<div class="horizontal-rule"></div>
