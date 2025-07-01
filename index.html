@@ -1,308 +1,490 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta
+			property="og:description"
+			content="A hub for Esti's projects and posts"
+		/>
+		<meta
+			name="referrer"
+			content="no-referrer"
+		/>
+		<title>Esti's Old Computer</title>
+		<link
+			rel="icon"
+			href="/assets/icons/64/thinking-even98er.png"
+			type="image/png"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/98.css@0.1.20/dist/98.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="/assets/style.css"
+			type="text/css"
+			media="all"
+		/>
+		<script type="module">
+			import { init } from "/src/main.js";
+			init();
+		</script>
+		<style>
+			#logo {
+				width: 512px;
+				height: 256px;
+				margin-bottom: -64px;
+			}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="og:description" content="A hub for Esti's projects and posts">
-	<meta name="referrer" content="no-referrer">
-	<title>Esti's Old Computer</title>
-	<link rel="icon" href="/assets/icons/64/thinking-even98er.png" type="image/png">
-	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
-	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
+			#message {
+				margin: 0px auto;
+				flex-grow: 1;
+				text-wrap: wrap;
+				box-sizing: border-box;
+				font-family: "Pixelated MS Sans Serif", Arial;
+				width: 444px;
+				padding: 0px 12px;
+			}
+
+			#main-window {
+				display: flex;
+				flex-direction: column;
+				margin: auto;
+			}
+
+			#main-content {
+				display: flex;
+				height: 100%;
+				margin-right: 0px;
+				margin-left: 0px;
+			}
+
+			#nav-list {
+				display: flex;
+				flex-direction: column;
+			}
+
+			#nav-item {
+				display: grid;
+				align-items: center;
+				box-sizing: border-box;
+				width: 384px;
+				margin: 1px;
+				padding: 2px 4px;
+				grid-template-columns: 64px 72px 192px;
+				column-gap: 16px;
+				color: black;
+				text-decoration: none;
+			}
+
+			#nav-item:hover {
+				background-color: blue;
+				color: white;
+			}
+
+			#nav-icon {
+				width: 64px;
+				height: 64px;
+				grid-column-start: 1;
+				grid-column-end: 2;
+			}
+
+			#nav-title {
+				font-size: 2em;
+				font-weight: bold;
+				width: 64px;
+				grid-column-start: 2;
+				grid-column-end: 3;
+			}
+
+			#nav-desc {
+				grid-column-start: 3;
+				grid-column-end: 4;
+			}
+
+			#l-col {
+				padding: 12px;
+				display: flex;
+				flex-direction: column;
+				gap: 12px;
+			}
+
+			#r-col {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+			}
+
+			#button-drawer {
+				display: flex;
+				width: 440px;
+				flex-wrap: wrap;
+				margin: 0px auto;
+				flex-grow: 1;
+				align-items: baseline;
+				justify-content: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main-container">
+			<div class="spacer"></div>
+			<main
+				id="main-window"
+				class="window"
+			>
+				<div
+					id="page-title-bar"
+					class="title-bar"
+				>
+					<h1 class="title-bar-text">
+						<img src="/assets/icons/16/tinysparklies.png" />
+						<div>Welcome!</div>
+					</h1>
+				</div>
+				<div is="menu-bar"></div>
+				<div
+					is="address-bar"
+					icon-src="/assets/icons/16/tinysparklies.png"
+				></div>
+				<div
+					id="main-content"
+					class="window-body"
+				>
+					<div id="l-col">
+						<a href="https://www.flamingtext.com/">
+							<img
+								id="logo"
+								alt="Esti's PC logo"
+								src="/assets/flamingtext.gif"
+							/>
+						</a>
+						<div
+							id="message"
+							class="fake-pre"
+						></div>
+						<div id="button-drawer">
+							<a href="https://www.mabsland.com/Adoption.html">
+								<img
+									src="/assets/buttons/censor_14c.gif"
+									alt="rated 14+ button"
+									style="
+										width: 88px;
+										height: 31px;
+										display: block;
+									"
+								/>
+							</a>
+							<img
+								src="/assets/buttons/queercodedthis.png"
+								alt="you're telling me a queer cooded this button"
+							/>
+							<img
+								src="/assets/buttons/nonbinary.gif"
+								alt="nonbinary pride button"
+							/>
+							<img
+								src="/assets/buttons/transrightsnow.png"
+								alt="trans rights now button"
+							/>
+							<img
+								src="/assets/buttons/transyourgender.gif"
+								alt="trans your gender button"
+							/>
+							<img
+								src="/assets/buttons/gamecube.png"
+								alt="gamecube logo button"
+							/>
+							<img
+								src="/assets/buttons/runescape.png"
+								alt="oldschool runescape logo button"
+							/>
+							<img
+								src="/assets/buttons/papermario.png"
+								alt="paper mario button"
+							/>
+							<img
+								src="/assets/buttons/drpepper.gif"
+								alt="powered by dr. pepper button"
+							/>
+							<img
+								src="/assets/buttons/eatsleepraverepeat.gif"
+								alt="eat sleep rave repeat button"
+							/>
+							<a href="https://godotengine.org">
+								<img
+									src="/assets/buttons/godot.png"
+									alt="godot game engine button"
+								/>
+							</a>
+							<img
+								src="/assets/buttons/graphicdesign.png"
+								alt="graphic design is my passion button"
+							/>
+							<img
+								src="/assets/buttons/nofuckingthanks.gif"
+								alt="anti-nft button"
+							/>
+							<img
+								src="/assets/buttons/neocitiesrainbow.gif"
+								alt="neocities the web is yours button"
+							/>
+							<img
+								src="/assets/buttons/firefox-browsertrust.gif"
+								alt="use firefox button"
+							/>
+						</div>
+					</div>
+					<div
+						class="vertical-rule"
+						style="margin-right: 1px"
+					></div>
+					<div id="r-col">
+						<nav id="nav-list">
+							<a
+								id="nav-item"
+								href="/src/about.html"
+							>
+								<img
+									id="nav-icon"
+									src="/assets/icons/64/thinking-even98er.png"
+								/>
+								<div id="nav-title">Bio</div>
+								<div id="nav-desc">About the Esti</div>
+							</a>
+							<a
+								id="nav-item"
+								href="/src/code/"
+							>
+								<img
+									id="nav-icon"
+									src="/assets/icons/64/code-icon.png"
+								/>
+								<div id="nav-title">Code</div>
+								<div id="nav-desc">
+									Games, demos, and interactive art
+								</div>
+							</a>
+							<a
+								id="nav-item"
+								href="/src/art.html"
+							>
+								<img
+									id="nav-icon"
+									src="/assets/icons/64/palette-icon.png"
+								/>
+								<div id="nav-title">Art</div>
+								<div id="nav-desc">
+									Mostly pixel art, but sometimes random other
+									things
+								</div>
+							</a>
+							<a
+								id="nav-item"
+								href="/src/kandi.html"
+							>
+								<img
+									id="nav-icon"
+									src="/assets/icons/64/kandi-pile-plain.png"
+								/>
+								<div id="nav-title">Kandi</div>
+								<div id="nav-desc">
+									Catalogue of all the Kandi I've receieved
+									from others
+								</div>
+							</a>
+							<a
+								id="nav-item"
+								href="/src/dev-diary.html"
+							>
+								<img
+									id="nav-icon"
+									src="/assets/icons/64/diary-icon.png"
+								/>
+								<div id="nav-title">Blog</div>
+								<div id="nav-desc">
+									Quick posts about what I'm up to :)
+								</div>
+							</a>
+						</nav>
+						<div style="display: flex; justify-content: center">
+							<script
+								src="https://transring.neocities.org/ring.js"
+								data-widget="nb"
+							></script>
+						</div>
+					</div>
+				</div>
+				<div
+					id="welcome-status"
+					class="status-bar"
+				>
+					<div
+						id="req-js"
+						class="status-bar-field"
+					>
+						Requires Javascript
+					</div>
+					<div
+						id="dev-ff"
+						class="status-bar-field"
+					>
+						Developed in Firefox on a 1920x1080 display
+					</div>
+					<div
+						id="css-98"
+						class="status-bar-field"
+					>
+						Style based on the amazing
+						<a href="https://jdan.github.io/98.css/">98.css</a>
+					</div>
+					<div class="status-bar-field">
+						This text just fixes the spacing so I don't have
+						aliasing problems
+					</div>
+				</div>
+			</main>
+			<div id="desktop-icon-container">
+				<a
+					class="desktop-icon"
+					aria-labelledby="mailto-text"
+					href="mailto:esti.cities@proton.me"
+				>
+					<img src="/assets/icons/32/mail-icon.png" />
+					<div class="desktop-icon-overlay"></div>
+					<div
+						id="mailto-text"
+						class="desktop-icon-text"
+					>
+						<div>E-mail</div>
+						<canvas class="icon-canvas icon-canvas-light"></canvas>
+						<canvas class="icon-canvas icon-canvas-strong"></canvas>
+					</div>
+				</a>
+				<a
+					class="desktop-icon"
+					aria-labelledby="bsky-text"
+					href="https://bsky.app/profile/estivalbloom.dev"
+				>
+					<img src="/assets/icons/32/bsky-icon.png" />
+					<div class="desktop-icon-overlay"></div>
+					<div
+						id="bsky-text"
+						class="desktop-icon-text"
+					>
+						<div>Bluesky</div>
+						<canvas class="icon-canvas icon-canvas-light"></canvas>
+						<canvas class="icon-canvas icon-canvas-strong"></canvas>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div
+			is="win-task-bar"
+			id="task-bar"
+		>
+			<div
+				id="shortcuts"
+				slot="shortcuts"
+			>
+				<button id="minesweeper-button">
+					<div id="minesweeper-icon"></div>
+				</button>
+			</div>
+		</div>
+		<div
+			is="minesweeper-dlg"
+			id="minesweeper"
+		></div>
+	</body>
+	<script
+		type="module"
+		src="/src/dn-alert/index.js"
+	></script>
 	<script type="module">
-		import { init } from '/src/main.js'
-		init()
-	</script>
-	<style>
-		#logo {
-			width: 512px;
-			height: 256px;
-			margin-bottom: -64px;
+		function coordToIdx(rect, v) {
+			return (v.x + v.y * rect.x) * 4;
 		}
 
-		#message {
-			margin: 0px auto;
-			flex-grow: 1;
-			text-wrap: wrap;
-			box-sizing: border-box;
-			font-family: "Pixelated MS Sans Serif", Arial;
-			width: 444px;
-			padding: 0px 12px;
+		function inBounds(rect, v) {
+			return v.x >= 0 && v.y >= 0 && v.x < rect.x && v.y < rect.y;
 		}
 
-		#main-window {
-			display: flex;
-			flex-direction: column;
-			margin: auto;
+		function plus(v1, v2) {
+			return { x: v1.x + v2.x, y: v1.y + v2.y };
 		}
 
-		#main-content {
-			display: flex;
-			height: 100%;
-			margin-right: 0px;
-			margin-left: 0px;
+		function setPixel(image_data, idx, color) {
+			image_data.data[idx + 0] = color.r;
+			image_data.data[idx + 1] = color.g;
+			image_data.data[idx + 2] = color.b;
+			image_data.data[idx + 3] = color.a;
 		}
 
-		#nav-list {
-			display: flex;
-			flex-direction: column;
+		function initImageData(canvas, size) {
+			const ctx = canvas.getContext("2d");
+			const image_data = ctx.createImageData(size.x, size.y);
+			canvas.width = size.x;
+			canvas.height = size.y;
+			return { ctx, image_data };
 		}
 
-		#nav-item {
-			display: grid;
-			align-items: center;
-			box-sizing: border-box;
-			width: 384px;
-			margin: 1px;
-			padding: 2px 4px;
-			grid-template-columns: 64px 72px 192px;
-			column-gap: 16px;
-			color: black;
-			text-decoration: none;
-		}
+		const directions = [
+			{ x: 1, y: 0 },
+			{ x: 0, y: 1 },
+			{ x: -1, y: 0 },
+			{ x: 0, y: -1 },
+		];
+		const icon_texts = document.querySelectorAll(".desktop-icon-text");
+		const light_color = { r: 255, g: 0, b: 0, a: 255 };
+		const strong_color_border = { r: 255, g: 255, b: 0, a: 255 };
 
-		#nav-item:hover {
-			background-color: blue;
-			color: white;
-		}
-
-		#nav-icon {
-			width: 64px;
-			height: 64px;
-			grid-column-start: 1;
-			grid-column-end: 2;
-		}
-
-		#nav-title {
-			font-size: 2em;
-			font-weight: bold;
-			width: 64px;
-			grid-column-start: 2;
-			grid-column-end: 3;
-		}
-
-		#nav-desc {
-			grid-column-start: 3;
-			grid-column-end: 4;
-		}
-
-		#l-col {
-			padding: 12px;
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
-		}
-
-		#r-col {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-		}
-
-		#button-drawer {
-			display: flex;
-			width: 352px;
-			flex-wrap: wrap;
-			margin: 0px auto;
-			flex-grow: 1;
-			align-items: baseline;
-			justify-content: center;
-		}
-	</style>
-</head>
-
-<body>
-	<!-- DEEZ NUTS LOLOLOLOL GOTTEM -->
-	<div id="main-container">
-		<div class="spacer"></div>
-		<main id="main-window" class="window">
-			<div id="page-title-bar" class="title-bar">
-				<h1 class="title-bar-text">
-					<img src="/assets/icons/16/tinysparklies.png">
-					<div>
-						Welcome!
-					</div>
-				</h1>
-			</div>
-			<div is="menu-bar"></div>
-			<div is="address-bar" icon-src="/assets/icons/16/tinysparklies.png"></div>
-			<div id="main-content" class="window-body">
-				<div id="l-col">
-					<a href="https://www.flamingtext.com/">
-						<img id="logo" alt="Esti's PC logo" src="/assets/flamingtext.gif">
-					</a>
-					<div id="message" class="fake-pre"></div>
-					<div id="button-drawer">
-						<img src="/assets/buttons/queercodedthis.png"
-							alt="you're telling me a queer cooded this button">
-						<img src="/assets/buttons/gamecube.png" alt="gamecube logo button">
-						<img src="/assets/buttons/transrightsnow.png" alt="trans rights now button">
-						<img src="/assets/buttons/drpepper.gif" alt="powered by dr. pepper button">
-						<img src="/assets/buttons/transyourgender.gif" alt="trans your gender button">
-						<img src="/assets/buttons/godot.png" alt="godot game engine button">
-						<a href="https://www.mabsland.com/Adoption.html">
-							<img src="/assets/buttons/censor_14c.gif" alt="rated 14+ button"
-								style="width: 88px; height:  31px;">
-						</a>
-						<img src="/assets/buttons/graphicdesign.png" alt="graphic design is my passion button">
-					</div>
-				</div>
-				<div class="vertical-rule" style="margin-right: 1px;"></div>
-				<div id="r-col">
-					<nav id="nav-list">
-						<a id="nav-item" href="/src/about.html">
-							<img id="nav-icon" src="/assets/icons/64/thinking-even98er.png">
-							<div id="nav-title">Bio</div>
-							<div id="nav-desc">About the Esti</div>
-						</a>
-						<a id="nav-item" href="/src/code/">
-							<img id="nav-icon" src="/assets/icons/64/code-icon.png">
-							<div id="nav-title">Code</div>
-							<div id="nav-desc">Games, demos, and interactive art</div>
-						</a>
-						<a id="nav-item" href="/src/art.html">
-							<img id="nav-icon" src="/assets/icons/64/palette-icon.png">
-							<div id="nav-title">Art</div>
-							<div id="nav-desc">Mostly pixel art, but sometimes random other things</div>
-						</a>
-						<a id="nav-item" href="/src/kandi.html">
-							<img id="nav-icon" src="/assets/icons/64/kandi-pile-plain.png">
-							<div id="nav-title">Kandi</div>
-							<div id="nav-desc">Catalogue of all the Kandi I've receieved from others</div>
-						</a>
-						<a id="nav-item" href="/src/dev-diary.html">
-							<img id="nav-icon" src="/assets/icons/64/diary-icon.png">
-							<div id="nav-title">Blog</div>
-							<div id="nav-desc">Quick posts about what I'm up to :)</div>
-						</a>
-					</nav>
-					<div style="display: flex; justify-content: center;">
-						<script src="https://transring.neocities.org/ring.js" data-widget="nb"></script>
-					</div>
-				</div>
-			</div>
-			<div id="welcome-status" class="status-bar">
-				<div id="req-js" class="status-bar-field">
-					Requires Javascript
-				</div>
-				<div id="dev-ff" class="status-bar-field">
-					Developed in Firefox on a 1920x1080 display
-				</div>
-				<div id="css-98" class="status-bar-field">
-					Style based on the amazing <a href="https://jdan.github.io/98.css/">98.css</a>
-				</div>
-				<div class="status-bar-field">
-					This text just fixes the spacing so I don't have aliasing problems
-				</div>
-			</div>
-		</main>
-		<div id="desktop-icon-container">
-			<a class="desktop-icon" aria-labelledby="mailto-text" href="mailto:esti.cities@proton.me">
-				<img src="/assets/icons/32/mail-icon.png">
-				<div class="desktop-icon-overlay"></div>
-				<div id="mailto-text" class="desktop-icon-text">
-					<div>E-mail</div>
-					<canvas class="icon-canvas icon-canvas-light"></canvas>
-					<canvas class="icon-canvas icon-canvas-strong"></canvas>
-				</div>
-			</a>
-			<a class="desktop-icon" aria-labelledby="bsky-text" href="https://bsky.app/profile/estivalbloom.dev">
-				<img src="/assets/icons/32/bsky-icon.png">
-				<div class="desktop-icon-overlay"></div>
-				<div id="bsky-text" class="desktop-icon-text">
-					<div>Bluesky</div>
-					<canvas class="icon-canvas icon-canvas-light"></canvas>
-					<canvas class="icon-canvas icon-canvas-strong"></canvas>
-				</div>
-			</a>
-		</div>
-	</div>
-	<div is="win-task-bar" id="task-bar">
-		<div id="shortcuts" slot="shortcuts">
-			<button id="minesweeper-button">
-				<div id="minesweeper-icon"></div>
-			</button>
-		</div>
-	</div>
-	<div is="minesweeper-dlg" id="minesweeper"></div>
-</body>
-<script type="module" src="/src/dn-alert/index.js"></script>
-<script type="module">
-	function coordToIdx(rect, v) {
-		return (v.x + v.y * rect.x) * 4;
-	}
-
-	function inBounds(rect, v) {
-		return v.x >= 0 && v.y >= 0 && v.x < rect.x && v.y < rect.y;
-	}
-
-	function plus(v1, v2) {
-		return { x: v1.x + v2.x, y: v1.y + v2.y };
-	}
-
-	function setPixel(image_data, idx, color) {
-		image_data.data[idx + 0] = color.r;
-		image_data.data[idx + 1] = color.g;
-		image_data.data[idx + 2] = color.b;
-		image_data.data[idx + 3] = color.a;
-	}
-
-	function initImageData(canvas, size) {
-		const ctx = canvas.getContext('2d');
-		const image_data = ctx.createImageData(size.x, size.y);
-		canvas.width = size.x;
-		canvas.height = size.y;
-		return { ctx, image_data };
-	}
-
-	const directions = [
-		{ x: 1, y: 0 },
-		{ x: 0, y: 1 },
-		{ x: -1, y: 0 },
-		{ x: 0, y: -1 }
-	]
-	const icon_texts = document.querySelectorAll('.desktop-icon-text');
-	const light_color = { r: 255, g: 0, b: 0, a: 255 };
-	const strong_color_border = { r: 255, g: 255, b: 0, a: 255 };
-
-	icon_texts.forEach(text_container => {
-		const text = text_container.children[0];
-		const size = { x: text.offsetWidth, y: text.offsetHeight };
-		const canvas_light = text_container.children[1];
-		const canvas_strong = text_container.children[2];
-		const { ctx: ctx_light, image_data: image_data_light } = initImageData(canvas_light, size);
-		const { ctx: ctx_strong, image_data: image_data_strong } = initImageData(canvas_strong, size);
-		let position = { x: -1, y: 0 };
-		let next = position;
-		directions.forEach(dir => {
-			next = plus(position, dir);
-			do {
-				position = next;
-				if ((position.x + position.y) % 2 == 0) {
-					const idx = coordToIdx(size, position);
-					setPixel(image_data_light, idx, light_color);
-					setPixel(image_data_strong, idx, strong_color_border);
-				}
+		icon_texts.forEach((text_container) => {
+			const text = text_container.children[0];
+			const size = { x: text.offsetWidth, y: text.offsetHeight };
+			const canvas_light = text_container.children[1];
+			const canvas_strong = text_container.children[2];
+			const { ctx: ctx_light, image_data: image_data_light } =
+				initImageData(canvas_light, size);
+			const { ctx: ctx_strong, image_data: image_data_strong } =
+				initImageData(canvas_strong, size);
+			let position = { x: -1, y: 0 };
+			let next = position;
+			directions.forEach((dir) => {
 				next = plus(position, dir);
-			} while (inBounds(size, next))
-		})
-		ctx_light.putImageData(image_data_light, 0, 0);
-		ctx_strong.putImageData(image_data_strong, 0, 0);
-	});
+				do {
+					position = next;
+					if ((position.x + position.y) % 2 == 0) {
+						const idx = coordToIdx(size, position);
+						setPixel(image_data_light, idx, light_color);
+						setPixel(image_data_strong, idx, strong_color_border);
+					}
+					next = plus(position, dir);
+				} while (inBounds(size, next));
+			});
+			ctx_light.putImageData(image_data_light, 0, 0);
+			ctx_strong.putImageData(image_data_strong, 0, 0);
+		});
 
-	(async () => {
-		let resp = await fetch('/assets/welcome-message.html');
-		let html = await resp.text();
-		let message = document.querySelector('#message')
-		message.innerHTML = html;
-	})();
+		(async () => {
+			let resp = await fetch("/assets/welcome-message.html");
+			let html = await resp.text();
+			let message = document.querySelector("#message");
+			message.innerHTML = html;
+		})();
 
-	const icon_imgs = document.querySelectorAll('.desktop-icon>img');
-	const icon_overlays = document.querySelectorAll('.desktop-icon-overlay');
-	for (let i = 0; i < icon_imgs.length; i++) {
-		icon_overlays[i].style.maskImage = `url(${icon_imgs[i].src})`;
-	}
-</script>
-
+		const icon_imgs = document.querySelectorAll(".desktop-icon>img");
+		const icon_overlays = document.querySelectorAll(
+			".desktop-icon-overlay",
+		);
+		for (let i = 0; i < icon_imgs.length; i++) {
+			icon_overlays[i].style.maskImage = `url(${icon_imgs[i].src})`;
+		}
+	</script>
 </html>

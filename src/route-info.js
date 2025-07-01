@@ -10,7 +10,6 @@ export const routes = [
 	['art', 		'src/art',				'Art',				'main'	],
 	['kandi', 		'src/kandi',			'Kandi',			'main'	],
 	['dev_diary', 	'src/dev-diary',		'Dev Diary',		'main'	],
-	['flowers',		'src/flowers/index',	'Flowers',			''		]
 ];
 
 export const routeObjs = routes.map(e => {
