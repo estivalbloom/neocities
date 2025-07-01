@@ -9,7 +9,8 @@ export const routes = [
 	['matrix_text', 'src/code/matrix-text',	'Matrix Text',		'code'	],
 	['art', 		'src/art',				'Art',				'main'	],
 	['kandi', 		'src/kandi',			'Kandi',			'main'	],
-	['dev_diary', 	'src/dev-diary',		'Dev Diary',		'main'	]
+	['dev_diary', 	'src/dev-diary',		'Dev Diary',		'main'	],
+	['flowers',		'src/flowers/index',	'Flowers',			''		]
 ];
 
 export const routeObjs = routes.map(e => {
