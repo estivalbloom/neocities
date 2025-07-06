@@ -1,125 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>About Me - Esti's Old Computer</title>
+		<link
+			rel="icon"
+			href="/assets/icons/64/thinking-even98er.png"
+			type="image/png"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/98.css@0.1.20/dist/98.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="/assets/style.css"
+			type="text/css"
+			media="all"
+		/>
+		<script type="module">
+			import { init } from "/src/main.js";
+			init();
+		</script>
+		<style>
+			#about-window {
+				display: flex;
+				flex-direction: column;
+				margin: auto;
+			}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title> About Me - Esti's Old Computer</title>
-	<link rel="icon" href="/assets/icons/64/thinking-even98er.png" type="image/png">
-	<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.20/dist/98.css">
-	<link rel="stylesheet" href="/assets/style.css" type="text/css" media="all">
-	<script type="module">
-		import { init } from '/src/main.js'
-		init()
-	</script>
-	<style>
-		#about-window {
-			display: flex;
-			flex-direction: column;
-			margin: auto;
-		}
+			#about-window > .window-body {
+				display: flex;
+				height: 100%;
+				align-items: center;
+				justify-content: center;
+				gap: 1px;
+				margin: 8px;
+			}
 
-		#about-window>.window-body {
-			display: flex;
-			height: 100%;
-			align-items: center;
-			justify-content: center;
-			gap: 1px;
-			margin: 8px;
-		}
+			#r-col {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 12px;
+			}
 
-		#r-col {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 12px;
-		}
+			#content {
+				text-wrap: wrap;
+				font-family: "Pixelated MS Sans Serif", Arial;
+				width: 225px;
+			}
 
-		#content {
-			text-wrap: wrap;
-			font-family: "Pixelated MS Sans Serif", Arial;
-			width: 225px;
-		}
+			#back-button {
+				flex-grow: 0;
+			}
 
-		#back-button {
-			flex-grow: 0;
-		}
+			#abt-faves {
+				box-sizing: border-box;
+				width: 83px;
+			}
+		</style>
+	</head>
 
-		#abt-faves {
-			box-sizing: border-box;
-			width: 83px;
-		}
-	</style>
-</head>
-
-<body>
-	<div id="main-container">
-		<div class="spacer"></div>
-		<main id="about-window" class="window">
-			<div id="page-title-bar" class="title-bar">
-				<h1 class="title-bar-text">
-					<img src="/assets/icons/16/info-icon.png">
-					<div>
-						About Me
-					</div>
-				</h1>
-				<div class="title-bar-controls">
-					<!-- <button aria-label="Minimize"></button>
+	<body>
+		<div id="main-container">
+			<div class="spacer"></div>
+			<main
+				id="about-window"
+				class="window"
+			>
+				<div
+					id="page-title-bar"
+					class="title-bar"
+				>
+					<h1 class="title-bar-text">
+						<img src="/assets/icons/16/info-icon.png" />
+						<div>About Me</div>
+					</h1>
+					<div class="title-bar-controls">
+						<!-- <button aria-label="Minimize"></button>
 					<button aria-label="Maximize"></button> -->
-					<a href="/" class="page-close-link">
-						<button tabindex="-1" id="close-button" aria-label="Close"></button>
-					</a>
+						<a
+							href="/"
+							class="page-close-link"
+						>
+							<button
+								tabindex="-1"
+								id="close-button"
+								aria-label="Close"
+							></button>
+						</a>
+					</div>
 				</div>
-			</div>
-			<div is="menu-bar"></div>
-			<div is="address-bar" icon-src="/assets/icons/16/info-icon.png"></div>
-			<div class="window-body">
-				<img src="/assets/art/full-3x-wm.png" alt="pixel art portrait of Esti">
-				<div id="r-col">
-					<pre id="content"></pre>
-					<a href="/">
-						<button tabindex="-1" id="back-button">Back Home</button>
-					</a>
+				<div is="menu-bar"></div>
+				<div
+					is="address-bar"
+					icon-src="/assets/icons/16/info-icon.png"
+				></div>
+				<div class="window-body">
+					<img
+						src="/assets/art/full-3x-wm.png"
+						alt="pixel art portrait of Esti"
+					/>
+					<div id="r-col">
+						<pre id="content"></pre>
+						<a href="/">
+							<button
+								tabindex="-1"
+								id="back-button"
+							>
+								Back Home
+							</button>
+						</a>
+					</div>
 				</div>
-			</div>
-			<div id="welcome-status" class="status-bar">
-				<div id="abt-faves" class="status-bar-field">
-					Favorites:
+				<div
+					id="welcome-status"
+					class="status-bar"
+				>
+					<div
+						id="abt-faves"
+						class="status-bar-field"
+					>
+						Favorites:
+					</div>
+					<div
+						id="abt-color"
+						class="status-bar-field"
+					>
+						Color: Red
+					</div>
+					<div
+						id="abt-animal"
+						class="status-bar-field"
+					>
+						(Non-pet) Animal: Orcas
+					</div>
+					<div
+						id="abt-movie"
+						class="status-bar-field"
+					>
+						Movie: Kimi no Na Wa
+					</div>
+					<div
+						id="abt-music"
+						class="status-bar-field"
+					>
+						Music artist: Rezz
+					</div>
 				</div>
-				<div id="abt-color" class="status-bar-field">
-					Color: Red
-				</div>
-				<div id="abt-animal" class="status-bar-field">
-					(Non-pet) Animal: Orcas
-				</div>
-				<div id="abt-movie" class="status-bar-field">
-					Movie: Kimi no Na Wa
-				</div>
-				<div id="abt-music" class="status-bar-field">
-					Music artist: Rezz
-				</div>
-			</div>
-		</main>
-		<div class="spacer"></div>
-	</div>
-	<div is="win-task-bar" id="task-bar">
-		<div id="shortcuts" slot="shortcuts">
-			<button id="minesweeper-button">
-				<div id="minesweeper-icon"></div>
-			</button>
+			</main>
+			<div class="spacer"></div>
 		</div>
-	</div>
-	<div is="minesweeper-dlg" id="minesweeper"></div>
-</body>
+		<div
+			is="win-task-bar"
+			id="task-bar"
+		>
+			<div
+				id="shortcuts"
+				slot="shortcuts"
+			>
+				<button id="minesweeper-button">
+					<div id="minesweeper-icon"></div>
+				</button>
+			</div>
+		</div>
+		<div
+			is="minesweeper-dlg"
+			id="minesweeper"
+		></div>
+	</body>
 
-<script type="module" src="/src/dn-alert/index.js"></script>
-<script>
+	<script
+		type="module"
+		src="/src/dn-alert/index.js"
+	></script>
+	<script>
 		(async () => {
-			let resp = await fetch('/assets/about-content.html');
+			let resp = await fetch("/assets/about-content.html");
 			let html = await resp.text();
-			let message = document.querySelector('#content')
+			let message = document.querySelector("#content");
 			message.innerHTML = html;
 		})();
-</script>
-
+	</script>
 </html>

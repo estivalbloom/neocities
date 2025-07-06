@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Teeny Towers - Esti's Old Computer</title>
+		<link
+			rel="icon"
+			href="/assets/icons/64/thinking-even98er.png"
+			type="image/png"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/98.css@0.1.20/dist/98.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="/assets/style.css"
+			type="text/css"
+			media="all"
+		/>
+		<script type="module">
+			import { init } from '/src/main.js';
+			init();
+		</script>
+		<style>
+			#content-window > .window-body {
+				display: flex;
+				margin: 0px;
+				flex-grow: 1;
+			}
+
+			#tower {
+				display: flex;
+				flex-direction: column;
+				background-color: #7c7c7c;
+				align-items: center;
+			}
+
+			.floor {
+				display: flex;
+				justify-content: center;
+				background-color: #7c7c7c;
+			}
+
+			.room {
+				display: inherit;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main-container">
+			<div class="spacer"></div>
+			<main
+				id="content-window"
+				class="window frame"
+			>
+				<div
+					id="page-title-bar"
+					class="title-bar"
+				>
+					<h1 class="title-bar-text">
+						<img src="/assets/icons/16/tower.png" />
+						<div>Teeny Towers</div>
+					</h1>
+					<div class="title-bar-controls">
+						<!-- <button aria-label="Minimize"></button>
+					<button aria-label="Maximize"></button> -->
+						<a
+							href="/"
+							class="page-close-link"
+						>
+							<button
+								tabindex="-1"
+								id="close-button"
+								aria-label="Close"
+							></button>
+						</a>
+					</div>
+				</div>
+				<div is="menu-bar"></div>
+				<div
+					is="address-bar"
+					icon-src="/assets/icons/16/tower.png"
+				></div>
+				<div class="window-body">
+					<div id="content">
+						<div id="tower">
+							<img src="/assets/tower/roofsign.gif" />
+							<img src="/assets/tower/wall_top.gif" />
+						</div>
+					</div>
+				</div>
+			</main>
+			<div class="spacer"></div>
+		</div>
+		<div
+			is="win-task-bar"
+			id="task-bar"
+		>
+			<div
+				id="shortcuts"
+				slot="shortcuts"
+			>
+				<button id="minesweeper-button">
+					<div id="minesweeper-icon"></div>
+				</button>
+			</div>
+		</div>
+		<div
+			is="minesweeper-dlg"
+			id="minesweeper"
+		></div>
+	</body>
+	<script
+		type="module"
+		src="/src/dn-alert/index.js"
+	></script>
+	<script>
+		const vacant = {
+			file: 'vacant.gif',
+			alt: 'Vacant room',
+		};
+
+		const garage = {
+			file: 'parkinggarage.gif',
+			alt: 'Parking garage',
+		};
+
+		const elevator = {
+			file: 'elevators.gif',
+			alt: 'Elevator room',
+		};
+
+		const cafe = {
+			file: 'cafe.gif',
+			alt: 'Teeny Towers Cafe',
+			link: 'https://dokodemo.neocities.org/',
+		};
+
+		const lobby = {
+			file: 'lobby.gif',
+			alt: 'Teeny Towers Lobby',
+			link: 'https://keysklubhouse.com',
+		};
+
+		const wall_l = {
+			file: 'wall_l.gif',
+			alt: 'Left Tower Wall',
+		};
+
+		const wall_r = {
+			file: 'wall_r.gif',
+			alt: 'Right Tower Wall',
+		};
+
+		const claires = {
+			file: 'claires.gif',
+			alt: "Claire's Storefront",
+			link: 'https://keysklubhouse.com',
+		};
+
+		const hot_topic = {
+			file: 'hottopic.gif',
+			alt: 'Hot Topic Storefront',
+			link: 'https://keysklubhouse.com',
+		};
+
+		const spencers = {
+			file: 'spencers.gif',
+			alt: "Spencer's Storefront",
+			link: 'https://keysklubhouse.com',
+		};
+
+		const buildabear = {
+			file: 'buildabear.png',
+			alt: 'Build-a-Bear Storefront',
+			link: 'https://blissnet.neocities.org/',
+		};
+
+		const pizzaplanet = {
+			file: 'pizzaplanet.png',
+			alt: 'Pizza Plaent Storefront',
+			link: 'https://blissnet.neocities.org/',
+		};
+
+		const movie = {
+			file: 'ashido15.gif',
+			alt: 'A human and two robots are seen in silhouette against a movie in a theater, as in MST3k.',
+			link: 'http://www.ashido.com/teeny/',
+		};
+
+		const tower_rooms = [
+			[vacant, vacant, vacant, elevator, vacant, vacant, vacant],
+			[
+				claires,
+				hot_topic,
+				spencers,
+				elevator,
+				buildabear,
+				pizzaplanet,
+				movie,
+			],
+			[garage, cafe, elevator, lobby, garage],
+		];
+
+		const tower_element = document.getElementById('tower');
+		tower_rooms.forEach((row) => {
+			const row_container = document.createElement('div');
+			row_container.classList.add('floor');
+			const wall_l_el = document.createElement('img');
+			wall_l_el.src = `/assets/tower/${wall_l.file}`;
+			row_container.appendChild(wall_l_el);
+			row.forEach((room) => {
+				const roomElement = document.createElement('img');
+				roomElement.src = `/assets/tower/${room.file}`;
+				roomElement.alt = room.alt;
+				if (room.link) {
+					const link = document.createElement('a');
+					link.href = room.link;
+					link.classList.add('room');
+					link.appendChild(roomElement);
+					row_container.appendChild(link);
+				} else {
+					row_container.appendChild(roomElement);
+				}
+			});
+			const wall_r_el = document.createElement('img');
+			wall_r_el.src = `/assets/tower/${wall_r.file}`;
+			row_container.appendChild(wall_r_el);
+			tower_element.appendChild(row_container);
+		});
+	</script>
+</html>
