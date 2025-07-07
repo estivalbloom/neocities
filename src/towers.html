@@ -33,13 +33,30 @@
 				flex-grow: 1;
 			}
 
+			#content {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				background-color: #535d97;
+			}
+
+			#info {
+				display: flex;
+				flex-direction: column;
+				gap: 16px;
+				margin: 16px;
+				padding: 16px;
+				background-color: #bebebe80;
+				border: 2px solid #bebebe;
+				border-radius: 4px;
+			}
+
 			#tower {
 				display: flex;
 				flex-direction: column;
-				background-color: #7c7c7c;
 				align-items: center;
 				justify-content: end;
-				min-height: 100%;
+				flex-grow: 1;
 			}
 
 			.floor {
@@ -91,14 +108,20 @@
 				></div>
 				<div class="window-body">
 					<div id="content">
-						<div id="tower">
+						<div id="info">
 							<div>
-								Under construction for now - a fun little pixel
-								clique/collectible I found at
+								Page under construction for now - a fun little
+								pixel clique/collectible I encountered at
 								<a href="https://keysklubhouse.com/index2"
 									>Key's Clubhouse</a
 								>!
 							</div>
+							<div>
+								My room:
+								<img src="/assets/tower/osrs-poh.gif" />
+							</div>
+						</div>
+						<div id="tower">
 							<img src="/assets/tower/roofsign.gif" />
 							<img src="/assets/tower/wall_top.gif" />
 						</div>
@@ -273,8 +296,47 @@
 			link: 'https://dxcccii.neocities.org/',
 		};
 
+		const bandw_room = {
+			file: 'happylampflowers1.png',
+			alt: 'A black and white bedroom that has a dresser with a radio on it.',
+			link: 'https://happylampflowers.neocities.org/',
+		};
+
+		const green_room = {
+			file: 'foxfable1.png',
+			alt: 'A green-themed living room with a bonsai, a couch, and some sort of display case.',
+			link: 'https://foxfable.fun/',
+		};
+
+		const pokeball_room = {
+			file: 'myroom1.gif',
+			alt: 'A room featuring a bed with plushies, a desk with multiple houseplants, a cabinet with aquariums and a terrarium, and multiple framed art pieces on the wall.',
+			link: 'https://keysklubhouse.neocities.org/',
+		};
+
+		const star_cat_tree_room = {
+			file: 'starlingharley1.gif',
+			alt: 'A room decorated with stars and a constellation visible outside. A person is watching a cat on a cat tree.',
+			link: 'https://starlingharley.neocities.org/funstuff',
+		};
+
+		const cozy_fireplace_room = {
+			file: 'starlingharley2.gif',
+			alt: 'A cozy room with a person wrapped in a blanket reading, in a lounge chair by a fireplace.',
+			link: 'https://starlingharley.neocities.org/funstuff',
+		};
+
 		const tower_rooms = [
 			[vacant, vacant, vacant, elevator, vacant, vacant, vacant],
+			[
+				vacant,
+				bandw_room,
+				green_room,
+				elevator,
+				pokeball_room,
+				star_cat_tree_room,
+				cozy_fireplace_room,
+			],
 			[
 				cabin_room,
 				spooky_room,
