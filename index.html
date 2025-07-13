@@ -31,7 +31,7 @@
 			media="all"
 		/>
 		<script type="module">
-			import { init } from "/src/main.js";
+			import { init } from '/src/main.js';
 			init();
 		</script>
 		<style>
@@ -46,7 +46,7 @@
 				flex-grow: 1;
 				text-wrap: wrap;
 				box-sizing: border-box;
-				font-family: "Pixelated MS Sans Serif", Arial;
+				font-family: 'Pixelated MS Sans Serif', Arial;
 				width: 444px;
 				padding: 0px 12px;
 			}
@@ -69,32 +69,32 @@
 				flex-direction: column;
 			}
 
-			#nav-item {
+			.nav-item {
 				display: grid;
 				align-items: center;
 				box-sizing: border-box;
 				width: 384px;
 				margin: 1px;
 				padding: 2px 4px;
-				grid-template-columns: 64px 72px 192px;
+				grid-template-columns: 64px 128px 140px;
 				column-gap: 16px;
 				color: black;
 				text-decoration: none;
 			}
 
-			#nav-item:hover {
+			.nav-item:hover {
 				background-color: blue;
 				color: white;
 			}
 
-			#nav-icon {
+			.nav-icon {
 				width: 64px;
 				height: 64px;
 				grid-column-start: 1;
 				grid-column-end: 2;
 			}
 
-			#nav-title {
+			.nav-title {
 				font-size: 2em;
 				font-weight: bold;
 				width: 64px;
@@ -246,71 +246,81 @@
 						style="margin-right: 1px"
 					></div>
 					<div id="r-col">
-						<nav id="nav-list">
+						<nav class="nav-list">
 							<a
-								id="nav-item"
+								class="nav-item"
 								href="/src/about.html"
 							>
 								<img
-									id="nav-icon"
+									class="nav-icon"
 									src="/assets/icons/64/thinking-even98er.png"
 								/>
-								<div id="nav-title">Bio</div>
-								<div id="nav-desc">About the Esti</div>
+								<div class="nav-title">Bio</div>
+								<div class="nav-desc">About the Esti</div>
 							</a>
 							<a
-								id="nav-item"
+								class="nav-item"
 								href="/src/code/"
 							>
 								<img
-									id="nav-icon"
+									class="nav-icon"
 									src="/assets/icons/64/code-icon.png"
 								/>
-								<div id="nav-title">Code</div>
-								<div id="nav-desc">
+								<div class="nav-title">Code</div>
+								<div class="nav-desc">
 									Games, demos, and interactive art
 								</div>
 							</a>
 							<a
-								id="nav-item"
+								class="nav-item"
 								href="/src/art.html"
 							>
 								<img
-									id="nav-icon"
+									class="nav-icon"
 									src="/assets/icons/64/palette-icon.png"
 								/>
-								<div id="nav-title">Art</div>
-								<div id="nav-desc">
+								<div class="nav-title">Art</div>
+								<div class="nav-desc">
 									Mostly pixel art, but sometimes random other
 									things
 								</div>
 							</a>
 							<a
-								id="nav-item"
+								class="nav-item"
 								href="/src/kandi.html"
 							>
 								<img
-									id="nav-icon"
+									class="nav-icon"
 									src="/assets/icons/64/kandi-pile-plain.png"
 								/>
-								<div id="nav-title">Kandi</div>
-								<div id="nav-desc">
+								<div class="nav-title">Kandi</div>
+								<div class="nav-desc">
 									Catalogue of all the Kandi I've receieved
 									from others
 								</div>
 							</a>
 							<a
-								id="nav-item"
+								class="nav-item"
 								href="/src/dev-diary.html"
 							>
 								<img
-									id="nav-icon"
+									class="nav-icon"
 									src="/assets/icons/64/diary-icon.png"
 								/>
-								<div id="nav-title">Blog</div>
-								<div id="nav-desc">
+								<div class="nav-title">Blog</div>
+								<div class="nav-desc">
 									Quick posts about what I'm up to :)
 								</div>
+							</a>
+							<a
+								class="nav-item"
+								href="/src/collections/"
+								><img
+									class="nav-icon"
+									src="/assets/icons/64/collection-icon.png"
+								/>
+								<div class="nav-title">Collections</div>
+								<div>Collections of little pixel arts</div>
 							</a>
 						</nav>
 						<div style="display: flex; justify-content: center">
@@ -428,7 +438,7 @@
 		}
 
 		function initImageData(canvas, size) {
-			const ctx = canvas.getContext("2d");
+			const ctx = canvas.getContext('2d');
 			const image_data = ctx.createImageData(size.x, size.y);
 			canvas.width = size.x;
 			canvas.height = size.y;
@@ -441,7 +451,7 @@
 			{ x: -1, y: 0 },
 			{ x: 0, y: -1 },
 		];
-		const icon_texts = document.querySelectorAll(".desktop-icon-text");
+		const icon_texts = document.querySelectorAll('.desktop-icon-text');
 		const light_color = { r: 255, g: 0, b: 0, a: 255 };
 		const strong_color_border = { r: 255, g: 255, b: 0, a: 255 };
 
@@ -473,15 +483,15 @@
 		});
 
 		(async () => {
-			let resp = await fetch("/assets/welcome-message.html");
+			let resp = await fetch('/assets/welcome-message.html');
 			let html = await resp.text();
-			let message = document.querySelector("#message");
+			let message = document.querySelector('#message');
 			message.innerHTML = html;
 		})();
 
-		const icon_imgs = document.querySelectorAll(".desktop-icon>img");
+		const icon_imgs = document.querySelectorAll('.desktop-icon>img');
 		const icon_overlays = document.querySelectorAll(
-			".desktop-icon-overlay",
+			'.desktop-icon-overlay',
 		);
 		for (let i = 0; i < icon_imgs.length; i++) {
 			icon_overlays[i].style.maskImage = `url(${icon_imgs[i].src})`;

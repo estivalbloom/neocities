@@ -1,17 +1,18 @@
 // name | path | display
 export const routes = [
-	['main', 		'index',				'Home',				''		],
-	['about',	 	'src/about',			'About Me',			'main'	],
-	['code', 		'src/code/index',		'Code',				'main'	],
-	['moji', 		'src/code/moji-mash',	'Moji Mash',		'code'	],
-	['pix_water', 	'src/code/pixel-water',	'Pixel Water',		'code'	],
-	['term_game', 	'src/code/term-game',	'Terminal Game',	'code'	],
-	['matrix_text', 'src/code/matrix-text',	'Matrix Text',		'code'	],
-	['art', 		'src/art',				'Art',				'main'	],
-	['kandi', 		'src/kandi',			'Kandi',			'main'	],
-	['dev_diary', 	'src/dev-diary',		'Dev Diary',		'main'	],
-	['towers',		'src/towers',			'Teeny Towers',		'main'	],
-	['animals',		'src/stuffed-animals',	'Stuffed Animals',	'main'	]
+	['main', 		'index',					'Home',				''		],
+	['about',	 	'src/about',				'About Me',			'main'	],
+	['code', 		'src/code/index',			'Code',				'main'	],
+	['moji', 		'src/code/moji-mash',		'Moji Mash',		'code'	],
+	['pix_water', 	'src/code/pixel-water',		'Pixel Water',		'code'	],
+	['term_game', 	'src/code/term-game',		'Terminal Game',	'code'	],
+	['matrix_text', 'src/code/matrix-text',		'Matrix Text',		'code'	],
+	['art', 		'src/art',					'Art',				'main'	],
+	['kandi', 		'src/kandi',				'Kandi',			'main'	],
+	['dev_diary', 	'src/dev-diary',			'Dev Diary',		'main'	],
+	['collections',	'src/collections',			'Collections',		'main'	],
+	['towers',		'src/collections/towers',	'Teeny Towers',		'main'	],
+	['animals',		'src/collections/animals',	'Stuffed Animals',	'main'	]
 ];
 
 export const routeObjs = routes.map(e => {

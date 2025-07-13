@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Collections - Esti's Old Computer</title>
+		<link
+			rel="icon"
+			href="/assets/icons/64/thinking-even98er.png"
+			type="image/png"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/98.css@0.1.20/dist/98.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="/assets/style.css"
+			type="text/css"
+			media="all"
+		/>
+		<script type="module">
+			import { init } from '/src/main.js';
+			init();
+		</script>
+		<style>
+			#content-window > .window-body {
+				display: flex;
+				margin: 0px;
+				flex-grow: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main-container">
+			<div class="spacer"></div>
+			<main
+				id="content-window"
+				class="window frame"
+			>
+				<div
+					id="page-title-bar"
+					class="title-bar"
+				>
+					<h1 class="title-bar-text">
+						<!-- ICON -->
+						<div>Collections</div>
+					</h1>
+					<div class="title-bar-controls">
+						<a
+							href="/"
+							class="page-close-link"
+						>
+							<button
+								tabindex="-1"
+								id="close-button"
+								aria-label="Close"
+							></button>
+						</a>
+					</div>
+				</div>
+				<div is="menu-bar"></div>
+				<div
+					is="address-bar"
+					icon-src=""
+				></div>
+				<!-- ICON IMG -->
+				<div class="window-body">
+					<div id="content">
+						<a href="towers.html">Towers</a>
+						<a href="animals.html">Stuffed Animals</a>
+					</div>
+				</div>
+			</main>
+			<div class="spacer"></div>
+		</div>
+		<div
+			is="win-task-bar"
+			id="task-bar"
+		>
+			<div
+				id="shortcuts"
+				slot="shortcuts"
+			>
+				<button id="minesweeper-button">
+					<div id="minesweeper-icon"></div>
+				</button>
+			</div>
+		</div>
+		<div
+			is="minesweeper-dlg"
+			id="minesweeper"
+		></div>
+	</body>
+	<script
+		type="module"
+		src="/src/dn-alert/index.js"
+	></script>
+</html>
